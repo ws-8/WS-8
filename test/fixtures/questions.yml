@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  score: 
+  metoo: 
+  post_date: 2020-05-28 08:58:44
+  lessonid: 
+  userid: 
+
+two:
+  title: MyString
+  body: MyString
+  score: 
+  metoo: 
+  post_date: 2020-05-28 08:58:44
+  lessonid: 
+  userid: 

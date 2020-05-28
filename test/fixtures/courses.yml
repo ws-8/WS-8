@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_name: MyString
+  post_date: 2020-05-28 08:39:45
+
+two:
+  course_name: MyString
+  post_date: 2020-05-28 08:39:45
