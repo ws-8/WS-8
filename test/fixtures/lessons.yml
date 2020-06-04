@@ -3,15 +3,15 @@
 one:
   title: MyString
   body: MyString
-  metoo: 
-  post_date: 2020-06-03 14:18:51
-  lessonid: 
+  file_path: MyString
+  post_date: 2020-06-03 14:30:49
+  classid: 
   userid: 
 
 two:
   title: MyString
   body: MyString
-  metoo: 
-  post_date: 2020-06-03 14:18:51
-  lessonid: 
+  file_path: MyString
+  post_date: 2020-06-03 14:30:49
+  classid: 
   userid: 

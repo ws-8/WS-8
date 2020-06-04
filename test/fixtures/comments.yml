@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
   body: MyString
-  metoo: 
-  post_date: 2020-06-03 14:18:51
-  lessonid: 
+  score: 
+  post_date: 2020-06-03 14:26:38
+  answerid: 
   userid: 
 
 two:
-  title: MyString
   body: MyString
-  metoo: 
-  post_date: 2020-06-03 14:18:51
-  lessonid: 
+  score: 
+  post_date: 2020-06-03 14:26:38
+  answerid: 
   userid: 
