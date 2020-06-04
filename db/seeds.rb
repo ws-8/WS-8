@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+CSV.foreach('db/testdata_for_user.csv') do |row|
+ User.create(:name => row[0], :password => row[1], :usertag => row[2].to_i)
+end
