@@ -1,12 +1,16 @@
-FROM ruby:2.7.0
+FROM ruby:2.5.0
 
-RUN apt-get update -qq && \
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get update -qq && \
     apt-get install -y build-essential \
                        gosu \
                        libpq-dev \
-                       sqlite3 \
-                       node.js && \
-                       mkdir /ws8
+                       nodejs --no-install-recommends \
+                       sqlite3 && \
+                       mkdir /ws8 && \
+                       rm -rf /var/lib/apt/lists/*
+    
 ENV APP_ROOT /ws8
 WORKDIR $APP_ROOT
 ADD ./Gemfile $$APP_ROOT/Gemfile
