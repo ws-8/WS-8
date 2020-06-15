@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'post_question/new'
+
   get 'question_detail/index'
 
   get 'question/index'
