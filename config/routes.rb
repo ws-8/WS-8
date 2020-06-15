@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'question/index'
+
   root 'top#index'
   get 'usertop/index'
   get    '/login',   to: 'sessions#new'
