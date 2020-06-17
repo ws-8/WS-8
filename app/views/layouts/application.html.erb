@@ -4,7 +4,11 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'avantui', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'avantui',
                                'data-turbolinks-track': 'reload' %>
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
@@ -12,18 +16,20 @@
     <![endif]-->
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "WS-8", '#', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Log in", '#' %></li>
-          </ul>
-        </nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-gradient-blue-purple mb-3">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <%= link_to "WS-8 System", '#', id: "logo", class: "navbar-brand"%>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">トップページ</a>
+          </li>
+        </ul>
       </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
+    </nav>
+    <%= yield %>
+    <div class="fixed-bottom bg-gradient-blue-purple mt-3 text-lg-center text-white">Created by 2020 WS-8</div>
   </body>
 </html>

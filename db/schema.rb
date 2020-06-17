@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20200528083945) do
 ActiveRecord::Schema.define(version: 20200603150903) do
 
   create_table "answers", force: :cascade do |t|
@@ -30,11 +28,6 @@ ActiveRecord::Schema.define(version: 20200603150903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-
-  create_table "courses", force: :cascade do |t|
-    t.string "course_name"
-    t.datetime "post_date"
 
   create_table "comments", force: :cascade do |t|
     t.string "body", limit: 1000, null: false
@@ -78,7 +71,6 @@ ActiveRecord::Schema.define(version: 20200603150903) do
   create_table "registrations", force: :cascade do |t|
     t.integer "classid", null: false
     t.integer "userid", null: false
->>>>>>> develop
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
