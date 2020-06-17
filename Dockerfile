@@ -18,6 +18,7 @@ ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 ADD . $APP_ROOT
 RUN chmod +x /usr/local/bin/entrypoint.sh && \
+    bundle update && \
     bundle install
 
 EXPOSE  3000
