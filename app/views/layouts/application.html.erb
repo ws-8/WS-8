@@ -20,11 +20,11 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <%= link_to "WS-8 System", '#', id: "logo", class: "navbar-brand"%>
+      <%= link_to "WS-8 System", ws8_system_path, id: "logo", class: "navbar-brand"%>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">トップページ</a>
+            <%= link_to "トップページ", top_page_path, class: "nav-link"%>
           </li>
         </ul>
       </div>
