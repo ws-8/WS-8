@@ -12,5 +12,5 @@ CSV.foreach('db/testdata_for_user.csv') do |row|
 end
 
 CSV.foreach('db/course.csv') do |row|
-  Course.create(:classname => row[0], :post_date => row[1])
- end
+  Course.create(:course_name => row[0], :post_date => row[1])
+end
