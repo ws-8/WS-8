@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'top#index'
+
   get 'post_answer/new'
 
   get 'post_question/new'
@@ -7,7 +9,12 @@ Rails.application.routes.draw do
 
   get 'question/index'
 
-  root 'top#index'
+  get  '/signup',  to: 'users#new'
+
+  get  '/ws8_system', to: 'top#index'
+  get  '/top_page', to: 'usertop#index'
+
+ 
   get 'usertop/index'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
