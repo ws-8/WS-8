@@ -10,3 +10,7 @@ require "csv"
 CSV.foreach('db/testdata_for_user.csv') do |row|
  User.create(:name => row[0], :password => row[1], :usertag => row[2].to_i)
 end
+
+CSV.foreach('db/course.csv') do |row|
+  Course.create(:course_name => row[0], :post_date => row[1])
+end
