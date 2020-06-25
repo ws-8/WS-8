@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200603150903) do
+ActiveRecord::Schema.define(version: 20200604130032) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", limit: 1000
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20200603150903) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "usertag", limit: 1
   end
 
 end
