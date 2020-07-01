@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   root 'top#index'
 
   get 'post_answer/new'
-
   get 'post_question/new'
 
   get 'question_detail/index'
-
   get 'question/index'
 
   get  '/signup',  to: 'users#new'
