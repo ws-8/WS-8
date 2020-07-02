@@ -28,17 +28,15 @@
             <li class="nav-item active">
               <%= link_to "トップページ", top_page_path, class: "nav-link"%>
             </li>
-          </ul>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account<b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Profile", current_user %></li>
-                <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Profile", current_user, class: "m-3" %></li>
+                <li class="divider mt-2 mb-2"></li>
+                <li><%= link_to "Log out", logout_path, class: "m-3 text-danger", method: :delete %></li>
+              </ul>
             </ul>
           </li>
         <% else %>
