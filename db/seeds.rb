@@ -8,7 +8,7 @@
 require "csv"
 
 CSV.foreach('db/user.csv') do |row|
- User.create(:name => row[0], :password => row[1], :usertag => row[2].to_i, :email=> row[3])
+  User.create(:name => row[0], :password => row[1], :usertag => row[2].to_i, :email=> row[3])
 end
 
 CSV.foreach('db/course.csv') do |row|
