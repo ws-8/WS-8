@@ -3,5 +3,6 @@ class PostQuestionController < ApplicationController
     @courses = Course.select("course_name")
     query = 'SELECT course_name, title FROM lessons, courses WHERE courses.id == lessons.classid'
     @lessons = Course.find_by_sql(query)
+    @question = 
   end
 end
