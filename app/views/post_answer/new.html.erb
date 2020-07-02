@@ -1,33 +1,34 @@
 <div class="container-fluid">
   <div class="row">
+    
+    <!-- left col -->
     <div class="col-lg-4">
       <h3>講義一覧</h3>
       <div class="divider divider-diamond m-3"></div>
-      <div class="dropdown m-1">
-		<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  情報システム論実習(火3,4,木5)
-		</button>
-		<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-		  <%= link_to "第1週（補講）", question_list_path, class: "dropdown-item" %>
-		</div>
-	  </div>
-      <div class="dropdown m-1">
-		<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  情報システム設計論(火5)
-		</button>
-		<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-		  <%= link_to "第1週（補講）", question_list_path, class: "dropdown-item" %>
-		</div>
-	  </div>
-      <div class="dropdown m-1">
-		<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  情報社会論(水2)
-		</button>
-		<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-		  <%= link_to "第1週（補講）", question_list_path, class: "dropdown-item" %>
-		</div>
-	  </div>
+
+      <!-- lectures dropdown -->
+      <% @courses.each do |c| %>
+        <% @course_name = c.course_name %>
+        <div class="dropdown m-1">
+
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= @course_name %>
+          </button>
+
+          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
+
+          <% @lessons.each do |l| %>
+            <% if @course_name == l.course_name then %>
+              <%= link_to l.title, question_list_path, class: "dropdown-item" %>
+            <% end %>
+          <% end %>
+
+          </div>
+        </div>
+      <% end %>
     </div>
+    <!-- left col end -->
+
     <div class="col-lg-8">
       <h2 class="text-lg-center">ここに講義名と回数を表示</h2>
 
