@@ -16,21 +16,21 @@ CSV.foreach('db/course.csv') do |row|
 end
 
 CSV.foreach('db/registration.csv') do |row|
-  Registration.create(:classid => row[0],:userid => row[1])
+  Registration.create(:course_id => row[0],:user_id => row[1])
 end
 
 CSV.foreach('db/lesson.csv') do |row|
-  Lesson.create(:title => row[0],:body => row[1],:file_path => row[2],:classid => row[3],:userid => row[4])
+  Lesson.create(:title => row[0],:body => row[1],:file_path => row[2],:course_id => row[3],:user_id => row[4])
 end
 
 CSV.foreach('db/question.csv') do |row|
-  Question.create(:title => row[0],:body => row[1],:metoo => row[2],:solved=> row[3],:lessonid => row[4],:userid => row[5])
+  Question.create(:title => row[0],:body => row[1],:metoo => row[2],:solved=> row[3],:lesson_id => row[4],:user_id => row[5])
 end
 
 CSV.foreach('db/answer.csv') do |row|
-  Answer.create(:body => row[0],:score => row[1],:authorized => row[2], :questionid => row[3],:userid => row[4])
+  Answer.create(:body => row[0],:score => row[1],:authorized => row[2], :question_id => row[3],:user_id => row[4])
 end
 
 CSV.foreach('db/comment.csv') do |row|
-  Comment.create(:body => row[0],:score => row[1], :answerid => row[2],:userid => row[3])
+  Comment.create(:body => row[0],:score => row[1], :answer_id => row[2],:user_id => row[3],:nickname => row[4])
 end
