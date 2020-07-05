@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200625155410) do
+ActiveRecord::Schema.define(version: 20200604130032) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", limit: 1000
     t.integer "score", default: 0
+    t.datetime "post_date"
     t.integer "questionid", null: false
     t.integer "userid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "authorized", default: false, null: false
   end
 
   create_table "articles", force: :cascade do |t|
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20200625155410) do
   create_table "comments", force: :cascade do |t|
     t.string "body", limit: 1000, null: false
     t.integer "score", default: 0
+    t.datetime "post_date"
     t.integer "answerid", null: false
     t.integer "userid", null: false
     t.datetime "created_at", null: false
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20200625155410) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name", limit: 100, null: false
+    t.datetime "post_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20200625155410) do
     t.string "title", limit: 100
     t.string "body", limit: 1000
     t.string "file_path", limit: 2083
+    t.datetime "post_date"
     t.integer "classid"
     t.integer "userid"
     t.datetime "created_at", null: false
@@ -58,11 +61,11 @@ ActiveRecord::Schema.define(version: 20200625155410) do
     t.string "title", limit: 100, null: false
     t.string "body", limit: 1000, null: false
     t.integer "metoo", default: 0, null: false
+    t.datetime "post_date"
     t.integer "lessonid", null: false
     t.integer "userid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "solved", default: false, null: false
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -78,7 +81,6 @@ ActiveRecord::Schema.define(version: 20200625155410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "usertag", limit: 1
-    t.string "email", limit: 256
   end
 
 end

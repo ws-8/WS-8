@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3">
+      <%=image_tag("/assets/univ_mark.jpg", alt: "univ mark",size:'300x300', class:'img-thumbnail') %>
+    </div>
+    <div class="col-lg-9">
+      <div class="card">
+        <h3 class="card-header">Welcome to WS-8's System!</h3>
+        <div class="card-body">
+          <h4 class="card-title">ようこそ</h4>
+          <p class="card-text">
+            京都大学社会情報学専攻のみなさま向けの、講義質問共有支援システムです。<br>
+            まずはログインしてください。
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-header">Login</h3>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="userID">User ID</label>
+              <input type="text" class="form-control" id="userID" placeholder="User ID">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  </div>
+</div>
