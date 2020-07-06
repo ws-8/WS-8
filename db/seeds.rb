@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "csv"
 
+
 CSV.foreach('db/user.csv') do |row|
-  User.create(:name => row[0], :password => row[1], :usertag => row[2].to_i, :email=> row[3])
+  User.create(:name => row[0], :password => row[1], :usertag => row[2].to_i, :email=> row[3], :nickname => row[4])
 end
 
 CSV.foreach('db/course.csv') do |row|
@@ -32,5 +33,6 @@ CSV.foreach('db/answer.csv') do |row|
 end
 
 CSV.foreach('db/comment.csv') do |row|
-  Comment.create(:body => row[0],:score => row[1], :answer_id => row[2],:user_id => row[3],:nickname => row[4])
+  Comment.create(:body => row[0],:score => row[1], :answer_id => row[2],:user_id => row[3])
+
 end

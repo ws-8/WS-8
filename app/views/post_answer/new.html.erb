@@ -1,63 +1,28 @@
-<div class="container-fluid">
-  <div class="row">
-    
-    <!-- left col -->
-    <div class="col-lg-4">
-      <h3>講義一覧</h3>
-      <div class="divider divider-diamond m-3"></div>
+<h2 class="text-lg-center">ここに講義名と回数を表示</h2>
+<div class="callout callout-primary card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4">
+		The quick brown fox jumps over the lazy dog
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+		</p>
+	</div>
+</div>
 
-      <!-- lectures dropdown -->
-      <% @courses.each do |c| %>
-        <% @course_name = c.course_name %>
-        <div class="dropdown m-1">
+<div class="callout callout-info card shadow-sm m-3">
+	<h5 class="text-info">回答内容</h5>
+	<textarea class="form-control mb-2" rows="15" placeholder="回答内容を入力してください"></textarea>
+	<button type="button" class="btn btn-info btn-block w-25">投稿する</button>
+</div>
 
-          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= @course_name %>
-          </button>
-
-          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-
-          <% @lessons.each do |l| %>
-            <% if @course_name == l.course_name then %>
-              <%= link_to l.title, question_list_path, class: "dropdown-item" %>
-            <% end %>
-          <% end %>
-
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <!-- left col end -->
-
-    <div class="col-lg-8">
-      <h2 class="text-lg-center">ここに講義名と回数を表示</h2>
-
-      <div class="callout callout-primary card shadow-sm m-3">
-		<div class="card-body">
-		  <h5 class="card-title mb-4">
-            The quick brown fox jumps over the lazy dog
-          </h5>
-	      <h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
-          <h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
-		  <p class="card-text">
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-          </p>
-	    </div>
-	  </div>
-
-      <div class="callout callout-info card shadow-sm m-3">
-        <h5 class="text-info">回答内容</h5>
-        <textarea class="form-control mb-2" rows="15" placeholder="回答内容を入力してください"></textarea>
-        <button type="button" class="btn btn-info btn-block w-25">投稿する</button>
-      </div>
-      <div class="callout callout-warning card shadow-sm m-3">
-        <%= link_to '回答せずに戻る', :back, type: 'button', class: 'btn btn-warning btn-block w-25' %>
-      </div>
-    </div>
-  </div>
+<div class="callout callout-warning card shadow-sm m-3">
+	<button type="button" class="btn btn-warning btn-block w-25">回答せずに戻る</button>
 </div>

@@ -22,5 +22,5 @@
 
 .byebug_history
 
-# Ignore .DS_Store for mac
+# Ignore .DS_Store (for mac)
 .DS_Store

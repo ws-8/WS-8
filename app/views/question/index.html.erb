@@ -1,117 +1,78 @@
-<div class="container-fluid">
-  <div class="row">
 
-	<!-- left col -->
-    <div class="col-lg-4">
-      <h3>講義一覧</h3>
-      <div class="divider divider-diamond m-3"></div>
-
-      <!-- lectures dropdown -->
-      <% @courses.each do |c| %>
-        <% @course_name = c.course_name %>
-        <div class="dropdown m-1">
-
-          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= @course_name %>
-          </button>
-
-          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-
-          <% @lessons.each do |l| %>
-            <% if @course_name == l.course_name then %>
-              <%= link_to l.title, question_list_path, class: "dropdown-item" %>
-            <% end %>
-          <% end %>
-
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <!-- left col end -->
-	
-    <div class="col-lg-8">
-      <h2 class="text-lg-left">ここに講義名と回数を表示</h2>
-
-	  <div class="callout callout-primary m-3">
-	  質問の一覧を以下に表示しています。
-	  わからないことがあったら質問してみましょう！
-	  <%= link_to '新しく質問する！', post_question_path, type: 'button', class: 'btn btn-primary btn-block w-25' %>
-	  </div>
-
-      <nav aria-label="Page navigation">
-		<ul class="pagination justify-content-center">
-		  <li class="page-item">
+<h2 class="text-lg-center">ここに講義名と回数を表示</h2>
+<nav aria-label="Page navigation">
+	<ul class="pagination justify-content-center">
+		<li class="page-item">
 			<a class="page-link" href="#" aria-label="Previous">
-		      <span aria-hidden="true">«</span>
+				<span aria-hidden="true">«</span>
 			</a>
-		  </li>
-		  <li class="page-item"><a class="page-link" href="#">1</a></li>
-		  <li class="page-item"><a class="page-link" href="#">2</a></li>
-	      <li class="page-item"><a class="page-link" href="#">3</a></li>
-		  <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-		</ul>
-	  </nav>
-      <div class="callout callout-success card shadow-sm m-3">
-		<div class="card-body">
-		  <h5 class="card-title mb-4 text-success">
-            The quick brown fox jumps over the lazy dog
-            <span class="badge badge-success">解決済</span>
-          </h5>
-	      <h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
-          <h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
-		  <p class="card-text">
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-            Green side line means successfully solved.
-          </p>
-	      <%= link_to "詳しく見る", question_detail_path, class: "card-link" %>
-	    </div>
-	  </div>
-      <div class="callout callout-warning card shadow-sm m-3">
-		<div class="card-body">
-		  <h5 class="card-title mb-4 text-warning">
-            ここに質問タイトルが入るはず
-            <span class="badge badge-warning">回答受付中</span>
-          </h5>
-	      <h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
-          <h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
-		  <p class="card-text">
-            ここに質問文が入る。ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ
-            ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが
-            橙は回答受付中に割り当てる？
-          </p>
-	      <%= link_to "詳しく見る", question_detail_path, class: "card-link" %>
-	    </div>
-      </div>
-      <div class="callout callout-danger card shadow-sm m-3">
-		<div class="card-body">
-		  <h5 class="card-title mb-4 text-danger">
-            ここに質問タイトルが入るはず
-            <span class="badge badge-danger">未解決</span>
-          </h5>
-	      <h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
-          <h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
-		  <p class="card-text">
-            ここに質問文が入る。ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ
-            ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが
-            赤は未解決とかやばそうなステータスにつける？
-          </p>
-		  <%= link_to "詳しく見る", question_detail_path, class: "card-link" %>
-	    </div>
-	  </div>
-      <nav aria-label="Page navigation">
+		</li>
+		<li class="page-item"><a class="page-link" href="#">1</a></li>
+		<li class="page-item"><a class="page-link" href="#">2</a></li>
+		<li class="page-item"><a class="page-link" href="#">3</a></li>
+		<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	</ul>
+</nav>
+<div class="callout callout-success card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4 text-success">
+			The quick brown fox jumps over the lazy dog
+			<span class="badge badge-success">解決済</span>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			Green side line means successfully solved.
+		</p>
+		<a href="#" class="card-link">詳しくみる</a>
+	</div>
+</div>
+<div class="callout callout-warning card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4 text-warning">
+			ここに質問タイトルが入るはず
+		<span class="badge badge-warning">回答受付中</span>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			ここに質問文が入る。ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ
+			ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが
+			橙は回答受付中に割り当てる？
+		</p>
+		<a href="#" class="card-link">詳しくみる</a>
+	</div>
+</div>
+<div class="callout callout-danger card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4 text-danger">
+			ここに質問タイトルが入るはず
+			<span class="badge badge-danger">未解決</span>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			ここに質問文が入る。ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ
+			ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが
+			赤は未解決とかやばそうなステータスにつける？
+		</p>
+		<a href="#" class="card-link">詳しくみる</a>
+	</div>
+</div>
+
+	<nav aria-label="Page navigation">
 		<ul class="pagination justify-content-center">
-		  <li class="page-item">
-			<a class="page-link" href="#" aria-label="Previous">
-		      <span aria-hidden="true">«</span>
-			</a>
-		  </li>
-		  <li class="page-item"><a class="page-link" href="#">1</a></li>
-		  <li class="page-item"><a class="page-link" href="#">2</a></li>
-	      <li class="page-item"><a class="page-link" href="#">3</a></li>
-		  <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+					<span aria-hidden="true">«</span>
+				</a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 		</ul>
-	  </nav>
-    </div>
-  </div>
+	</nav>
 </div>
