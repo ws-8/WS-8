@@ -10,16 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 20200703141956) do
-
+ActiveRecord::Schema.define(version: 20200706181521) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", limit: 1000
     t.integer "score", default: 0
-
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "authorized", default: false, null: false
@@ -27,13 +22,11 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.integer "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
-
   end
 
   create_table "comments", force: :cascade do |t|
     t.string "body", limit: 1000, null: false
     t.integer "score", default: 0
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -44,7 +37,6 @@ ActiveRecord::Schema.define(version: 20200703141956) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name", limit: 100, null: false
-    t.datetime "post_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,7 +45,6 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.string "title", limit: 100
     t.string "body", limit: 1000
     t.string "file_path", limit: 2083
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -66,7 +57,6 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.string "title", limit: 100, null: false
     t.string "body", limit: 1000, null: false
     t.integer "metoo", default: 0, null: false
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "solved", default: false, null: false
@@ -74,7 +64,6 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.integer "user_id"
     t.index ["lesson_id"], name: "index_questions_on_lesson_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
-
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -92,10 +81,8 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "usertag", limit: 1
-
     t.string "email", limit: 256
     t.string "nickname"
-
   end
 
 end
