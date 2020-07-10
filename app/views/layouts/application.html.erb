@@ -72,10 +72,9 @@
                   <%= @course_name %>
                 </button>
                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
+                <% @lessons=Lesson.where(course_id:c.id) %>
                 <% @lessons.each do |l| %>
-                  <% if @course_name == l.course_name then %>
-                    <%= link_to l.title, question_list_path, class: "dropdown-item" %>
-                  <% end %>
+                  <%= link_to l.title, question_list_path(id:l.id), class: "dropdown-item" %>
                 <% end %>
                 </div>
               </div>

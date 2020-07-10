@@ -1,0 +1,105 @@
+
+<h2 class="text-lg-center"><%= @course.course_name %> <%= @lesson.title%></h2>
+<nav aria-label="Page navigation">
+	<ul class="pagination justify-content-center">
+		<li class="page-item">
+			<a class="page-link" href="#" aria-label="Previous">
+				<span aria-hidden="true">«</span>
+			</a>
+		</li>
+		<li class="page-item"><a class="page-link" href="#">1</a></li>
+		<li class="page-item"><a class="page-link" href="#">2</a></li>
+		<li class="page-item"><a class="page-link" href="#">3</a></li>
+		<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	</ul>
+</nav>
+<div class="callout callout-success card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4 text-success">
+			The quick brown fox jumps over the lazy dog
+			<span class="badge badge-success">解決済</span>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			Green side line means successfully solved.
+		</p>
+		<a href="#" class="card-link">詳しくみる</a>
+	</div>
+</div>
+
+<% @questions.each do |q| %>
+	<% @user=User.find(q.user_id) %>
+	<div class="callout callout-warning card shadow-sm m-3">
+		<div class="card-body">
+			<h5 class="card-title mb-4 text-warning">
+		  		<%= q.title%>
+			<span class="badge badge-warning">回答受付中</span>
+			</h5>
+			<h6 class="card-subtitle mb-2 text-muted"><%=@user.name%></h6>
+			<h6 class="card-subtitle mb-2 text-muted"><%=q.created_at%></h6>
+			<p class="card-text">
+				<%=q.body%>
+			
+			</p>
+			<a href="#" class="card-link">詳しくみる</a>
+		</div>
+	</div>
+
+
+<% end %>
+
+<div class="callout callout-warning card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4 text-warning">
+		  
+		<span class="badge badge-warning">回答受付中</span>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			ここに質問文が入る。ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ
+			ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが
+			橙は回答受付中に割り当てる？
+		</p>
+		<a href="#" class="card-link">詳しくみる</a>
+	</div>
+</div>
+
+
+
+<div class="callout callout-danger card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4 text-danger">
+			ここに質問タイトルが入るはず
+			<span class="badge badge-danger">未解決</span>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
+		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<p class="card-text">
+			ここに質問文が入る。ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ
+			ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが
+			赤は未解決とかやばそうなステータスにつける？
+		</p>
+		<a href="#" class="card-link">詳しくみる</a>
+	</div>
+</div>
+
+
+	<nav aria-label="Page navigation">
+		<ul class="pagination justify-content-center">
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+					<span aria-hidden="true">«</span>
+				</a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+		</ul>
+	</nav>
+</div>
