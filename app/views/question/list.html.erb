@@ -5,20 +5,11 @@
 
 <% @teacher=User.find(@lesson.user_id) %>
 
-<p class="text-lg-center" > 担当：<%= @teacher.name %> <%=@lesson.body%></p>
-<nav aria-label="Page navigation">
-	<ul class="pagination justify-content-center">
-		<li class="page-item">
-			<a class="page-link" href="#" aria-label="Previous">
-				<span aria-hidden="true">«</span>
-			</a>
-		</li>
-		<li class="page-item"><a class="page-link" href="#">1</a></li>
-		<li class="page-item"><a class="page-link" href="#">2</a></li>
-		<li class="page-item"><a class="page-link" href="#">3</a></li>
-		<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-	</ul>
-</nav>
+<p class="text-lg-center"> 担当：<%= @teacher.name %> <%=@lesson.body%></p>
+
+<div class="m-3 center-block">
+	<%= paginate @questions %>
+</div>
 
 <% @questions.each do |q| %>
 	<% user = User.find(q.user_id) %>
@@ -111,18 +102,4 @@
 	</div>
 </div>
 -->
-
-	<nav aria-label="Page navigation">
-		<ul class="pagination justify-content-center">
-			<li class="page-item">
-				<a class="page-link" href="#" aria-label="Previous">
-					<span aria-hidden="true">«</span>
-				</a>
-			</li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-		</ul>
-	</nav>
 </div>

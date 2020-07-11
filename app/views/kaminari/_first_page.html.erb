@@ -1,0 +1,9 @@
+<% if not current_page.first? then %>
+  <li class="page-item page-link">
+    <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, remote: remote%>
+  </li>
+<% else %>
+  <li class="page-item disabled page-link">
+    <%= raw(t 'views.pagination.first') %>
+  </li>
+<% end %>

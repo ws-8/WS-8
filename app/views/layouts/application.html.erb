@@ -15,6 +15,7 @@
       </script>
     <![endif]-->
   </head>
+  <title>System WS-8</title>
   <body>
 
   <!-- nav bar -->
@@ -58,7 +59,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- left col -->
-        <div class="col-lg-4">
+        <div class="col-md-3">
           <% if logged_in? then %>
             <h3>講義一覧</h3>
             <div class="divider divider-diamond m-3"></div>
@@ -86,11 +87,11 @@
         <!-- left col end -->
 
         <!-- right col -->
-        <div class="col-lg-8">
+        <div class="col-lg-9">
           <%= yield %>
         </div>
       </div>
     </div>
-    <div class="fixed-bottom bg-gradient-blue-purple mt-3 text-lg-center text-white">Created by 2020 WS-8</div>
+    
   </body>
 </html>
