@@ -1,6 +1,10 @@
 
-<h2 class="text-lg-center"><%= @course.course_name %> <%= @lesson.title%></h2>
+<h2 class="text-lg-center">
+	<%= @course.course_name %> <%= @lesson.title%>
+</h2>
+
 <% @teacher=User.find(@lesson.user_id) %>
+
 <p class="text-lg-center" > 担当：<%= @teacher.name %> <%=@lesson.body%></p>
 <nav aria-label="Page navigation">
 	<ul class="pagination justify-content-center">
@@ -15,6 +19,45 @@
 		<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 	</ul>
 </nav>
+
+<% @questions.each do |q| %>
+	<% user = User.find(q.user_id) %>
+	<% solved = q.solved %>
+	<% if solved then %>
+		<div class="callout callout-success card shadow-sm m-3">
+			<div class="card-body">
+				<h5 class="card-title mb-4 text-success">
+					<%= q.title %>
+					<span class="badge badge-success">解決済</span>
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted"><%= user.name %></h6>
+				<h6 class="card-subtitle mb-2 text-muted"><%= q.created_at.to_s(:datetime_jp) %></h6>
+				<p class="card-text">
+					<%= q.body %>
+				</p>
+				<a href="#" class="card-link">詳しくみる</a>
+			</div>
+		</div>
+	<% else %>
+		<div class="callout callout-warning card shadow-sm m-3">
+			<div class="card-body">
+				<h5 class="card-title mb-4 text-warning">
+					<%= q.title %>
+					<span class="badge badge-warning">回答受付中</span>
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted"><%= user.name %></h6>
+				<h6 class="card-subtitle mb-2 text-muted"><%= q.created_at.to_s(:datetime_jp) %></h6>
+				<p class="card-text">
+					<%= q.body %>
+				</p>
+				<a href="#" class="card-link">詳しくみる</a>
+			</div>
+		</div>
+	<% end %>
+<% end %>
+
+<!--
+
 <div class="callout callout-success card shadow-sm m-3">
 	<div class="card-body">
 		<h5 class="card-title mb-4 text-success">
@@ -33,31 +76,9 @@
 	</div>
 </div>
 
-<% @questions.each do |q| %>
-	<% @user=User.find(q.user_id) %>
-	<div class="callout callout-warning card shadow-sm m-3">
-		<div class="card-body">
-			<h5 class="card-title mb-4 text-warning">
-		  		<%= q.title%>
-			<span class="badge badge-warning">回答受付中</span>
-			</h5>
-			<h6 class="card-subtitle mb-2 text-muted"><%=@user.name%></h6>
-			<h6 class="card-subtitle mb-2 text-muted"><%=q.created_at%></h6>
-			<p class="card-text">
-				<%=q.body%>
-			
-			</p>
-			<a href="#" class="card-link">詳しくみる</a>
-		</div>
-	</div>
-
-
-<% end %>
-
 <div class="callout callout-warning card shadow-sm m-3">
 	<div class="card-body">
 		<h5 class="card-title mb-4 text-warning">
-		  
 		<span class="badge badge-warning">回答受付中</span>
 		</h5>
 		<h6 class="card-subtitle mb-2 text-muted">京大 太郎</h6>
@@ -89,7 +110,7 @@
 		<a href="#" class="card-link">詳しくみる</a>
 	</div>
 </div>
-
+-->
 
 	<nav aria-label="Page navigation">
 		<ul class="pagination justify-content-center">
