@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'post_answer/new'
   get 'post_question/new'
 
-  get 'question_detail/index'
+  get '/question_detail/:question_id', to: 'question_detail#index', as: :question_detail
   get 'question/index'
 
   get '/question_list/:id', to: 'question#list', as: :question_list

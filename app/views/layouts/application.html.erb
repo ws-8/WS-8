@@ -68,14 +68,14 @@
             <!-- lectures dropdown -->
             <% get_lectures %>
             <% @courses.each do |c| %>
-              <% @course_name = c.course_name %>
+              <% course_name = c.course_name %>
               <div class="dropdown m-1">
                 <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= @course_name %>
+                  <%= course_name %>
                 </button>
                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-                <% @lessons=Lesson.where(course_id:c.id) %>
-                <% @lessons.each do |l| %>
+                <% lessons=Lesson.where(course_id:c.id) %>
+                <% lessons.each do |l| %>
                   <%= link_to l.title, question_list_path(id:l.id), class: "dropdown-item" %>
                 <% end %>
                 </div>

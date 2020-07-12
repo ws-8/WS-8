@@ -1,4 +1,4 @@
-
+<% upper_body_length = 100 %>
 <h2 class="text-lg-center">
 	<%= @course.course_name %> <%= @lesson.title%>
 </h2>
@@ -19,13 +19,17 @@
 <%= link_to '新しく質問する！', "/question/post_question/#{params[:id]}/new", type: 'button', class: 'btn btn-primary btn-block mx-auto',style:"width: 200px;" %>
 <%= flash[:notice] %>
 
-<div class="m-3 center-block">
+<div class="m-3 center-block" role="alert">
 	<%= paginate @questions %>
 </div>
 
 <% @questions.each do |q| %>
 	<% user = User.find(q.user_id) %>
 	<% solved = q.solved %>
+	<% body = q.body %>
+	<% if body.length > upper_body_length then %>
+		<% body = body[0, upper_body_length] + ' ......' %>
+	<% end %>
 	<% if solved then %>
 		<div class="callout callout-success card shadow-sm m-3">
 			<div class="card-body">
@@ -42,7 +46,7 @@
 					<i class="fas fa-question-circle"></i>
 					<%= body %>
 				</p>
-				<a href="#" class="card-link">詳しくみる</a>
+				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
 			</div>
 		</div>
 	<% else %>
@@ -61,7 +65,7 @@
 					<i class="fas fa-question-circle"></i>
 					<%= body %>
 				</p>
-				<a href="#" class="card-link">詳しくみる</a>
+				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
 			</div>
 		</div>
 	<% end %>
