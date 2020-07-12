@@ -1,12 +1,20 @@
 <h2 class="text-lg-center">ここに講義名と回数を表示</h2>
 <div class="callout callout-primary card shadow-sm m-3">
 	<div class="card-body">
-		<h5 class="card-title mb-4">
-			The quick brown fox jumps over the lazy dog
-			<span class="badge badge-success">解決済</span>
-		</h5>
-		<h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
-		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<h4 class="card-title mb-4">
+			<%= @question.title %>
+			<% if @question.solved then %>
+				<span class="badge badge-success">解決済</span>
+			<% else %>
+				<span class="badge badge-warning">回答受付中</span>
+			<% end %>
+		</h4>
+		<h5 class="card-subtitle mb-2 text-muted">
+			<i class="fas fa-user"></i>
+			<%= if (@user.nickname).blank? then @user.name else @user.nickname end %>
+		<h6 class="card-subtitle mb-4 text-muted">
+			<i class="fas fa-clock"></i> <%= @question.created_at.to_s(:datetime_jp) %>
+		</h6>
 		<p class="card-text">
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
@@ -15,66 +23,124 @@
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 		</p>
-		<p>この辺に回答数とかいいねとか Me too をおきたい</p>
+		<p class="text-info">
+			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
+		</p>
 		<button type="button" class="btn btn-info btn-block w-50">回答する！</button>
 	</div>
 </div>
 
-<!-- Best Answer and Comments -->
-<div class="callout callout-success card shadow-sm m-3">
-	<h3 class="text-success">Best Answer</h3>
-	<div class="media comment m-2">
-	<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
-		<div class="media-body">
-			<div class="media-body-header">
-				<h6 class="comment-author">John Doe</h6>
-				<span class="comment-date text-muted">2020/02/02 02:02</span>
+<!-- Good Answer and Comments -->
+<% @answers.each do |ans| %>
+	<% authorized = ans.authorized %>
+	<% if not authorized then next end%>
+	<% ans_user = User.find(ans.user_id) %>
+	<div class="callout callout-success card shadow-sm m-3">
+		<h3 class="text-success"><i class="fas fa-thumbs-up"></i> Good Answer</h3>
+		<div class="media comment m-2">
+			<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->	
+			<div class="media-body mb-1">
+				<div class="media-body-header">
+					<h6 class="comment-author">
+						<i class="fas fa-user"></i>
+						<%= if (ans_user.nickname).blank? then ans_user.name else ans_user.nickname end %>
+					</h6>
+					<span class="comment-date text-muted">
+						<i class="fas fa-clock"></i> <%= ans.created_at.to_s(:datetime_jp) %>
+					</span>
+				</div>
+				<%= ans.body %>
+
+				<p class="text-warning mt-2">
+					<i class="fas fa-star"></i> Score : <%= ans.score %>
+				</p>
+
+				<% # comments %>
+				<% comments = Comment.where(answer_id: ans.id) %>
+				<% if not comments.nil? then %>
+					<% comments.each do |com| %>
+					<% com_user_id = com.user_id %>
+					<% com_user = User.find(com_user_id) %>
+						<div class="media comment">
+							<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
+							<div class="media-body ml-5">
+								<div class="media-body-header">
+									<h6 class="comment-author">
+										<i class="fas fa-user"></i>
+										<%= if (com_user.nickname).blank? then com_user.name else com_user.nickname end %>
+									</h6>
+									<span class="comment-date text-muted">
+										<i class="fas fa-clock"></i> <%= com.created_at.to_s(:datetime_jp) %>
+									</span>
+								</div>
+								<%= com.body %>
+								<p class="text-warning mt-2">
+									<i class="fas fa-star"></i> Score : <%= com.score %>
+								</p>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+				<button type="button" class="btn btn-info btn-block w-25 mt-4">コメントする</button>
 			</div>
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-		</div>
-	</div>
-	<div class="media comment">
-		<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
-		<div class="media-body m-2">
-			<div class="media-body-header">
-				<h6 class="comment-author">Kyodai Smith</h6>
-				<span class="comment-date text-muted">2020/02/02 02:02</span>
-			</div>
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 		</div>
 	</div>
 	<button type="button" class="btn btn-info btn-block w-25">コメントする</button>
 </div>
 
 <!-- Other Answer and Comments -->
-<h3 class="text-info m-4 text-lg-left">他の回答</h3>
-<div class="callout callout-info card shadow-sm m-3">
-	<div class="media comment m-2">
-		<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->	
-		<div class="media-body">
-			<div class="media-body-header">
-				<h6 class="comment-author">hogehoge</h6>
-				<span class="comment-date text-muted">2020/02/02 02:02</span>
+<% @answers.each do |ans| %>
+	<% authorized = ans.authorized %>
+	<% if authorized then next end%>
+	<% ans_user = User.find(ans.user_id) %>
+	<div class="callout callout-info card shadow-sm m-3">
+	<h3 class="text-info">Answer</h3>
+		<div class="media comment m-2">
+			<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->	
+			<div class="media-body mb-1">
+				<div class="media-body-header">
+					<h6 class="comment-author">
+						<i class="fas fa-user"></i>
+						<%= if (ans_user.nickname).blank? then ans_user.name else ans_user.nickname end %>
+					</h6>
+					<span class="comment-date text-muted">
+						<i class="fas fa-clock"></i> <%= ans.created_at.to_s(:datetime_jp) %>
+					</span>
+				</div>
+				<%= ans.body %>
+
+				<p class="text-warning mt-2">
+					<i class="fas fa-star"></i> Score : <%= ans.score %>
+				</p>
+
+				<% # comments %>
+				<% comments = Comment.where(answer_id: ans.id) %>
+				<% if not comments.nil? then %>
+					<% comments.each do |com| %>
+					<% com_user_id = com.user_id %>
+					<% com_user = User.find(com_user_id) %>
+						<div class="media comment">
+							<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
+							<div class="media-body ml-5">
+								<div class="media-body-header">
+									<h6 class="comment-author">
+										<i class="fas fa-user"></i>
+										<%= if (com_user.nickname).blank? then com_user.name else com_user.nickname end %>
+									</h6>
+									<span class="comment-date text-muted">
+										<i class="fas fa-clock"></i> <%= com.created_at.to_s(:datetime_jp) %>
+									</span>
+								</div>
+								<%= com.body %>
+								<p class="text-warning mt-2">
+									<i class="fas fa-star"></i> Score : <%= com.score %>
+								</p>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+				<button type="button" class="btn btn-info btn-block w-25 mt-4">コメントする</button>
 			</div>
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-		</div>
-	</div>
-	<div class="media comment">
-		<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
-		<div class="media-body m-2">
-			<div class="media-body-header">
-				<h6 class="comment-author">fugafuga</h6>
-				<span class="comment-date text-muted">2020/02/02 02:02</span>
-			</div>
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 		</div>
 	</div>
 	<button type="button" class="btn btn-info btn-block w-25">コメントする</button>
