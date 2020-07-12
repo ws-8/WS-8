@@ -8,6 +8,7 @@
 <p class="text-lg-center"> 担当：<%= @teacher.name %> <%=@lesson.body%></p>
 
 <%= link_to '新しく質問する！', "/question/post_question/#{params[:id]}/new", type: 'button', class: 'btn btn-primary btn-block mx-auto',style:"width: 200px;" %>
+<%= flash[:notice] %>
 
 <div class="m-3 center-block">
 	<%= paginate @questions %>
