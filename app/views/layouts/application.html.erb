@@ -10,11 +10,13 @@
                                'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'avantui',
                                'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/168f849425.js" crossorigin="anonymous"></script>
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
     <![endif]-->
   </head>
+  <title>System WS-8</title>
   <body>
 
   <!-- nav bar -->
@@ -58,7 +60,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- left col -->
-        <div class="col-lg-4">
+        <div class="col-md-3">
           <% if logged_in? then %>
             <h3>講義一覧</h3>
             <div class="divider divider-diamond m-3"></div>
@@ -66,16 +68,15 @@
             <!-- lectures dropdown -->
             <% get_lectures %>
             <% @courses.each do |c| %>
-              <% @course_name = c.course_name %>
+              <% course_name = c.course_name %>
               <div class="dropdown m-1">
                 <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= @course_name %>
+                  <%= course_name %>
                 </button>
                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; top: 0px; left: 0px; will-change: transform;">
-                <% @lessons.each do |l| %>
-                  <% if @course_name == l.course_name then %>
-                    <%= link_to l.title, question_list_path, class: "dropdown-item" %>
-                  <% end %>
+                <% lessons=Lesson.where(course_id:c.id) %>
+                <% lessons.each do |l| %>
+                  <%= link_to l.title, question_list_path(id:l.id), class: "dropdown-item" %>
                 <% end %>
                 </div>
               </div>
@@ -87,11 +88,11 @@
         <!-- left col end -->
 
         <!-- right col -->
-        <div class="col-lg-8">
+        <div class="col-lg-9">
           <%= yield %>
         </div>
       </div>
     </div>
-    <div class="fixed-bottom bg-gradient-blue-purple mt-3 text-lg-center text-white">Created by 2020 WS-8</div>
+    
   </body>
 </html>

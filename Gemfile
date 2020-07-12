@@ -59,3 +59,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'autoprefixer-rails','9.7.6'
 gem 'bootstrap' 
 gem 'jquery-rails'
+gem 'kaminari'
