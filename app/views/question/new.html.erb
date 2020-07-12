@@ -1,15 +1,41 @@
 
 <h2 class="text-lg-center">
-    
+	<%= @course.course_name %> <%= @lesson.title%>
 </h2>
 
-<div class="callout callout-info card shadow-sm m-3">
+<% @teacher=User.find(@lesson.user_id) %>
 
+<h4 class="text-lg-center"> 担当：<%= @teacher.name %></h4>
+
+<div class="alert alert-primary alert-dismissible fade show m-3" role="alert">
+    <span class="alert-icon">
+		<i class="fas fa-question-circle"></i>
+	</span>
+    <span class="alert-text">
+		新規質問投稿を行います。タイトルと本文を入力してください。
+	</span>
+</div>
+
+<div class="callout callout-info card shadow-sm m-3">
+    
     <% if flash[:alert] %>
-    <p><%= flash[:alert] %></p>
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-triangle"></i> Error!
+            <ul>
+            <% flash[:alert].each do |key, value| %>
+                <li><%= key %></li>
+                <ul>
+                <% value.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+            <% end %>
+            </ul>
+        </div>
     <% end %>
 
     <%= form_with model: @question, :url => {:action => :create}, local: true do |q| %>
+
     <h5 class="text-info">タイトル</h5>
     <%= q.text_field :title, class:"form-control mb-2", rows:"15", placeholder:"タイトルを入力してください"%>
     <h5 class="text-info">質問内容</h5>

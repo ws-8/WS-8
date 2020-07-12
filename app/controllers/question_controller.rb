@@ -15,7 +15,7 @@ class QuestionController < ApplicationController
     if @question.save
       redirect_to question_list_path, notice: 'success!'
     else
-      flash[:alert] = 'Save error!'
+      flash[:alert] = @question.errors
       redirect_to "/question/post_question/#{params[:id]}/new"
     end
   end
