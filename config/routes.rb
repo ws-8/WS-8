@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'top#index'
 
@@ -9,9 +11,12 @@ Rails.application.routes.draw do
 
   get '/question_list/:id', to: 'question#list', as: :question_list
   get '/question_detail', to: 'question_detail#index'
+  get '/question/post_question/:id/new', to: 'question#new'
+  post '/question/post_question/:id', to: 'question#create'
 
   get '/post_answer', to: 'post_answer#new'
-  get '/post_question', to: 'post_question#new'
+  # get '/post_question', to: 'post_question#new'
+  # post '/post_question', to: 'post_question#create'
 
   get  '/signup', to: 'users#new'
 
@@ -24,5 +29,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :articles
   resources :users
+  # resources :question
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
