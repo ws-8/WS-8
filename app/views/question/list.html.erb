@@ -6,8 +6,14 @@
 <% @teacher=User.find(@lesson.user_id) %>
 
 <h4 class="text-lg-center"> 担当：<%= @teacher.name %></h4>
-<div class="m-3 alert-light">
-	<%= @lesson.body %>
+
+<div class="alert alert-info alert-dismissible fade show m-3" role="alert">
+    <span class="alert-icon">
+		<i class="fas fa-info"></i>
+	</span>
+    <span class="alert-text">
+		<%= @lesson.body %>
+	</span>
 </div>
 
 <div class="m-3 center-block" role="alert">
@@ -24,13 +30,17 @@
 	<% if solved then %>
 		<div class="callout callout-success card shadow-sm m-3">
 			<div class="card-body">
-				<h5 class="card-title mb-4 text-success">
+				<h4 class="card-title mb-4 text-success">
 					<%= q.title %>
 					<span class="badge badge-success">解決済</span>
-				</h5>
-				<h6 class="card-subtitle mb-2 text-muted"><%= user.name %></h6>
-				<h6 class="card-subtitle mb-2 text-muted"><%= q.created_at.to_s(:datetime_jp) %></h6>
+				</h4>
+				<h6 class="card-subtitle mb-2 text-muted">
+					<i class="fas fa-user"></i>
+					<%= if (user.nickname).blank? then user.name else user.nickname end %>
+				</h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
 				<p class="card-text">
+					<i class="fas fa-question-circle"></i>
 					<%= body %>
 				</p>
 				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
@@ -39,13 +49,17 @@
 	<% else %>
 		<div class="callout callout-warning card shadow-sm m-3">
 			<div class="card-body">
-				<h5 class="card-title mb-4 text-warning">
+				<h4 class="card-title mb-4 text-warning">
 					<%= q.title %>
 					<span class="badge badge-warning">回答受付中</span>
-				</h5>
-				<h6 class="card-subtitle mb-2 text-muted"><%= user.name %></h6>
-				<h6 class="card-subtitle mb-2 text-muted"><%= q.created_at.to_s(:datetime_jp) %></h6>
+				</h4>
+				<h6 class="card-subtitle mb-2 text-muted">
+					<i class="fas fa-user"></i>
+					<%= if (user.nickname).blank? then user.name else user.nickname end %>
+				</h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
 				<p class="card-text">
+					<i class="fas fa-question-circle"></i>
 					<%= body %>
 				</p>
 				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
