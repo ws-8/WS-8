@@ -13,7 +13,7 @@ class QuestionController < ApplicationController
     @question = Question.new(question_params)
     # binding.pry
     if @question.save
-      redirect_to question_list_path, notice: 'success!'
+      redirect_to question_list_path, notice: 'Posted Successfully!'
     else
       flash[:alert] = @question.errors
       redirect_to "/question/post_question/#{params[:id]}/new"
