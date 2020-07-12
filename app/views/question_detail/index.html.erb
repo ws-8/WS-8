@@ -83,30 +83,6 @@
 				<button type="button" class="btn btn-info btn-block w-25 mt-4">コメントする</button>
 			</div>
 		</div>
-
-		<% # comments %>
-		<% comments = Comment.where(answer_id: ans.id) %>
-		<% if not comments.nil? then %>
-			<% comments.each do |com| %>
-			<% com_user = com.user_id %>
-				<div class="media comment">
-					<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
-					<div class="media-body m-3">
-						<div class="media-body-header">
-							<h6 class="comment-author">
-								<%= com_user %>
-							</h6>
-							<span class="comment-date text-muted">
-								<%= com.created_at.to_s(:datetime_jp) %>
-							</span>
-						</div>
-						<%= com.body %>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-		<button type="button" class="btn btn-info btn-block w-25">コメントする</button>
-
 	</div>
 <% end %>
 
@@ -164,28 +140,5 @@
 				<button type="button" class="btn btn-info btn-block w-25 mt-4">コメントする</button>
 			</div>
 		</div>
-
-		<% # comments %>
-		<% comments = Comment.where(answer_id: ans.id) %>
-		<% if not comments.nil? then %>
-			<% comments.each do |com| %>
-			<% com_user = com.user_id %>
-				<div class="media comment">
-					<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
-					<div class="media-body m-3">
-						<div class="media-body-header">
-							<h6 class="comment-author">
-								<%= com_user %>
-							</h6>
-							<span class="comment-date text-muted">
-								<%= com.created_at.to_s(:datetime_jp) %>
-							</span>
-						</div>
-						<%= com.body %>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-		<button type="button" class="btn btn-info btn-block w-25">コメントする</button>
 	</div>
 <% end %>
