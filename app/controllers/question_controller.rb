@@ -11,13 +11,13 @@ class QuestionController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    binding.pry
+    # binding.pry
     if @question.save
       redirect_to question_list_path,
                   notice: 'success!'
     else
       flash[:alert] = 'Save error!'
-      redirect_to root_path
+      redirect_to '/question/post_question/:id/new'
     end
   end
 

@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   post '/question/post_question/:id', to: 'question#create'
 
   get '/post_answer', to: 'post_answer#new'
-  # get '/post_question', to: 'post_question#new'
-  # post '/post_question', to: 'post_question#create'
 
   get  '/signup', to: 'users#new'
 
@@ -29,6 +27,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :articles
   resources :users
-  # resources :question
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
