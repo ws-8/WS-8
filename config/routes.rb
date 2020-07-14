@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'answer/index'
+
   root 'top#index'
 
   get 'post_answer/new'
