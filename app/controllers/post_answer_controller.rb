@@ -7,20 +7,18 @@ class PostAnswerController < ApplicationController
   end
 
   def create
-    @answer = Answer.new
+    @answer = Answer.new(answer_params)
     # binding.pry
     if @answer.save
-      redirect_to question_detail_path, notice: 'Posted Successfully!'
+      redirect_to question_detail_path(question_id: @answer.question_id), notice: 'Posted Successfully!'
     else
       flash[:alert] = @answer.errors
       redirect_to question_list_path
     end
   end
 
-
   private
-
   def answer_params
-    params.require(:answer).permit(:body, :user_id, :question_id)
+    params.permit(:body, :user_id, :question_id)
   end
 end
