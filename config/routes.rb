@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   get '/question/post_question/:id/new', to: 'question#new'
   post '/question/post_question/:id', to: 'question#create'
 
-  get '/post_answer', to: 'post_answer#new'
+  get '/post_answer/:id', to: 'post_answer#new', as: :post_answer
+  post '/post_answer/:id' , to: 'post_answer#create', as: :create_answer
 
   get  '/signup', to: 'users#new'
 
