@@ -1,0 +1,65 @@
+<h2 class="text-lg-center">
+	<%= @course.course_name %> <%= @lesson.title%>
+</h2>
+<div class="callout callout-primary card shadow-sm m-3">
+	<div class="card-body">
+		<h5 class="card-title mb-4">
+			<%= @question.title %>
+		</h5>
+		<h6 class="card-subtitle mb-2 text-muted">
+			<i class="fas fa-user"></i>
+			<%= if (@user.nickname).blank? then @user.name else @user.nickname end %>
+		</h6>
+		<h6 class="card-subtitle mb-2 text-muted">
+			<%= @question.created_at.to_s(:datetime_jp)%>
+		</h6>
+		<p class="card-text">
+			<%= @question.body %>
+		</p>
+	</div>
+</div>
+
+<!-- Other Answer and Comments -->
+	<% authorized = @answer.authorized %>
+	
+	<% ans_user = @ans_user %>
+	<div class="callout callout-info card shadow-sm m-3">
+	<h3 class="text-info">Answer</h3>
+		<div class="media comment m-2">
+			<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->	
+			<div class="media-body mb-1">
+				<div class="media-body-header">
+					<h6 class="comment-author">
+						<i class="fas fa-user"></i>
+						<%= if (ans_user.nickname).blank? then ans_user.name else ans_user.nickname end %>
+					</h6>
+					<span class="comment-date text-muted">
+						<i class="fas fa-clock"></i> <%= @answer.created_at.to_s(:datetime_jp) %>
+					</span>
+				</div>
+				<%= @answer.body %>
+
+				<p class="text-warning mt-2">
+					<i class="fas fa-star"></i> Score : <%= @answer.score %>
+				</p>
+
+
+			</div>
+		</div>
+	</div>
+
+<div class="callout callout-info card shadow-sm m-3">
+
+	<%= form_with model: @comment, url: comment_create_path, local: true do |c| %>
+	<h5 class="text-info">コメント内容</h5>
+	<%= c.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"コメント内容を入力してください"%>
+	<%= c.hidden_field :answer_id , :value => params[:id]%>
+	<%= c.hidden_field :user_id , :value => current_user.id%>
+	<%= c.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
+	<% end %>
+</div>
+
+<div class="callout callout-warning card shadow-sm m-3">
+	
+	<%= link_to 'コメントせずに戻る', question_detail_path(question_id: @question.id),　type: 'button', class: 'btn btn-warning btn-block w-25'%>
+</div>
