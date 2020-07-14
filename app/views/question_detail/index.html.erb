@@ -25,9 +25,9 @@
 		<p class="text-info">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
 		</p>
-		<button type="button" class="btn btn-info btn-block w-50">
-			<%= link_to '回答する！', post_answer_path(id:@question.id) %>
-		</button>
+		
+			<%= link_to '回答する！', post_answer_path(id:@question.id),type: 'button', class: 'btn btn-info btn-block w-25 mt-4' %>
+		
 	</div>
 </div>
 

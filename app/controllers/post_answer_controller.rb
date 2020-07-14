@@ -13,7 +13,7 @@ class PostAnswerController < ApplicationController
       redirect_to question_detail_path(question_id: @answer.question_id), notice: 'Posted Successfully!'
     else
       flash[:alert] = @answer.errors
-      redirect_to question_list_path
+      redirect_to post_answer_path
     end
   end
 

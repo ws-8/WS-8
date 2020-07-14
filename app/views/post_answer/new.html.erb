@@ -31,5 +31,6 @@
 </div>
 
 <div class="callout callout-warning card shadow-sm m-3">
-	<button type="button" class="btn btn-warning btn-block w-25">回答せずに戻る</button>
+	
+	<%= link_to '回答せずに戻る', question_detail_path(question_id: @question.id) ,type: 'button', class: 'btn btn-warning btn-block w-25'%>
 </div>
