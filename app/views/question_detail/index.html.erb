@@ -1,3 +1,13 @@
+<% if flash[:notice] then %>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+    	<span class="alert-icon"><i class="fas fa-check"></i></span>
+    	<span class="alert-text"><%= flash[:notice] %></span>
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        	<span aria-hidden="true">&#10005;</span>
+    	</button>
+	</div>
+<% end %>
+
 <h2 class="text-lg-center">
 	<%= @course.course_name %>
 	<%= @lesson.title %>
