@@ -9,6 +9,9 @@ class QuestionDetailController < ApplicationController
     l_id = @question.lesson_id
     @lesson = Lesson.find(l_id)
 
+    # get teacher
+    @teacher=User.find(@lesson.user_id)
+
     # get course_name
     c_id = @lesson.course_id
     @course = Course.find(c_id)

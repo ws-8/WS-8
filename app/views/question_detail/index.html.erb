@@ -32,9 +32,9 @@
 		<p class="card-text">
 			<%= @question.body %>
 		</p>
-		<p class="text-info">
+		<p class="text-success">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
-			<%= button_to 'Me too', metoo_path(id:@question.id),type: 'button', class: 'btn btn-info btn-block w-25 mt-4' %>
+			<%= button_to 'Me too!', metoo_path(id:@question.id),type: 'button', class: 'btn btn-success btn-block w-25 mt-4' %>
 		</p>
 		</p>
 		<% if @question.solved then%>
@@ -89,11 +89,12 @@
 				</p>
 
 				<p class="text-danger">
-					<i class="fas fa-check-circle fa-lg"></i> Authorized
+					<i class="fas fa-check-circle fa-lg"></i> Authorized by <%=@teacher.name%>
 				</p>
 				<% if current_user.id==@lesson.user_id then%>
 					<%= button_to 'Unauthorize this answer', answer_unauthorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
 				<%end%>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 
 
 				<% # comments %>
@@ -125,7 +126,7 @@
 					<% end %>
 				<% end %>
 				
-				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+				
 			</div>
 		</div>
 	</div>
@@ -160,6 +161,7 @@
 				<% if current_user.id==@lesson.user_id then%>
 					<%= button_to 'Authorize this answer', answer_authorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
 				<%end%>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 
 				<% # comments %>
 				<% comments = Comment.where(answer_id: ans.id) %>
@@ -189,7 +191,7 @@
 						</div>
 					<% end %>
 				<% end %>
-				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+				
 			</div>
 		</div>
 	</div>
