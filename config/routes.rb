@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/question/post_question/:id/new', to: 'question#new'
   post '/question/post_question/:id', to: 'question#create'
 
+  post '/question_detail/authorized/:id', to:'question_detail#authorized', as: :answer_authorized
+  post '/question_detail/solved/:id', to:'question_detail#solved', as: :question_solved
+
   get '/post_answer/:id', to: 'post_answer#new', as: :post_answer
   post '/post_answer/:id' , to: 'post_answer#create', as: :create_answer
 

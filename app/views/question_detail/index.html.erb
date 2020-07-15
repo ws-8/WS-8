@@ -25,7 +25,21 @@
 		<p class="text-info">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
 		</p>
-		
+		</p>
+		<% if @question.solved then%>
+			<p class="text-danger">
+				<i class="fas fa-check-circle fa-lg"></i> Solved!
+			</p>	
+		<%end%>
+
+		<% if @question.solved==false then%>
+			<% if current_user.id==@user.id then%>
+				<p class="text-danger">
+					<%= button_to 'Solved!', question_solved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				</p>
+			
+			<%end%>
+		<%end%>
 			<%= link_to '回答する！', post_answer_path(id:@question.id),type: 'button', class: 'btn btn-info btn-block w-25 mt-4' %>
 		
 	</div>
@@ -56,6 +70,11 @@
 					<i class="fas fa-star"></i> Score : <%= ans.score %>
 				</p>
 
+				<p class="text-danger">
+					<i class="fas fa-check-circle fa-lg"></i> Authorized
+				</p>
+
+
 				<% # comments %>
 				<% comments = Comment.where(answer_id: ans.id) %>
 				<% if not comments.nil? then %>
@@ -78,6 +97,7 @@
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
 								</p>
+
 							</div>
 						</div>
 					<% end %>
@@ -114,6 +134,10 @@
 					<i class="fas fa-star"></i> Score : <%= ans.score %>
 				</p>
 
+				<% if current_user.id==@lesson.user_id then%>
+					<%= button_to 'Authorize this answer', answer_authorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				<%end%>
+
 				<% # comments %>
 				<% comments = Comment.where(answer_id: ans.id) %>
 				<% if not comments.nil? then %>
@@ -136,6 +160,7 @@
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
 								</p>
+
 							</div>
 						</div>
 					<% end %>

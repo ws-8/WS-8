@@ -19,4 +19,17 @@ class QuestionDetailController < ApplicationController
     # get answers
     @answers = Answer.where(question_id: q_id)
   end
+
+  def authorized
+    @answer=Answer.find(params[:id])
+    @answer.authorized=true
+    @answer.save
+    redirect_back(fallback_location: root_path)
+  end
+  def solved
+    @question=Question.find(params[:id])
+    @question.solved=true
+    @question.save
+    redirect_back(fallback_location: root_path)
+  end
 end
