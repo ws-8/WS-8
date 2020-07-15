@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'comment/new'
+
+  get 'answer/index'
+
   root 'top#index'
 
   get 'post_answer/new'
@@ -14,7 +18,11 @@ Rails.application.routes.draw do
   get '/question/post_question/:id/new', to: 'question#new'
   post '/question/post_question/:id', to: 'question#create'
 
-  get '/post_answer', to: 'post_answer#new'
+  get '/post_answer/:id', to: 'post_answer#new', as: :post_answer
+  post '/post_answer/:id' , to: 'post_answer#create', as: :create_answer
+
+  get '/comment/:id', to: 'comment#new', as: :new_comment
+  post '/comment/:id' , to: 'comment#create', as: :comment_create
 
   get  '/signup', to: 'users#new'
 

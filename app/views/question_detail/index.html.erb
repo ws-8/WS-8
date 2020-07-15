@@ -25,7 +25,9 @@
 		<p class="text-info">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
 		</p>
-		<button type="button" class="btn btn-info btn-block w-50">回答する！</button>
+		
+			<%= link_to '回答する！', post_answer_path(id:@question.id),type: 'button', class: 'btn btn-info btn-block w-25 mt-4' %>
+		
 	</div>
 </div>
 
@@ -80,7 +82,8 @@
 						</div>
 					<% end %>
 				<% end %>
-				<button type="button" class="btn btn-info btn-block w-25 mt-4">コメントする</button>
+				
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 			</div>
 		</div>
 	</div>
@@ -137,7 +140,7 @@
 						</div>
 					<% end %>
 				<% end %>
-				<button type="button" class="btn btn-info btn-block w-25 mt-4">コメントする</button>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 			</div>
 		</div>
 	</div>

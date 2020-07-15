@@ -1,28 +1,58 @@
-<h2 class="text-lg-center">ここに講義名と回数を表示</h2>
+<h2 class="text-lg-center">
+	<%= @course.course_name %> <%= @lesson.title%>
+</h2>
 <div class="callout callout-primary card shadow-sm m-3">
 	<div class="card-body">
 		<h5 class="card-title mb-4">
-		The quick brown fox jumps over the lazy dog
+			<%= @question.title %>
 		</h5>
-		<h6 class="card-subtitle mb-2 text-muted">Kyodai Smith</h6>
-		<h6 class="card-subtitle mb-2 text-muted">2020/02/02 02:02</h6>
+		<h6 class="card-subtitle mb-2 text-muted">
+			<i class="fas fa-user"></i>
+			<%= if (@user.nickname).blank? then @user.name else @user.nickname end %>
+		</h6>
+		<h6 class="card-subtitle mb-2 text-muted">
+			<%= @question.created_at.to_s(:datetime_jp)%>
+		</h6>
 		<p class="card-text">
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-			The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+			<%= @question.body %>
 		</p>
 	</div>
 </div>
-
+<div class="alert alert-primary alert-dismissible fade show m-3" role="alert">
+    <span class="alert-icon">
+		<i class="fas fa-question-circle"></i>
+	</span>
+    <span class="alert-text">
+		新規回答投稿を行います。回答内容を入力してください。
+	</span>
+</div>
 <div class="callout callout-info card shadow-sm m-3">
+	<% if flash[:alert] %>
+	<div class="alert alert-danger">
+		<i class="fas fa-exclamation-triangle"></i> Error!
+		<ul>
+		<% flash[:alert].each do |key, value| %>
+			<li><%= key %></li>
+			<ul>
+			<% value.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<%= form_with model: @answer, url: create_answer_path, local: true do |a| %>
 	<h5 class="text-info">回答内容</h5>
-	<textarea class="form-control mb-2" rows="15" placeholder="回答内容を入力してください"></textarea>
-	<button type="button" class="btn btn-info btn-block w-25">投稿する</button>
+	<%= a.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"回答内容を入力してください"%>
+	<%= a.hidden_field :question_id , :value => params[:id]%>
+	<%= a.hidden_field :user_id , :value => current_user.id%>
+	<%= a.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
+	<% end %>
 </div>
 
 <div class="callout callout-warning card shadow-sm m-3">
-	<button type="button" class="btn btn-warning btn-block w-25">回答せずに戻る</button>
+	
+	<%= link_to '回答せずに戻る', question_detail_path(question_id: @question.id) ,type: 'button', class: 'btn btn-warning btn-block w-25'%>
 </div>
