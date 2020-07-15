@@ -26,9 +26,25 @@ class QuestionDetailController < ApplicationController
     @answer.save
     redirect_back(fallback_location: root_path)
   end
+
+  def unauthorized
+    @answer=Answer.find(params[:id])
+    @answer.authorized=false
+    @answer.save
+    redirect_back(fallback_location: root_path)
+  end
+
+
   def solved
     @question=Question.find(params[:id])
     @question.solved=true
+    @question.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def unsolved
+    @question=Question.find(params[:id])
+    @question.solved=false
     @question.save
     redirect_back(fallback_location: root_path)
   end

@@ -30,13 +30,19 @@
 		<% if @question.solved then%>
 			<p class="text-danger">
 				<i class="fas fa-check-circle fa-lg"></i> Solved!
+
 			</p>	
 		<%end%>
 
-		<% if @question.solved==false then%>
-			<% if current_user.id==@user.id then%>
+		
+		<% if current_user.id==@user.id then%>
+			<% if @question.solved==false then%>
 				<p class="text-danger">
 					<%= button_to 'Solved!', question_solved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				</p>
+			<% else %>
+				<p class="text-danger">
+					<%= button_to 'Unsolved', question_unsolved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
 				</p>
 			
 			<%end%>
@@ -75,6 +81,9 @@
 				<p class="text-danger">
 					<i class="fas fa-check-circle fa-lg"></i> Authorized
 				</p>
+				<% if current_user.id==@lesson.user_id then%>
+					<%= button_to 'Unauthorize this answer', answer_unauthorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				<%end%>
 
 
 				<% # comments %>
