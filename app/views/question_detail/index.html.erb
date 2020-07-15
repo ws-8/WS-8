@@ -34,7 +34,9 @@
 		</p>
 		<p class="text-success">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
-			<%= button_to 'Me too!', metoo_path(id:@question.id),type: 'button', class: 'btn btn-success btn-block w-25 mt-4' %>
+			<% if @question.qmetoo.find_by(user_id:current_user.id).present? ==false then%>
+				<%= button_to 'Me too!', metoo_path(id:@question.id,user_id:current_user.id),type: 'button', class: 'btn btn-success btn-block w-25 mt-4' %>
+			<%end%>
 		</p>
 		</p>
 		<% if @question.solved then%>
@@ -196,3 +198,7 @@
 		</div>
 	</div>
 <% end %>
+
+<div class="callout callout card shadow-sm m-3">
+	<%= link_to '質問リストに戻る', question_list_path(id: @lesson.id) ,type: 'button', class: 'btn btn-warning btn-block w-25 mt-4'%>
+</div>

@@ -56,6 +56,8 @@ class QuestionDetailController < ApplicationController
     @question=Question.find(params[:id])
     @question.metoo+=1
     @question.save
+    @metoo=Metoo.new(user_id:params[:user_id],question_id:params[:id])
+    @metoo.save
     redirect_back(fallback_location: root_path)
   end
 
