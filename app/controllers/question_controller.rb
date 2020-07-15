@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class QuestionController < ApplicationController
-  def index; end
+  def rank
+    @all_ranks = Question.all.reorder('metoo DESC').limit(5)
+    # @all_ranks = Question.joins(:users)
+  end
 
   def new
     @lesson = Lesson.find(params[:id])

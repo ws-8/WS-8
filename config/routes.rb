@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'post_question/new'
 
   get '/question_detail/:question_id', to: 'question_detail#index', as: :question_detail
-  get 'question/index'
+  get 'question/rank'
 
   get '/question_list/:id', to: 'question#list', as: :question_list
   get '/question_detail', to: 'question_detail#index'
@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   post '/question/post_question/:id', to: 'question#create'
 
   get '/post_answer/:id', to: 'post_answer#new', as: :post_answer
-  post '/post_answer/:id' , to: 'post_answer#create', as: :create_answer
+  post '/post_answer/:id', to: 'post_answer#create', as: :create_answer
 
   get '/comment/:id', to: 'comment#new', as: :new_comment
-  post '/comment/:id' , to: 'comment#create', as: :comment_create
+  post '/comment/:id', to: 'comment#create', as: :comment_create
 
   get  '/signup', to: 'users#new'
 
