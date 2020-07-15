@@ -47,7 +47,14 @@
 			</div>
 		</div>
 	</div>
-
+<div class="alert alert-primary alert-dismissible fade show m-3" role="alert">
+    <span class="alert-icon">
+		<i class="fas fa-question-circle"></i>
+	</span>
+    <span class="alert-text">
+		新規コメント投稿を行います。コメント内容を入力してください。
+	</span>
+</div>
 <div class="callout callout-info card shadow-sm m-3">
 	<% if flash[:alert] %>
 	<div class="alert alert-danger">
@@ -75,5 +82,5 @@
 
 <div class="callout callout-warning card shadow-sm m-3">
 	
-	<%= link_to 'コメントせずに戻る', question_detail_path(question_id: @question.id),　type: 'button', class: 'btn btn-warning btn-block w-25'%>
+	<%= link_to 'コメントせずに戻る', question_detail_path(question_id: @question.id),　type: 'button', class: 'btn btn-info btn-block w-25'%>
 </div>
