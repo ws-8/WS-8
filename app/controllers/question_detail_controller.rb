@@ -32,4 +32,25 @@ class QuestionDetailController < ApplicationController
     @question.save
     redirect_back(fallback_location: root_path)
   end
+  
+  def metoo
+    @question=Question.find(params[:id])
+    @question.metoo+=1
+    @question.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def ans_score
+    @answer=Answer.find(params[:id])
+    @answer.score+=1
+    @answer.save
+    redirect_back(fallback_location: root_path)
+  end
+
+  def com_score
+    @comment=Comment.find(params[:id])
+    @comment.score+=1
+    @comment.save
+    redirect_back(fallback_location: root_path)
+  end
 end

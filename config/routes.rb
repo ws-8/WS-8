@@ -20,12 +20,16 @@ Rails.application.routes.draw do
 
   post '/question_detail/authorized/:id', to:'question_detail#authorized', as: :answer_authorized
   post '/question_detail/solved/:id', to:'question_detail#solved', as: :question_solved
+  post '/question_detail/metoo/:id', to:'question_detail#metoo', as: :metoo
+  post '/question_detail/ans_score/:id', to:'question_detail#ans_score', as: :ans_score
+  post '/question_detail/com_score/:id', to:'question_detail#com_score', as: :com_score
 
   get '/post_answer/:id', to: 'post_answer#new', as: :post_answer
   post '/post_answer/:id' , to: 'post_answer#create', as: :create_answer
 
   get '/comment/:id', to: 'comment#new', as: :new_comment
   post '/comment/:id' , to: 'comment#create', as: :comment_create
+
 
   get  '/signup', to: 'users#new'
 
