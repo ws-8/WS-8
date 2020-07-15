@@ -65,6 +65,8 @@ class QuestionDetailController < ApplicationController
     @answer=Answer.find(params[:id])
     @answer.score+=1
     @answer.save
+    @agood=Agood.new(user_id:params[:user_id],answer_id:params[:id])
+    @agood.save
     redirect_back(fallback_location: root_path)
   end
 
@@ -72,6 +74,8 @@ class QuestionDetailController < ApplicationController
     @comment=Comment.find(params[:id])
     @comment.score+=1
     @comment.save
+    @cgood=Cgood.new(user_id:params[:user_id],comment_id:params[:id])
+    @cgood.save
     redirect_back(fallback_location: root_path)
   end
 end
