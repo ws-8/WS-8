@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'scream/index'
+
   get 'comment/new'
 
   get 'answer/index'
