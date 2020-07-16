@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200703141956) do
+ActiveRecord::Schema.define(version: 20200715160831) do
+
+  create_table "agoods", force: :cascade do |t|
+    t.integer "answer_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_agoods_on_answer_id"
+    t.index ["user_id"], name: "index_agoods_on_user_id"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.string "body", limit: 1000
@@ -22,6 +31,15 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.integer "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "cgoods", force: :cascade do |t|
+    t.integer "comment_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_cgoods_on_comment_id"
+    t.index ["user_id"], name: "index_cgoods_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -51,6 +69,15 @@ ActiveRecord::Schema.define(version: 20200703141956) do
     t.integer "course_id"
     t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["user_id"], name: "index_lessons_on_user_id"
+  end
+
+  create_table "metoos", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_metoos_on_question_id"
+    t.index ["user_id"], name: "index_metoos_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|

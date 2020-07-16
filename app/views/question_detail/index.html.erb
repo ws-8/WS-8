@@ -1,3 +1,13 @@
+<% if flash[:notice] then %>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+    	<span class="alert-icon"><i class="fas fa-check"></i></span>
+    	<span class="alert-text"><%= flash[:notice] %></span>
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        	<span aria-hidden="true">&#10005;</span>
+    	</button>
+	</div>
+<% end %>
+
 <h2 class="text-lg-center">
 	<%= @course.course_name %>
 	<%= @lesson.title %>
@@ -22,10 +32,33 @@
 		<p class="card-text">
 			<%= @question.body %>
 		</p>
-		<p class="text-info">
+		<p class="text-success">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
+			<% if @question.qmetoos.find_by(user_id:current_user.id).present? ==false then%>
+				<%= button_to 'Me too!', metoo_path(id:@question.id,user_id:current_user.id),type: 'button', class: 'btn btn-success btn-block w-25 mt-4' %>
+			<%end%>
 		</p>
+		</p>
+		<% if @question.solved then%>
+			<p class="text-danger">
+				<i class="fas fa-check-circle fa-lg"></i> Solved!
+
+			</p>	
+		<%end%>
+
 		
+		<% if current_user.id==@user.id then%>
+			<% if @question.solved==false then%>
+				<p class="text-danger">
+					<%= button_to 'Solved!', question_solved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				</p>
+			<% else %>
+				<p class="text-danger">
+					<%= button_to 'Unsolved', question_unsolved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				</p>
+			
+			<%end%>
+		<%end%>
 			<%= link_to '回答する！', post_answer_path(id:@question.id),type: 'button', class: 'btn btn-info btn-block w-25 mt-4' %>
 		
 	</div>
@@ -54,7 +87,19 @@
 
 				<p class="text-warning mt-2">
 					<i class="fas fa-star"></i> Score : <%= ans.score %>
+					<% if ans.agoods.find_by(user_id:current_user.id).present? ==false then%>
+						<%= button_to 'Good!', ans_score_path(id:ans.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+					<%end%>
 				</p>
+
+				<p class="text-danger">
+					<i class="fas fa-check-circle fa-lg"></i> Authorized by <%=@teacher.name%>
+				</p>
+				<% if current_user.id==@lesson.user_id then%>
+					<%= button_to 'Unauthorize', answer_unauthorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				<%end%>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+
 
 				<% # comments %>
 				<% comments = Comment.where(answer_id: ans.id) %>
@@ -77,13 +122,15 @@
 								<%= com.body %>
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
+									<%= button_to 'Good!', com_score_path(id:com.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
 								</p>
+
 							</div>
 						</div>
 					<% end %>
 				<% end %>
 				
-				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+				
 			</div>
 		</div>
 	</div>
@@ -112,7 +159,15 @@
 
 				<p class="text-warning mt-2">
 					<i class="fas fa-star"></i> Score : <%= ans.score %>
+					<% if ans.agoods.find_by(user_id:current_user.id).present? ==false then%>
+						<%= button_to 'Good!', ans_score_path(id:ans.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+					<%end%>
 				</p>
+
+				<% if current_user.id==@lesson.user_id then%>
+					<%= button_to 'Authorize', answer_authorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				<%end%>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 
 				<% # comments %>
 				<% comments = Comment.where(answer_id: ans.id) %>
@@ -135,13 +190,21 @@
 								<%= com.body %>
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
+									<% if com.cgoods.find_by(user_id:current_user.id).present? ==false then%>
+										<%= button_to 'Good!', com_score_path(id:com.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+									<%end%>
 								</p>
+
 							</div>
 						</div>
 					<% end %>
 				<% end %>
-				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+				
 			</div>
 		</div>
 	</div>
 <% end %>
+
+<div class="callout callout card shadow-sm m-3">
+	<%= link_to '質問リストに戻る', question_list_path(id: @lesson.id) ,type: 'button', class: 'btn btn-warning btn-block w-25 mt-4'%>
+</div>
