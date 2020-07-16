@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/question/post_question/:id', to: 'question#create'
   
   get '/scream/index/:id', to: 'scream#index', as: :scream
+  post '/scream/button/:id', to: 'scream#button', as: :scream_button
 
   post '/question_detail/authorized/:id', to:'question_detail#authorized', as: :answer_authorized
   post '/question_detail/unauthorized/:id', to:'question_detail#unauthorized', as: :answer_unauthorized
