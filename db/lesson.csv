@@ -1,0 +1,17 @@
+﻿第一回,ガイダンスと展望1の概要説明を行います．情報セキュリティに関する基礎事項を解説します．,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,6
+第二回,ストリーム暗号とブロック暗号について説明します．ストリーム暗号RC4は使っちゃダメ,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,6
+第三回,素数生成に関する脆弱性について説明します.,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,6
+第四回,ハッシュ関数について説明します．ハッシュ関数MD5は使っちゃダメ,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,6
+第五回,無線ネットワークのセキュリティについて説明します．WEPはRC4を使っているから使っちゃダメ,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,6
+第六回,スタックオーバーフローについて説明します．CVEは脆弱性の通し番号，CWEは脆弱性の原因の分類,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,7
+第七回,WPA2の脆弱性について説明します．KRACKsは4-way handshakeに介入する,https://www.net.ist.i.kyoto-u.ac.jp/ja/,5,6
+第一回,ウィルコクソンの順位和検定をします,https://www.bigdata-navi.com/aidrops/1978/,2,8
+第二回,今日は授業をしません．自習です,https://www.bigdata-navi.com/aidrops/1979/,2,8
+第三回,今日は授業をしません．自習です,https://www.bigdata-navi.com/aidrops/1980/,2,8
+第四回,サービスは闘争です．ディスタンクシオンが大事．,https://www.bigdata-navi.com/aidrops/1981/,2,9
+第一回,ガイダンスを行います．英語です．,http://www.dl.soc.i.kyoto-u.ac.jp/~tajima/index-jp.html,1,10
+第二回,Gestaltの法則について話します．,http://www.dl.soc.i.kyoto-u.ac.jp/~tajima/index-jp.html,1,10
+第三回,自由度とefficiencyのトレードオフについて話します,http://www.dl.soc.i.kyoto-u.ac.jp/~tajima/index-jp.html,1,10
+第一回,情報と教育．授業はしません,,3,8
+第一回,webサービスを作ります．,,4,11
+第一回,人工知能とロボットと脳について学習します,,6,11

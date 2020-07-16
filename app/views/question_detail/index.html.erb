@@ -1,0 +1,210 @@
+<% if flash[:notice] then %>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+    	<span class="alert-icon"><i class="fas fa-check"></i></span>
+    	<span class="alert-text"><%= flash[:notice] %></span>
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        	<span aria-hidden="true">&#10005;</span>
+    	</button>
+	</div>
+<% end %>
+
+<h2 class="text-lg-center">
+	<%= @course.course_name %>
+	<%= @lesson.title %>
+</h2>
+<div class="callout callout-primary card shadow-sm m-3">
+	<h3 class="text-primary">Question</h3>
+	<div class="card-body">
+		<h4 class="card-title mb-4">
+			<%= @question.title %>
+			<% if @question.solved then %>
+				<span class="badge badge-success">解決済</span>
+			<% else %>
+				<span class="badge badge-warning">回答受付中</span>
+			<% end %>
+		</h4>
+		<h5 class="card-subtitle mb-2 text-muted">
+			<i class="fas fa-user"></i>
+			<%= if (@user.nickname).blank? then @user.name else @user.nickname end %>
+		<h6 class="card-subtitle mb-4 text-muted">
+			<i class="fas fa-clock"></i> <%= @question.created_at.to_s(:datetime_jp) %>
+		</h6>
+		<p class="card-text">
+			<%= @question.body %>
+		</p>
+		<p class="text-success">
+			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
+			<% if @question.qmetoos.find_by(user_id:current_user.id).present? ==false then%>
+				<%= button_to 'Me too!', metoo_path(id:@question.id,user_id:current_user.id),type: 'button', class: 'btn btn-success btn-block w-25 mt-4' %>
+			<%end%>
+		</p>
+		</p>
+		<% if @question.solved then%>
+			<p class="text-danger">
+				<i class="fas fa-check-circle fa-lg"></i> Solved!
+
+			</p>	
+		<%end%>
+
+		
+		<% if current_user.id==@user.id then%>
+			<% if @question.solved==false then%>
+				<p class="text-danger">
+					<%= button_to 'Solved!', question_solved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				</p>
+			<% else %>
+				<p class="text-danger">
+					<%= button_to 'Unsolved', question_unsolved_path(id:@question.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				</p>
+			
+			<%end%>
+		<%end%>
+			<%= link_to '回答する！', post_answer_path(id:@question.id),type: 'button', class: 'btn btn-info btn-block w-25 mt-4' %>
+		
+	</div>
+</div>
+
+<!-- Good Answer and Comments -->
+<% @answers.each do |ans| %>
+	<% authorized = ans.authorized %>
+	<% if not authorized then next end%>
+	<% ans_user = User.find(ans.user_id) %>
+	<div class="callout callout-success card shadow-sm m-3">
+		<h3 class="text-success"><i class="fas fa-thumbs-up"></i> Good Answer</h3>
+		<div class="media comment m-2">
+			<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->	
+			<div class="media-body mb-1">
+				<div class="media-body-header">
+					<h6 class="comment-author">
+						<i class="fas fa-user"></i>
+						<%= if (ans_user.nickname).blank? then ans_user.name else ans_user.nickname end %>
+					</h6>
+					<span class="comment-date text-muted">
+						<i class="fas fa-clock"></i> <%= ans.created_at.to_s(:datetime_jp) %>
+					</span>
+				</div>
+				<%= ans.body %>
+
+				<p class="text-warning mt-2">
+					<i class="fas fa-star"></i> Score : <%= ans.score %>
+					<% if ans.agoods.find_by(user_id:current_user.id).present? ==false then%>
+						<%= button_to 'Good!', ans_score_path(id:ans.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+					<%end%>
+				</p>
+
+				<p class="text-danger">
+					<i class="fas fa-check-circle fa-lg"></i> Authorized by <%=@teacher.name%>
+				</p>
+				<% if current_user.id==@lesson.user_id then%>
+					<%= button_to 'Unauthorize', answer_unauthorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				<%end%>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+
+
+				<% # comments %>
+				<% comments = Comment.where(answer_id: ans.id) %>
+				<% if not comments.nil? then %>
+					<% comments.each do |com| %>
+					<% com_user_id = com.user_id %>
+					<% com_user = User.find(com_user_id) %>
+						<div class="media comment">
+							<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
+							<div class="media-body ml-5">
+								<div class="media-body-header">
+									<h6 class="comment-author">
+										<i class="fas fa-user"></i>
+										<%= if (com_user.nickname).blank? then com_user.name else com_user.nickname end %>
+									</h6>
+									<span class="comment-date text-muted">
+										<i class="fas fa-clock"></i> <%= com.created_at.to_s(:datetime_jp) %>
+									</span>
+								</div>
+								<%= com.body %>
+								<p class="text-warning mt-2">
+									<i class="fas fa-star"></i> Score : <%= com.score %>
+									<%= button_to 'Good!', com_score_path(id:com.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+								</p>
+
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+				
+				
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<!-- Other Answer and Comments -->
+<% @answers.each do |ans| %>
+	<% authorized = ans.authorized %>
+	<% if authorized then next end%>
+	<% ans_user = User.find(ans.user_id) %>
+	<div class="callout callout-info card shadow-sm m-3">
+	<h3 class="text-info">Answer</h3>
+		<div class="media comment m-2">
+			<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->	
+			<div class="media-body mb-1">
+				<div class="media-body-header">
+					<h6 class="comment-author">
+						<i class="fas fa-user"></i>
+						<%= if (ans_user.nickname).blank? then ans_user.name else ans_user.nickname end %>
+					</h6>
+					<span class="comment-date text-muted">
+						<i class="fas fa-clock"></i> <%= ans.created_at.to_s(:datetime_jp) %>
+					</span>
+				</div>
+				<%= ans.body %>
+
+				<p class="text-warning mt-2">
+					<i class="fas fa-star"></i> Score : <%= ans.score %>
+					<% if ans.agoods.find_by(user_id:current_user.id).present? ==false then%>
+						<%= button_to 'Good!', ans_score_path(id:ans.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+					<%end%>
+				</p>
+
+				<% if current_user.id==@lesson.user_id then%>
+					<%= button_to 'Authorize', answer_authorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
+				<%end%>
+				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
+
+				<% # comments %>
+				<% comments = Comment.where(answer_id: ans.id) %>
+				<% if not comments.nil? then %>
+					<% comments.each do |com| %>
+					<% com_user_id = com.user_id %>
+					<% com_user = User.find(com_user_id) %>
+						<div class="media comment">
+							<!-- <img src="docs/assets/img/avatar.jpg" class="img-avatar mr-3" alt="author image"> -->
+							<div class="media-body ml-5">
+								<div class="media-body-header">
+									<h6 class="comment-author">
+										<i class="fas fa-user"></i>
+										<%= if (com_user.nickname).blank? then com_user.name else com_user.nickname end %>
+									</h6>
+									<span class="comment-date text-muted">
+										<i class="fas fa-clock"></i> <%= com.created_at.to_s(:datetime_jp) %>
+									</span>
+								</div>
+								<%= com.body %>
+								<p class="text-warning mt-2">
+									<i class="fas fa-star"></i> Score : <%= com.score %>
+									<% if com.cgoods.find_by(user_id:current_user.id).present? ==false then%>
+										<%= button_to 'Good!', com_score_path(id:com.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+									<%end%>
+								</p>
+
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+				
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<div class="callout callout card shadow-sm m-3">
+	<%= link_to '質問リストに戻る', question_list_path(id: @lesson.id) ,type: 'button', class: 'btn btn-warning btn-block w-25 mt-4'%>
+</div>

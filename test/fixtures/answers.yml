@@ -3,15 +3,13 @@
 one:
   body: MyString
   score: 
-  metoo: 
-  post_date: 2020-05-28 09:00:14
-  questionid: 
+  post_date: 2020-06-03 14:23:48
+  question: 
   userid: 
 
 two:
   body: MyString
   score: 
-  metoo: 
-  post_date: 2020-05-28 09:00:14
-  questionid: 
+  post_date: 2020-06-03 14:23:48
+  question: 
   userid: 
