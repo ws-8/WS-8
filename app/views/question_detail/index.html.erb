@@ -46,7 +46,14 @@
 			</p>	
 		<%end%>
 
-		
+		<!-- railsコードが必要な場所  -->
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+					<button class="btn btn-primary" type="button">Ride</button>
+			</div>
+			<input type="text" class="form-control" aria-label="Example text with button addon" placeholder="rideするページ番号とそのスコアを入力する">
+		</div>
+
 		<% if current_user.id==@user.id then%>
 			<% if @question.solved==false then%>
 				<p class="text-danger">
@@ -91,13 +98,22 @@
 						<%= button_to 'Good!', ans_score_path(id:ans.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
 					<%end%>
 				</p>
-
+				
 				<p class="text-danger">
 					<i class="fas fa-check-circle fa-lg"></i> Authorized by <%=@teacher.name%>
 				</p>
 				<% if current_user.id==@lesson.user_id then%>
 					<%= button_to 'Unauthorize', answer_unauthorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
 				<%end%>
+				
+				<!-- railsコードが必要な場所  -->
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+							<button class="btn btn-primary" type="button">Calm</button>
+					</div>
+					<input type="text" class="form-control" placeholder="rideするページ番号とそのスコアを入力する" aria-label="Example text with button addon">
+				</div>
+
 				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 
 
@@ -167,6 +183,15 @@
 				<% if current_user.id==@lesson.user_id then%>
 					<%= button_to 'Authorize', answer_authorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
 				<%end%>
+
+				<!-- railsコードが必要な場所  -->
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+							<button class="btn btn-primary" type="button">Calm</button>
+					</div>
+					<input type="text" class="form-control" aria-label="Example text with button addon" placeholder="Calmするページ番号とそのスコアを入力する">
+				</div>
+
 				<%= link_to 'コメントする', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 
 				<% # comments %>
