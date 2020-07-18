@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   post '/question_detail/metoo/:id/:user_id', to:'question_detail#metoo', as: :metoo
   post '/question_detail/ans_score/:id/:user_id', to:'question_detail#ans_score', as: :ans_score
   post '/question_detail/com_score/:id/:user_id', to:'question_detail#com_score', as: :com_score
-  post '/question_detail/ride/:page/:score',to: 'question_detail#ride', as: :ride
+  post '/question_detail/ride/:question',to: 'question_detail#ride', as: :ride
 
 
   get '/post_answer/:id', to: 'post_answer#new', as: :post_answer
