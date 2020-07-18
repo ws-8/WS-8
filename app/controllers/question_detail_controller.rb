@@ -78,4 +78,25 @@ class QuestionDetailController < ApplicationController
     @cgood.save
     redirect_back(fallback_location: root_path)
   end
+
+
+  def ride
+    @bar=Bar.find_by(lesson_id:@lesson.id,page:params[:page])
+    if @bar==nil
+      flash[:alert] = '存在しないpageが入力されています'
+      redirect_back(fallback_location: root_path)
+    else
+      @scream=Scream.find_by(user_id:current_user.id,bar_id:@bar.id)
+      if value<=@scream.score
+        screamabout=Screamabout.new(rided_score:value,scream_id:@scream.id,question_id:@question.id)
+        screamabout.save
+      else
+        flash[:alert] = 'Screamした値より大きな値が入力されています'
+        redirect_back(fallback_location: root_path)
+      end
+    end
+  end
+
+
+
 end
