@@ -10,9 +10,37 @@
 
 <%= high_chart("my_chart", @chart) %>
 <% lid=@lesson.id %>
-</div>
+
 <div class="card-header bg-white p-5">
-<%for num in 1..@max do%>
-<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block mx-auto',style:"width: 200px;" %>
-<%end%>
+<% cols = 5 %>
+<% rows = @max / cols %>
+<% res = @max % cols %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col" colspan="15" class="text-center">Scream Button</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for i in 1..rows do %>
+				<tr>
+					<% for j in 1..cols do %>
+						<td>
+							<% num = cols * (i - 1) + j%>
+							<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block m-0' %>
+						</td>
+					<% end %>
+				</tr>
+			<% end %>
+			<tr>
+				<% for i in 1..res do %>
+					<td>
+						<% num = cols * rows + i %>
+							<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block m-0' %>
+					</td>
+				<% end %>
+				<td colspan=<%=cols-res=%>></td>
+			</tr>
+		</tbody>
+	</table>
 </div>
