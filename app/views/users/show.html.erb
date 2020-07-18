@@ -1,17 +1,40 @@
 <% provide(:title, @user.name) %>
+
+<%= link_to "編集する", edit_user_path(id:@user.id), class: "btn btn-outline-primary col-md-3 offset-md-3" %>
+
 <p id="notice"><%= notice %></p>
 
 <%= gravatar_for @user %>
 
-<p>
+<h3>
   <strong>名前:</strong>
   <%= @user.name %>
-</p>
+</h3>
 
-<p>
-  <strong>パスワード:</strong>
-  <%= @user.password_digest %>
-</p>
+<h3>
+  <strong>ニックネーム:</strong>
+  <%= @user.nickname %>
+</h3>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="divider"></div>
+
+<h3>
+  <strong>質問投稿回数:</strong>
+  <%= @post_question%>
+</h3>
+
+<h3>
+  <strong>Answer投稿回数:</strong>
+  <%= @answer_question%>
+</h3>
+
+<h3>
+  <strong>コメント投稿回数:</strong>
+  <%= @post_comment%>
+</h3>
+
+
+
+
+
+
