@@ -34,6 +34,15 @@ class ScreamController < ApplicationController
     @bar=bar_array[0]
     @bar.score+=1
     @bar.save
+    if Scream.where(bar_id:@bar.id).where(user_id:current_user.id).exists?
+      scream_array=Scream.where(bar_id:@bar.id).where(user_id:current_user.id)
+      @scream=scream_array[0]
+      @scream.score+=1
+      @scream.save
+    else
+      @scream=Scream.new(score:1,bar_id:@bar.id,user_id:current_user.id)
+      @scream.save
+    end
     flash[:notice] ='Posted Successfully!'
     redirect_back(fallback_location: root_path)
   end
