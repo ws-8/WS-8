@@ -11,7 +11,7 @@
 <% end %>
 
 <h2 class="text-lg-center">
-	<%= @course.course_name %> <%= @lesson.title%>
+	<%= @course.course_name %> <%= @lesson.title %>
 </h2>
 
 <% @teacher=User.find(@lesson.user_id) %>
@@ -54,7 +54,7 @@
 				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
 				<p class="card-text">
 					<i class="fas fa-question-circle"></i>
-					<%= body %>
+					<%= markdown(body) %>
 				</p>
 				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
 			</div>
@@ -73,7 +73,7 @@
 				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
 				<p class="card-text">
 					<i class="fas fa-question-circle"></i>
-					<%= body %>
+					<%= markdown(body) %>
 				</p>
 				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
 			</div>

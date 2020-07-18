@@ -14,7 +14,7 @@
 			<%= @question.created_at.to_s(:datetime_jp)%>
 		</h6>
 		<p class="card-text">
-			<%= @question.body %>
+			<%= markdown(@question.body) %>
 		</p>
 	</div>
 </div>
