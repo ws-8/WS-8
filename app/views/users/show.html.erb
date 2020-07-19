@@ -1,40 +1,46 @@
 <% provide(:title, @user.name) %>
 
-<%= link_to "編集する", edit_user_path(id:@user.id), class: "btn btn-outline-primary col-md-3 offset-md-3" %>
-
 <p id="notice"><%= notice %></p>
 
+<div>
 <%= gravatar_for @user %>
-
-<h3>
-  <strong>名前:</strong>
-  <%= @user.name %>
-</h3>
-
-<h3>
-  <strong>ニックネーム:</strong>
-  <%= @user.nickname %>
-</h3>
-
-<div class="divider"></div>
-
-<h3>
-  <strong>質問投稿回数:</strong>
-  <%= @post_question%>
-</h3>
-
-<h3>
-  <strong>Answer投稿回数:</strong>
-  <%= @answer_question%>
-</h3>
-
-<h3>
-  <strong>コメント投稿回数:</strong>
-  <%= @post_comment%>
-</h3>
+</div>
+<%#tableに置き換え<>
+#scream参考　avant UI
+# tbodyからで良い
+%>
 
 
 
+<table class="table">
+    <thead>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">名前</th>
+            <td><%= @user.name %></td>
+        </tr>
+        <tr>
+            <th scope="row">ニックネーム</th>
+            <td> <%= @user.nickname %></td>
+          
+        </tr>
+        <tr>
+            <th scope="row">質問投稿回数</th>
+            <td><%= @post_question%></td>
+        </tr>
+        <tr>
+            <th scope="row">Answer投稿回数</th>
+            <td><%= @answer_question%></td>
+        </tr>
+        <tr>
+            <th scope="row">コメント投稿回数</th>
+            <td><%= @post_comment%></td>
+        </tr>
+    </tbody>
+</table>
 
+
+<%= link_to "編集する", edit_user_path(id:@user.id), class: "btn btn-outline-primary col-md-3 offset-md-3" %>
 
 
