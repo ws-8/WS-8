@@ -11,3 +11,75 @@ Wikipedia などに遷移確率のことが書いてあります。,1,FALSE,12,3
 最初は頻繁に、後半は稀に、となるようにスケジュールします。一般的には指数関数的に確率を落とすようです。,10,TRUE,12,4
 入力と出力が同じようになるようにして、中間層を学習させるような構造になっています。,4,FALSE,13,8
 ループがあると扱えないのでDAGしか扱わないです。,2,FALSE,14,7
+"I have checked the Wikipedia page of both of them and I think it explained quite well.",1,FALSE,8,2
+"It is written in the schedule that we will have it in mid-term, but I don't know the exact date either.",0,FALSE,29,1
+"The evaluation will be based on the final report.",4,TRUE,30,2
+"We will not check the attendance.",4,TRUE,31,6
+"We will upload the video as well as the lecture materials and you can check them.",3,TRUE,32,6
+"There is a video link on the reference page of the lecture material. You can check it.",1,FALSE,15,3
+"The wikipedia page shows some examples.",1,FALSE,16,3
+"It is explained in the appendix of the lecture material.",2,TRUE,17,11
+"It is explained on page 10-13 of the lecture material.",1,TRUE,18,3
+"There is a discussion about this in appendix.",2,TRUE,19,2
+"It is explained on page 5-7.",1,TRUE,20,11
+"あるかと思います",0,FALSE,21,4
+"The definition is given on page 5.",2,TRUE,22,2
+"大丈夫だと思います",2,TRUE,23,5
+"I have found some examples on wikipedia page.",1,FALSE,24,3
+"私の経験からすると多分そうだと思います",0,FALSE,25,5
+"そうだと思います",1,TRUE,26,3
+"It is discussed in the appendix material.",1,TRUE,27,11
+"I have checked the wikipedia page and I think it is very helpful.",1,TRUE,28,3
+"Two weeks later.",0,TRUE,33,6
+"I think it is explained at page 10.",1,FALSE,34,3
+"It is explained at page 6.",1,TRUE,35,2
+"Slide page 10 shows the difference of them.",1,TRUE,36,1
+"It is explained well in the wikipedia page.",1,FALSE,37,2
+"You only need to write 1-2 pages.",0,TRUE,38,8
+"You have to submit one final report at the end of the lecture.",0,TRUE,39,8
+"It is the same as the previous week's.",0,TRUE,40,1
+"I think it is explained in page 5-7.",1,FALSE,41,2
+"Sure.",2,TRUE,42,10
+"It is written in page 4-5.",1,FALSE,43,5
+"Page 10-13 is explaining this.",3,TURE,44,4
+"You can access the url announced in Panda.",4,TRUE,45,6
+"I think it is explained in page 6.",1,FALSE,46,4
+"One short report for each week and a final report at the end.",1,TRUE,47,3
+"There is a brief explanation in appendix.",0,FALSE,48,3
+"I think any one except MD5 should be OK.",1,TRUE,49,2
+"It is explained in page 5.",1,TRUE,50,2
+"I have found an explanation on Wikipedia.",1,FALSE,51,3
+"It is explained in slide page 5.",1,TRUE,52,3
+"It is explained in slide page 6.",1,TRUE,53,3
+"I think slide page 3-4 is explaining this.",0,TRUE,54,3
+"I have found an explanation on Wikipedia.",1,FALSE,55,1
+"It is explained in page 3.",0,TRUE,56,6
+"I have found several examples on Wikipedia.",1,FALSE,57,3
+"It is next week.",1,TRUE,58,8
+"The evaluation will be based on final report.",1,TRUE,59,8
+"You can submit it both through panda or email.",1,TRUE,60,8
+"Next online lecture will be held two weeks later.",1,TRUE,61,8
+"No. It is just for your practice.",3,TRUE,62,8
+"Yes, I think so.",1,TRUE,63,3
+"I think it should be announced during next week's lecture.",0,FALSE,64,2
+"It is explained in lecture video I think.",1,TRUE,65,3
+"It is explained in lecture material.",1,TRUE,66,3
+"Please send me your report via email.",1,TRUE,67,9
+"Yes. Please attend the class and discuss with others.",1,TRUE,68,9
+"No. Please feel free to discuss with others.",1,TRUE,69,9
+"I will basically use English. However, you can ask questions in Japanese.",1,TURE,70,10
+"I think it should be next week.",0,FALSE,71,5
+"I think python is the best for this lecture.",1,TRUE,72,4
+"There is a recommended document for python programming in Panda.",1,TRUE,73,3
+"I think it is because it is easy to use.",0,FALSE,74,2
+"Yes, I think so. I have found some examples through Google.",1,FALSE,75,2
+"Yes. Please submit it using a zip file.",2,TRUE,76,10
+"You should first install them using pip.",1,TRUE,77,5
+"I think maybe the size of array is wrong.",0,FALSE,78,2
+"You can use the function directly.",1,TRUE,79,4
+"I will create a ranking of all of your works.",2,TRUE,80,10
+"I have used MOOC. I think it is quite good.",0,FALSE,81,2
+"You only have a group presentation for this part.",2,TRUE,82,8
+"Basically any kinds of web service will be acceptable. Please discuss it with your group member.",2,TRUE,83,11
+"Group members will be based on the report you submit in this week.",2,TRUE,84,11
+"I think there is no such kind of requirement.",0,FALSE,85,2

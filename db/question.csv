@@ -34,3 +34,60 @@ DNNの理論,DNNは経験的知見にとどまっているとありましたが�
 ベイジアンネット,構築する時は手動ですか？なにかその分野についての知識に基づいて構成するのでしょうか。,3,TRUE,17,1
 深さ優先探索と幅優先探索,時間計算量と空間計算量がどうしてそのようになるのかわかりません。,0,TRUE,17,1
 HMMの前向きアルゴリズム,更新式の意味がよくわかりませんでした。,2,TRUE,17,1
+About group discussion,"When do we have the presentation of group discussion?",3,FALSE,15,1
+About evaluation,"How will you evaluate the score of this course?",3,TRUE,1,2
+About attendance,"Do you check the attendance in this course?",1,TRUE,1,3
+About absent,"What should I do if I can not attend the online class due to network trouble, etc.?",0,TRUE,1,1
+About today's assignment,"What is the deadline of today's assignment?",0,TRUE,3,3
+About MD5,"Why can't we use MD5?",0,FALSE,4,2
+About RC4,"What is RC4?",1,TRUE,5,1
+About CVE and CWE,"What is the difference between CVE and CWE?",2,TRUE,6,2
+About KRACKs,"What is KRACKs?",2,FALSE,7,3
+About assignment,"Is there any requirement about the length of the report?",1,TRUE,8,1
+About assignment,"How many assignments do we have in this part?",0,TRUE,9,1
+About lecture material,"I can't find today's lecture material.",0,TRUE,10,2
+About distinction,"What is a distinction in a service?",1,FALSE,11,1
+About the report,"Do you accept report written in Japanese?",2,TRUE,12,2
+About Gestalt's rule,"What is Gestalt's rule?",1,FALSE,13,4
+About tradeoff,"Why there is a tradeoff between them?",3,TRUE,14,5
+About lecture material,"Where can I find the lecture material?",4,TRUE,1,4
+About prime number,"How to generate a prime number?",2,FALSE,3,2
+About reports,"How many reports do we have for this part?",2,TRUE,3,1
+About hash function,"What is a hash function?",1,FALSE,4,2
+About hash function,"What hash function should we use in this lecture?",2,TRUE,4,1
+About WEP,"What is WEP?",2,TRUE,5,3
+About 5G,"What is 5G?",3,FALSE,5,1
+About CVE,"What is CVE?",2,TRUE,6,2
+About CWE,"What is CWE?",2,TRUE,6,1
+About stack overflow,"How do we deal with stack overflow?",1,TRUE,6,1
+About WPA2,"What is WPA2?",2,FALSE,7,2
+About 4-way handshake,"What is 4-way handshake?",1,TRUE,7,3
+About handshake,"Is there any other types of handshake?",2,FALSE,7,2
+About deadline,"What is the deadline of today's report?",1,TRUE,8,1
+About evaluation,"What is the evaluation of this part?",2,TRUE,8,2
+About report submission,"How should I submit my report?",1,TRUE,8,3
+About next online lecture,"When will we have next online lecture?",2,TRUE,9,2
+About quiz,"Do we need to submit the answer to today's quiz?",3,TRUE,9,3
+About quiz,"For today's quiz, is it just a practice as the previous week?",2,TRUE,10,2
+About report,"Where can I find the explanation of final report?",3,FALSE,10,1
+About service,"What does service mean in this lecture?",1,TRUE,11,2
+About distinction,"Why is distinction important in service?",2,TRUE,11,1
+About report,"Can I still submit my report after today's lecture?",0,TRUE,11,3
+About attendance,"Do you check attendance in this class?",1,TRUE,11,2
+About presentation,"Do you evaluate presentation during the class?",2,TRUE,11,3
+About lecture language,"Do you use Japanese during the class?",1,TRUE,12,4
+About deadline,"What is the deadline for task 1?",3,FALSE,12,3
+About programming language,"Can we use other programming language in this lecture?",2,TRUE,12,2
+About python,"I'm not very familiar with python programming. Do you provide any materials about this?",1,TRUE,12,1
+About Gestalt's rule,"Why do we use Gestalt's rule in this lecture?",2,FALSE,13,4
+About Gestalt's rule,"Is there any other rules can do the same thing as Gestalt's rule?",3,FALSE,13,3
+About report,"Do we also need to submit source codes along with the report?",3,TRUE,13,2
+About importing package,"I failed to import the package, what should I do?",1,TRUE,13,4
+About plot function,"I found this bug ... while plotting figures. Where is wrong?",0,FALSE,13,1
+About efficiency,"How do we evaluate the efficiency?",2,TRUE,14,2
+About challenge task,"How will you evaluate challenge task?",3,TRUE,14,3
+About e-learning,"What kind of e-learning platforms do we have now?",2,FALSE,15,3
+About presentation,"Should we do an individual presentation for this part?",2,TRUE,15,4
+About web service,"What kind of web service is acceptable for this group work.",2,TRUE,16,1
+About group,"How should we decide the group members?",3,TRUE,16,2
+About report,"Do we need to write a report at the end of the workshop?",1,FALSE,16,3
