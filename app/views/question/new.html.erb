@@ -43,21 +43,30 @@
         <h5 class="text-info">タイトル</h5>
         <%= q.text_field :title, id: 'title', class:"form-control mb-2", rows:"15", placeholder:"タイトルを入力してください"%>
         <div class='form-group'>
-            <div id="editor-body">
+            <div id="editor">
                 <h5 class="text-info">質問内容</h5>
-                <%= q.text_area :body, class: 'form-control', id: 'question_body', "v-model" => "input", name: "question[body]", class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください"%>
+                <%= q.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください"%>
                 <%= q.hidden_field :user_id, :value => current_user.id%>
                 <%= q.hidden_field :lesson_id , :value => params[:id]%>
                 <%= q.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
                 <!-- realtime preview js -->
                 <script type="text/javascript">
-                    window.onload = function() {
-                        new Vue({
-                            el: '#editor-body',
-                            data: {input: '<%== j @question.body %>'},
-                            filters: {marked: marked}
+                    $(function() {
+                        $("#editor textarea").each(function () {
+                            $(this).bind('keyup', replaceMarkdown(this));
                         });
-                    };
+                    
+                        function replaceMarkdown(elm) {
+                            let v, old = elm.value;
+                            return function () {
+                                if (old != (v = elm.value)) {
+                                    old = v;
+                                    str = $(this).val();
+                                    $("#marked-area").html(marked(str));
+                                }
+                            }
+                        }
+                    });
                 </script>
                 <!-- Preview -->
                 <h5 class="text-info mt-5">プレビュー</h5>
@@ -74,9 +83,7 @@
                                     <i class="fas fa-clock"></i> Post date / time
                                 </span>
                             </div>
-                            <p class="card-text">
-                                <div v-html='input | marked'></div>
-                            </p>
+                            <div id="marked-area" class="card-text"></div>
                         </div>
                     </div>
                 </div>
