@@ -122,7 +122,7 @@
 								<%= markdown(com.body) %>
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
-									<%= button_to 'Good!', com_score_path(id:com.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
+									<%= button_to 'Good!', com_score_path(id:com.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
 								</p>
 
 							</div>
