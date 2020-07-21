@@ -2,15 +2,13 @@
 <html>
   <head>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'avantui', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'avantui',
-                               'data-turbolinks-track': 'reload' %>
-    <script src="https://kit.fontawesome.com/168f849425.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'avantui', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'avantui', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'iconkit', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'vue', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'marked', 'data-turbolinks-track': 'reload' %>
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -93,6 +91,5 @@
         </div>
       </div>
     </div>
-    
   </body>
 </html>

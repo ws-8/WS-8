@@ -30,7 +30,7 @@
 			<i class="fas fa-clock"></i> <%= @question.created_at.to_s(:datetime_jp) %>
 		</h6>
 		<p class="card-text">
-			<%= @question.body %>
+			<%= markdown(@question.body) %>
 		</p>
 		<p class="text-success">
 			<i class="fas fa-hand-paper"></i> Me too! : <%= @question.metoo %>
@@ -83,7 +83,7 @@
 						<i class="fas fa-clock"></i> <%= ans.created_at.to_s(:datetime_jp) %>
 					</span>
 				</div>
-				<%= ans.body %>
+				<%= markdown(ans.body) %>
 
 				<p class="text-warning mt-2">
 					<i class="fas fa-star"></i> Score : <%= ans.score %>
@@ -119,7 +119,7 @@
 										<i class="fas fa-clock"></i> <%= com.created_at.to_s(:datetime_jp) %>
 									</span>
 								</div>
-								<%= com.body %>
+								<%= markdown(com.body) %>
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
 									<%= button_to 'Good!', com_score_path(id:com.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
@@ -155,7 +155,7 @@
 						<i class="fas fa-clock"></i> <%= ans.created_at.to_s(:datetime_jp) %>
 					</span>
 				</div>
-				<%= ans.body %>
+				<%= markdown(ans.body) %>
 
 				<p class="text-warning mt-2">
 					<i class="fas fa-star"></i> Score : <%= ans.score %>
@@ -187,7 +187,7 @@
 										<i class="fas fa-clock"></i> <%= com.created_at.to_s(:datetime_jp) %>
 									</span>
 								</div>
-								<%= com.body %>
+								<%= markdown(com.body) %>
 								<p class="text-warning mt-2">
 									<i class="fas fa-star"></i> Score : <%= com.score %>
 									<% if com.cgoods.find_by(user_id:current_user.id).present? ==false then%>
@@ -205,6 +205,6 @@
 	</div>
 <% end %>
 
-<div class="callout callout card shadow-sm m-3">
+<div class="callout callout-warning card shadow-sm m-3">
 	<%= link_to '質問リストに戻る', question_list_path(id: @lesson.id) ,type: 'button', class: 'btn btn-warning btn-block w-25 mt-4'%>
 </div>
