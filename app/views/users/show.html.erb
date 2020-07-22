@@ -2,8 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<div>
-<%= gravatar_for @user %>
+<div class="m-4">
+<%= gravatar_for @user, class: 'img-thumbnail' %>
 </div>
 
 <table class="table">
@@ -17,7 +17,6 @@
         <tr>
             <th scope="row">ニックネーム</th>
             <td> <%= @user.nickname %></td>
-          
         </tr>
         <tr>
             <th scope="row">質問投稿回数</th>
