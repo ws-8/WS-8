@@ -70,9 +70,7 @@
 			</div>
 		</div>
 		
-		<% if @questions.present? then%>
-
-		
+		<% if @questions.present? then%>		
 			<% @questions.each do |q| %>
 				<% user = User.find(q.user_id) %>
 				<% solved = q.solved %>
