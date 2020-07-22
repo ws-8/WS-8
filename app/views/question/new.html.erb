@@ -40,15 +40,15 @@
 
     <%= form_with model: @question, :url => {:action => :create}, local: true do |q| %>
     
-        <h5 class="text-info">タイトル</h5>
+        <h5 class="text-info">タイトル / Question title</h5>
         <%= q.text_field :title, id: 'title', class:"form-control mb-2", rows:"15", placeholder:"タイトルを入力してください"%>
         <div class='form-group'>
             <div id="editor">
-                <h5 class="text-info">質問内容</h5>
-                <%= q.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください"%>
+                <h5 class="text-info">質問内容 / Text</h5>
+                <%= q.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください\nmarkdown 記法が使えます"%>
                 <%= q.hidden_field :user_id, :value => current_user.id%>
                 <%= q.hidden_field :lesson_id , :value => params[:id]%>
-                <%= q.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
+                <%= q.submit "Post!", class:"btn btn-info btn-block w-25", :required => true%>
                 <!-- realtime preview js -->
                 <script type="text/javascript">
                     $(function() {
@@ -69,7 +69,7 @@
                     });
                 </script>
                 <!-- Preview -->
-                <h5 class="text-info mt-5">プレビュー</h5>
+                <h5 class="text-info mt-5">プレビュー / Preview</h5>
                 <div class="callout callout-primary card shadow-sm m-3">
                     <h3 class="text-primary">Question</h3>
                     <div class="media comment m-2">
@@ -93,5 +93,5 @@
 </div>
 
 <div class="callout callout-warning card shadow-sm m-3">
-    <%= link_to '質問せずに戻る', question_list_path(id:params[:id]), type: 'button', class: 'btn btn-warning btn-block w-25' %>
+    <%= link_to 'Back to question list', question_list_path(id:params[:id]), type: 'button', class: 'btn btn-outline-warning btn-block w-50' %>
 </div>

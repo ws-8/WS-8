@@ -46,11 +46,11 @@
 	<%= form_with model: @answer, url: create_answer_path, local: true do |a| %>
 		<div class='form-group'>
 			<div id="editor">
-				<h5 class="text-info">回答内容</h5>
-				<%= a.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"回答内容を入力してください"%>
+				<h5 class="text-info">回答内容 / Answer text</h5>
+				<%= a.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"回答内容を入力してください\nmarkdown 記法が使えます"%>
 				<%= a.hidden_field :question_id , :value => params[:id]%>
 				<%= a.hidden_field :user_id , :value => current_user.id%>
-				<%= a.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
+				<%= a.submit "Post!", class:"btn btn-info btn-block w-25", :required => true%>
 				<!-- realtime preview js -->
         <script type="text/javascript">
           $(function() {
@@ -70,7 +70,7 @@
           });
         </script>
         <!-- Preview -->
-        <h5 class="text-info mt-5">プレビュー</h5>
+        <h5 class="text-info mt-5">プレビュー / Preview</h5>
         <div class="callout callout-info card shadow-sm m-3">
           <h3 class="text-info">Answer</h3>
           <div class="media comment m-2">
@@ -94,6 +94,5 @@
 </div>
 
 <div class="callout callout-warning card shadow-sm m-3">
-	
-	<%= link_to '回答せずに戻る', question_detail_path(question_id: @question.id) ,type: 'button', class: 'btn btn-warning btn-block w-25'%>
+	<%= link_to 'Back to question', question_detail_path(question_id: @question.id) ,type: 'button', class: 'btn btn-outline-warning btn-block w-50'%>
 </div>

@@ -1,10 +1,118 @@
-<div class="card">
-    <h3 class="card-header">Welcome to WS-8's System!</h3>
-    <div class="card-body">
-		<h4 class="card-title">ようこそ</h4>
-		<p class="card-text">
-        左側の講義一覧から講義と週を選んでください。
-        質問一覧が表示されます。
-		</p>
+<div class="card m-4">
+  <h4 class="card-header bg-gradient-blue-green text-white">
+    <i class="fas fa-dragon"></i> Welcome to WS-8's System!
+  </h4>
+  <div class="card-body">
+	<h5 class="card-title">ようこそ！</h5>
+	<p class="card-text">
+    WS-8 の講義質問システムへようこそ！
+	</p>
+  </div>
+</div>
+
+<div class="card m-4">
+  <h4 class="card-header bg-gradient-blue-green text-white">
+    <i class="fas fa-info-circle"></i>  How to use
+  </h4>
+  <div class="card-body">
+    <ul class="nav nav-tabs nav-tabs-underline flex-lg-row" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab-underline" data-toggle="tab" href="#home-underline" role="tab" aria-controls="home-underline" aria-selected="true">Ask Question</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab-underline" data-toggle="tab" href="#profile-underline" role="tab" aria-controls="profile-underline" aria-selected="false">Answer Question</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab-underline" data-toggle="tab" href="#contact-underline" role="tab" aria-controls="contact-underline" aria-selected="false">Feature</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home-underline" role="tabpanel" aria-labelledby="home-tab-underline">
+        <div class="steps flex-lg-row w-100">
+          <div class="step">
+            <h5 class="mb-2">1</h5>
+            <h5 class="mb-2"><i class="fas fa-clipboard-list fa-2x"></i></h5>
+            <p>Choose Lecture</p>
+            <p>講義を選択</p>
+          </div>
+          <div class="step">
+            <h5 class="mb-2">2</h5>
+            <h5 class="mb-2"><i class="fas fa-pen-alt fa-2x"></i></h5>
+            <p>Write Question</p>
+            <p>質問を書く</p>
+          </div>
+          <div class="step">
+            <h5 class="mb-2">3</h5>
+            <h5 class="mb-2"><i class="fas fa-paper-plane fa-2x"></i></h5>
+            <p>Post!</p>
+            <p>投稿!</p>
+          </div>
+          <div class="step">
+            <h5 class="mb-2">4</h5>
+            <h5 class="mb-2"><i class="fas fa-user-check fa-2x"></i></h5>
+            <p>Push "Solved" Button!</p>
+            <p>"Solved" ボタンを押して解決!</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="profile-underline" role="tabpanel" aria-labelledby="profile-tab-underline">
+        <div class="steps flex-lg-row w-100">
+          <div class="step">
+            <h5 class="mb-2">1</h5>
+            <h5 class="mb-2"><i class="fas fa-clipboard-list fa-2x"></i></h5>
+            <p>Choose Question</p>
+            <p>質問を選択</p>
+          </div>
+          <div class="step">
+            <h5 class="mb-2">2</h5>
+            <h5 class="mb-2"><i class="fas fa-pen-alt fa-2x"></i></h5>
+            <p>Write Your Answer</p>
+            <p>回答を書く</p>
+          </div>
+          <div class="step">
+            <h5 class="mb-2">3</h5>
+            <h5 class="mb-2"><i class="fas fa-paper-plane fa-2x"></i></h5>
+            <p>Post!</p>
+            <p>回答!</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="contact-underline" role="tabpanel" aria-labelledby="contact-tab-underline">
+        <h5>
+          <i class="fas fa-dragon"></i> Nickname OK
+        </h5>
+        <p>
+          Account でニックネームを設定すれば、<span class="text-dribble">ニックネーム</span> で投稿できます。
+          本名で質問、回答、コメントしたくない人におすすめです！
+        </p>
+        <h5>
+          <i class="fas fa-hand-paper"></i> "Me too!" system
+        </h5>
+        <p>
+          同じような質問を抱いていたら <span class="text-dribble">"Me too!"</span> ボタンを押してすでに投稿された質問に共感できます！
+        </p>
+        <h5>
+          <i class="fas fa-star"></i> Score system
+        </h5>
+        <p>
+          良い質問、回答に対して <span class="text-dribble">"Good!"</span> ボタンを押して評価することができます！
+        </p>
+        <h5>
+          <i class="fas fa-graduation-cap"></i> "Authorize" system
+        </h5>
+        <p>
+          良い回答をすると、講義の担当の先生から <span class="text-dribble">Authorize</span> されて Good Answer になります！
+        </p>
+        <h5>
+          <i class="fas fa-code"></i> Markdown available
+        </h5>
+        <p>
+          質問、回答、コメントにおいて <span class="text-dribble">Markdown 記法</span> が利用可能です。
+          ソースコードの Syntax highlight も使えます。
+          <% txt = "```python\ndef hello():\n  print(\"Hello world!\")\n```" %>
+          <%= markdown(txt) %>
+        </p>
+      </div>
     </div>
+  </div>
 </div>
