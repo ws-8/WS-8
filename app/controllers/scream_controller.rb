@@ -12,7 +12,9 @@ class ScreamController < ApplicationController
     @scores=@array.pluck(:score)
     product_B_sales = [   300_000,   500_000,   750_000,
       1_150_000, 1_350_000, 1_600_000 ]
-    
+    #@questions=Question.where(lesson_id:@lesson.id).where(page:params[:p])
+
+
     # グラフ（チャート）を作成 
     @chart = LazyHighCharts::HighChart.new("graph") do |c|
       c.title(text: @course.course_name+' '+@lesson.title)
@@ -22,11 +24,12 @@ class ScreamController < ApplicationController
       c.series(name: "A", data: @scores,color:'red')
       #c.series(name: "B", data: product_B_sales)
       # 判例を右側に配置
-     c.legend(align: 'right', verticalAlign: 'top', 
+     c.legend(align: 'bottom', verticalAlign: 'top', 
        x: -100, y: 180, layout: 'vertical')
      # グラフの種類を「折れ線グラフ」から「棒グラフ」に変更
      c.chart(type: "column")
     end
+    #binding.pry
   end
 
   def button
@@ -44,6 +47,13 @@ class ScreamController < ApplicationController
       @scream.save
     end
     flash[:notice] ='Posted Successfully!'
+    redirect_back(fallback_location: root_path)
+  end
+
+  def question
+    @lesson=Lesson.find(params[:id])
+    @questions=Question.where(lesson_id:@lesson.id).where(page:params[:p])
+    #binding.pry
     redirect_back(fallback_location: root_path)
   end
 end

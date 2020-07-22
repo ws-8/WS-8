@@ -152,7 +152,6 @@ ActiveRecord::Schema.define(version: 20200722141531) do
     t.integer "usertag", limit: 1
     t.string "email", limit: 256
     t.string "nickname"
-    t.string "image_name"
   end
 
 end
