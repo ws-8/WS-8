@@ -38,11 +38,7 @@
     
         <div class="form-group">
             <h5 class="text-info">質問ページ</h5>
-            <select class="custom-select" id="exampleFormControlSelect1">
-                <% @pages.each do |p| %>
-                    <option><%= p %></option>
-                <%end%>
-             </select>
+            <%= q.select :page, @pages, {}, {class: "custom-select", id: "exampleFormControlSelect1"}%>
         </div>
    
 
