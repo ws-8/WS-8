@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200718082111) do
+ActiveRecord::Schema.define(version: 20200722141531) do
 
   create_table "agoods", force: :cascade do |t|
     t.integer "answer_id"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20200718082111) do
     t.integer "lesson_id"
     t.integer "user_id"
     t.integer "rided_score_sum", default: 0, null: false
+    t.integer "page"
     t.index ["lesson_id"], name: "index_questions_on_lesson_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
@@ -151,6 +152,7 @@ ActiveRecord::Schema.define(version: 20200718082111) do
     t.integer "usertag", limit: 1
     t.string "email", limit: 256
     t.string "nickname"
+    t.string "image_name"
   end
 
 end

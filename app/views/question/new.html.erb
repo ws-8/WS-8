@@ -35,6 +35,16 @@
     <% end %>
 
     <%= form_with model: @question, :url => {:action => :create}, local: true do |q| %>
+    
+        <div class="form-group">
+            <h5 class="text-info">質問ページ</h5>
+            <select class="custom-select" id="exampleFormControlSelect1">
+                <% @pages.each do |p| %>
+                    <option><%= p %></option>
+                <%end%>
+             </select>
+        </div>
+   
 
     <h5 class="text-info">タイトル</h5>
     <%= q.text_field :title, class:"form-control mb-2", rows:"15", placeholder:"タイトルを入力してください"%>
