@@ -22,7 +22,10 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <%= link_to "WS-8 System", ws8_system_path, id: "logo", class: "navbar-brand"%>
+      <div class="navbar-brand">
+        <i class="fas fa-dragon"></i>
+        <%= link_to "WS-8 System", ws8_system_path, id: "logo", class: "navbar-brand" %>
+      </div>
       <div class="collapse navbar-collapse">
         <% if logged_in? then %>
           <ul class="navbar-nav">
