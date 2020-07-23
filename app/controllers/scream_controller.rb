@@ -15,8 +15,7 @@ class ScreamController < ApplicationController
     product_B_sales = [300_000, 500_000, 750_000,
                        1_150_000, 1_350_000, 1_600_000]
 
-    # @questions = Question.where(page: params[:p])
-    # binding.pry
+
     # グラフ（チャート）を作成
     @chart = LazyHighCharts::HighChart.new('graph') do |c|
       c.title(text: @course.course_name + ' ' + @lesson.title)
@@ -31,7 +30,7 @@ class ScreamController < ApplicationController
       # グラフの種類を「折れ線グラフ」から「棒グラフ」に変更
       c.chart(type: 'column')
     end
-    # binding.pry
+    
   end
 
   def button
@@ -77,7 +76,7 @@ class ScreamController < ApplicationController
       # グラフの種類を「折れ線グラフ」から「棒グラフ」に変更
       c.chart(type: 'column')
     end
-    # binding.pry
-    # redirect_back(fallback_location: root_path)
+    
+   
   end
 end
