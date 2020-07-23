@@ -34,5 +34,7 @@ end
 
 CSV.foreach('db/comment.csv') do |row|
   Comment.create(:body => row[0],:score => row[1], :answer_id => row[2],:user_id => row[3])
-
+end
+CSV.foreach('db/bar.csv') do |row|
+  Bar.create(:page => row[0],:score => row[1], :lesson_id => row[2])
 end

@@ -7,6 +7,9 @@ class QuestionController < ApplicationController
     @lesson = Lesson.find(params[:id])
     @course = Course.find(@lesson.course_id)
     @question = Question.new
+    @array = Bar.where(lesson_id: params[:id])
+    @pages = @array.pluck(:page)
+    # binding.pry
   end
 
   def create
@@ -31,6 +34,6 @@ class QuestionController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body, :user_id, :lesson_id)
+    params.require(:question).permit(:title, :body, :user_id, :lesson_id, :page)
   end
 end

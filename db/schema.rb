@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200715160831) do
+ActiveRecord::Schema.define(version: 20200722141531) do
 
   create_table "agoods", force: :cascade do |t|
     t.integer "answer_id"
@@ -29,8 +29,28 @@ ActiveRecord::Schema.define(version: 20200715160831) do
     t.boolean "authorized", default: false, null: false
     t.integer "question_id"
     t.integer "user_id"
+    t.integer "calm_score_sum", default: 0, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "bars", force: :cascade do |t|
+    t.integer "page", null: false
+    t.integer "score", null: false
+    t.integer "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_bars_on_lesson_id"
+  end
+
+  create_table "calms", force: :cascade do |t|
+    t.integer "calm_score"
+    t.integer "scream_id"
+    t.integer "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_calms_on_answer_id"
+    t.index ["scream_id"], name: "index_calms_on_scream_id"
   end
 
   create_table "cgoods", force: :cascade do |t|
@@ -89,6 +109,8 @@ ActiveRecord::Schema.define(version: 20200715160831) do
     t.boolean "solved", default: false, null: false
     t.integer "lesson_id"
     t.integer "user_id"
+    t.integer "rided_score_sum", default: 0, null: false
+    t.integer "page"
     t.index ["lesson_id"], name: "index_questions_on_lesson_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
@@ -100,6 +122,26 @@ ActiveRecord::Schema.define(version: 20200715160831) do
     t.integer "user_id"
     t.index ["course_id"], name: "index_registrations_on_course_id"
     t.index ["user_id"], name: "index_registrations_on_user_id"
+  end
+
+  create_table "scream_abouts", force: :cascade do |t|
+    t.integer "rided_score", default: 0
+    t.integer "scream_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_scream_abouts_on_question_id"
+    t.index ["scream_id"], name: "index_scream_abouts_on_scream_id"
+  end
+
+  create_table "screams", force: :cascade do |t|
+    t.integer "score", default: 0
+    t.integer "user_id"
+    t.integer "bar_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_screams_on_bar_id"
+    t.index ["user_id"], name: "index_screams_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

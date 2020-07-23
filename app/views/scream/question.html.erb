@@ -1,0 +1,136 @@
+<% if flash[:notice] then %>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+    	<span class="alert-icon"><i class="fas fa-check"></i></span>
+    	<span class="alert-text"><%= flash[:notice] %></span>
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        	<span aria-hidden="true">&#10005;</span>
+    	</button>
+	</div>
+<% end %>
+
+<%= high_chart("my_chart", @chart) %>
+<% lid=@lesson.id %>
+
+<ul class="nav nav-pills flex-md-row mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Scream</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">関連質問</a>
+    </li>
+
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+		<% cols = 5 %>
+		<% rows = @max / cols %>
+		<% res = @max % cols %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col" colspan="15" class="text-center">Scream Button</th>
+					</tr>
+				</thead>
+				<p>わからないページがあったら，そのページ番号のボタンを押してください！わからない気持ちを叫びましょう</p>
+				<tbody>
+					<% for i in 1..rows do %>
+						<tr>
+							<% for j in 1..cols do %>
+								<td>
+									<% num = cols * (i - 1) + j%>
+									<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block m-0' %>
+								</td>
+							<% end %>
+						</tr>
+					<% end %>
+					<tr>
+						<% for i in 1..res do %>
+							<td>
+								<% num = cols * rows + i %>
+									<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block m-0' %>
+							</td>
+						<% end %>
+						<td colspan=<%=cols-res=%>></td>
+					</tr>
+				</tbody>
+			</table>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+		<p>ページに関する質問を表示します</p>
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				ページを選択
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						
+				<% @pages.each do |p| %>
+					<%= link_to p, scream_question_path(id:lid,p:p), class: "dropdown-item" %>
+					
+				<% end %>
+			</div>
+		</div>
+		
+		<% if @questions.present? then%>		
+			<% @questions.each do |q| %>
+				<% user = User.find(q.user_id) %>
+				<% solved = q.solved %>
+				<% body = q.body %>
+				<% upper_body_length = 100 %>
+				<% if body.length > upper_body_length then %>
+					<% body = body[0, upper_body_length] + ' ......' %>
+				<% end %>
+				<% if solved then %>
+					<div class="callout callout-success card shadow-sm m-3">
+						<div class="card-body">
+							<h4 class="card-title mb-4 text-success">
+								<%= q.title %>
+								<span class="badge badge-success">解決済</span>
+							</h4>
+							<h6 class="card-subtitle mb-2 text-muted">
+								<i class="fas fa-user"></i>
+								<%= if (user.nickname).blank? then user.name else user.nickname end %>
+							</h6>
+							<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
+							<p class="card-text">
+								<i class="fas fa-question-circle"></i>
+								<%= body %>
+							</p>
+							<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
+						</div>
+					</div>
+				<% else %>
+					<div class="callout callout-warning card shadow-sm m-3">
+						<div class="card-body">
+							<h4 class="card-title mb-4 text-warning">
+								<%= q.title %>
+								<span class="badge badge-warning">回答受付中</span>
+							</h4>
+							<h6 class="card-subtitle mb-2 text-muted">
+								<i class="fas fa-user"></i>
+								<%= if (user.nickname).blank? then user.name else user.nickname end %>
+							</h6>
+							<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
+							<p class="card-text">
+								<i class="fas fa-question-circle"></i>
+								<%= body %>
+							</p>
+							<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+			</div>
+		<%else%>
+		<div class="card">
+			<div class="card-body">
+				このページにはまだ質問が来ていません．
+			</div>
+		</div>
+
+		<%end%>
+
+
+
+    </div>
+
+</div>
