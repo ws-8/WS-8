@@ -14,7 +14,7 @@
 			<%= @question.created_at.to_s(:datetime_jp)%>
 		</h6>
 		<p class="card-text">
-			<%= @question.body %>
+			<%= markdown(@question.body) %>
 		</p>
 	</div>
 </div>
@@ -44,15 +44,55 @@
 	<% end %>
 
 	<%= form_with model: @answer, url: create_answer_path, local: true do |a| %>
-	<h5 class="text-info">回答内容</h5>
-	<%= a.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"回答内容を入力してください"%>
-	<%= a.hidden_field :question_id , :value => params[:id]%>
-	<%= a.hidden_field :user_id , :value => current_user.id%>
-	<%= a.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
+		<div class='form-group'>
+			<div id="editor">
+				<h5 class="text-info">回答内容 / Answer text</h5>
+				<%= a.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"回答内容を入力してください\nmarkdown 記法が使えます"%>
+				<%= a.hidden_field :question_id , :value => params[:id]%>
+				<%= a.hidden_field :user_id , :value => current_user.id%>
+				<%= a.submit "Post!", class:"btn btn-info btn-block w-25", :required => true%>
+				<!-- realtime preview js -->
+        <script type="text/javascript">
+          $(function() {
+            $("#editor textarea").each(function () {
+              $(this).bind('keyup', replaceMarkdown(this));
+            });
+						function replaceMarkdown(elm) {
+              let v, old = elm.value;
+              return function () {
+                if (old != (v = elm.value)) {
+                  old = v;
+                  str = $(this).val();
+                  $("#marked-area").html(marked(str));
+                }
+              }
+            }
+          });
+        </script>
+        <!-- Preview -->
+        <h5 class="text-info mt-5">プレビュー / Preview</h5>
+        <div class="callout callout-info card shadow-sm m-3">
+          <h3 class="text-info">Answer</h3>
+          <div class="media comment m-2">
+            <div class="media-body mb-1">
+              <div class="media-body-header">
+                <h6 class="comment-author">
+                <i class="fas fa-user"></i>
+                Your name / Your nickname
+                </h6>
+                <span class="comment-date text-muted">
+                  <i class="fas fa-clock"></i> Post date / time
+                </span>
+              </div>
+              <div id="marked-area" class="card-text"></div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
 	<% end %>
 </div>
 
 <div class="callout callout-warning card shadow-sm m-3">
-	
-	<%= link_to '回答せずに戻る', question_detail_path(question_id: @question.id) ,type: 'button', class: 'btn btn-warning btn-block w-25'%>
+	<%= link_to 'Back to question', question_detail_path(question_id: @question.id) ,type: 'button', class: 'btn btn-outline-warning btn-block w-50'%>
 </div>

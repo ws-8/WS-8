@@ -2,21 +2,24 @@
 
 <% if flash[:notice] then %>
 	<div class="alert alert-success alert-dismissible fade show" role="alert">
-    	<span class="alert-icon"><i class="fas fa-check"></i></span>
-    	<span class="alert-text"><%= flash[:notice] %></span>
-    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        	<span aria-hidden="true">&#10005;</span>
-    	</button>
+    <span class="alert-icon"><i class="fas fa-check"></i></span>
+		<span class="alert-text"><%= flash[:notice] %></span>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&#10005;</span>
+		</button>
 	</div>
 <% end %>
 
 <h2 class="text-lg-center">
-	<%= @course.course_name %> <%= @lesson.title%>
+	<%= @course.course_name %> <%= @lesson.title %>
 </h2>
 
 <% @teacher=User.find(@lesson.user_id) %>
 
-<h4 class="text-lg-center"> 担当：<%= @teacher.name %></h4>
+<h4 class="text-lg-center">
+	<i class="fas fa-graduation-cap"></i>
+	担当：<%= @teacher.name %>
+</h4>
 
 <div class="alert alert-info alert-dismissible fade show m-3" role="alert">
     <span class="alert-icon">
@@ -27,7 +30,7 @@
 	</span>
 </div>
 
-<%= link_to '新しく質問する！', "/question/post_question/#{params[:id]}/new", type: 'button', class: 'btn btn-primary btn-block mx-auto',style:"width: 200px;" %>
+<%= link_to '新しく質問する！ / Post new question!', "/question/post_question/#{params[:id]}/new", type: 'button', class: 'btn btn-primary btn-block mx-auto w-50' %>
 <%= link_to 'Check screams', scream_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto',style:"width: 200px;" %>
 
 <div class="m-3 center-block" role="alert">
@@ -36,11 +39,17 @@
 
 <% @questions.each do |q| %>
 	<% user = User.find(q.user_id) %>
+	<% ans_table = Answer.where(question_id: q.id) %>
+	<% ans_count = ans_table.count %>
+	<% ans_authorized = ans_table.where(authorized: true).count %>
 	<% solved = q.solved %>
+	<% metoo = q.metoo %>
 	<% body = q.body %>
 	<% if body.length > upper_body_length then %>
 		<% body = body[0, upper_body_length] + ' ......' %>
 	<% end %>
+
+	<% # when question is solved %>
 	<% if solved then %>
 		<div class="callout callout-success card shadow-sm m-3">
 			<div class="card-body">
@@ -53,13 +62,22 @@
 					<%= if (user.nickname).blank? then user.name else user.nickname end %>
 				</h6>
 				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
+				<h6 class="card-subtitle mb-2 text-muted">
+					<i class="fas fa-comment-dots"></i>
+					Answer : <%= ans_count %>
+					<span class="text-dribble">(<i class="fas fa-graduation-cap"></i> Authorized : <%= ans_authorized %>)</span>
+				</h6>
+				<h6 class="card-subtitle mb-2 text-muted">
+					<i class="fas fa-hand-paper"></i> Me too! : <%= metoo %>
+				</h6>
 				<p class="card-text">
-					<i class="fas fa-question-circle"></i>
-					<%= body %>
+					<%= markdown(body) %>
 				</p>
-				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
+				<%= link_to '詳しく見る / Detail', question_detail_path(question_id: q.id), class: "card-link" %>
 			</div>
 		</div>
+	
+	<% # when question is unsolved %>
 	<% else %>
 		<div class="callout callout-warning card shadow-sm m-3">
 			<div class="card-body">
@@ -72,13 +90,26 @@
 					<%= if (user.nickname).blank? then user.name else user.nickname end %>
 				</h6>
 				<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-clock"></i> <%= q.created_at.to_s(:datetime_jp) %></h6>
+				<h6 class="card-subtitle mb-2 text-muted">
+					<i class="fas fa-comment-dots"></i>
+					Answer : <%= ans_count %>
+					<span class="text-dribble">(<i class="fas fa-graduation-cap"></i> Authorized : <%= ans_authorized %>)</span>
+				</h6>
+				<h6 class="card-subtitle mb-2 text-muted">
+					<i class="fas fa-hand-paper"></i> Me too! : <%= metoo %>
+				</h6>
 				<p class="card-text">
-					<i class="fas fa-question-circle"></i>
-					<%= body %>
+					<%= markdown(body) %>
 				</p>
-				<%= link_to '詳しく見る', question_detail_path(question_id: q.id), class: "card-link" %>
+				<%= link_to '詳しく見る / Detail', question_detail_path(question_id: q.id), class: "card-link" %>
 			</div>
 		</div>
 	<% end %>
+
 <% end %>
+
+<div class="m-3 center-block" role="alert">
+	<%= paginate @questions %>
+</div>
+
 </div>

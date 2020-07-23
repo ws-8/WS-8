@@ -1,6 +1,6 @@
 
 <h2 class="text-lg-center">
-	<%= @course.course_name %> <%= @lesson.title%>
+	<%= @course.course_name %> <%= @lesson.title %>
 </h2>
 
 <% @teacher=User.find(@lesson.user_id) %>
@@ -15,6 +15,10 @@
 		新規質問投稿を行います。タイトルと本文を入力してください。
 	</span>
 </div>
+
+<% if params[:preview_button] %>
+    <%= textilize @question.body %>
+<% end %>
 
 <div class="callout callout-info card shadow-sm m-3">
     
@@ -40,19 +44,59 @@
             <h5 class="text-info">質問ページ</h5>
             <%= q.select :page, @pages, {}, {class: "custom-select", id: "exampleFormControlSelect1"}%>
         </div>
-   
 
-    <h5 class="text-info">タイトル</h5>
-    <%= q.text_field :title, class:"form-control mb-2", rows:"15", placeholder:"タイトルを入力してください"%>
-    <h5 class="text-info">質問内容</h5>
-    <%= q.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください"%>
-    <%= q.hidden_field :user_id, :value => current_user.id%>
-    <%= q.hidden_field :lesson_id , :value => params[:id]%>
-    <%= q.submit "投稿する", class:"btn btn-info btn-block w-25", :required => true%>
+        <h5 class="text-info">タイトル / Question title</h5>
+        <%= q.text_field :title, id: 'title', class:"form-control mb-2", rows:"15", placeholder:"タイトルを入力してください"%>
+        <div class='form-group'>
+            <div id="editor">
+                <h5 class="text-info">質問内容 / Text</h5>
+                <%= q.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください\nmarkdown 記法が使えます"%>
+                <%= q.hidden_field :user_id, :value => current_user.id%>
+                <%= q.hidden_field :lesson_id , :value => params[:id]%>
+                <%= q.submit "Post!", class:"btn btn-info btn-block w-25", :required => true%>
+                <!-- realtime preview js -->
+                <script type="text/javascript">
+                    $(function() {
+                        $("#editor textarea").each(function () {
+                            $(this).bind('keyup', replaceMarkdown(this));
+                        });
+                    
+                        function replaceMarkdown(elm) {
+                            let v, old = elm.value;
+                            return function () {
+                                if (old != (v = elm.value)) {
+                                    old = v;
+                                    str = $(this).val();
+                                    $("#marked-area").html(marked(str));
+                                }
+                            }
+                        }
+                    });
+                </script>
+                <!-- Preview -->
+                <h5 class="text-info mt-5">プレビュー / Preview</h5>
+                <div class="callout callout-primary card shadow-sm m-3">
+                    <h3 class="text-primary">Question</h3>
+                    <div class="media comment m-2">
+                        <div class="media-body mb-1">
+                            <div class="media-body-header">
+                                <h6 class="comment-author">
+                                    <i class="fas fa-user"></i>
+                                    Your name / Your nickname
+                                </h6>
+                                <span class="comment-date text-muted">
+                                    <i class="fas fa-clock"></i> Post date / time
+                                </span>
+                            </div>
+                            <div id="marked-area" class="card-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <% end %>
-
 </div>
 
 <div class="callout callout-warning card shadow-sm m-3">
-    <%= link_to '質問せずに戻る', question_list_path(id:params[:id]), type: 'button', class: 'btn btn-warning btn-block w-25' %>
+    <%= link_to 'Back to question list', question_list_path(id:params[:id]), type: 'button', class: 'btn btn-outline-warning btn-block w-50' %>
 </div>

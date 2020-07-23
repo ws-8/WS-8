@@ -15,7 +15,9 @@ class QuestionController < ApplicationController
   def create
     @question = Question.new(question_params)
     # binding.pry
-    if @question.save
+    if params[:submit] == 'preview'
+      render :action => 'new'
+    elsif @question.save
       redirect_to question_list_path, notice: 'Posted Successfully!'
     else
       flash[:alert] = @question.errors
