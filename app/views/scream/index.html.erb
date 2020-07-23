@@ -1,0 +1,77 @@
+<% if flash[:notice] then %>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+    	<span class="alert-icon"><i class="fas fa-check"></i></span>
+    	<span class="alert-text"><%= flash[:notice] %></span>
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        	<span aria-hidden="true">&#10005;</span>
+    	</button>
+	</div>
+<% end %>
+
+<%= high_chart("my_chart", @chart) %>
+<% lid=@lesson.id %>
+
+<ul class="nav nav-pills flex-md-row mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Scream</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">関連質問</a>
+    </li>
+
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+		<% cols = 5 %>
+		<% rows = @max / cols %>
+		<% res = @max % cols %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col" colspan="15" class="text-center">Scream Button</th>
+					</tr>
+				</thead>
+				<p>わからないページがあったら，そのページ番号のボタンを押してください！わからない気持ちを叫びましょう</p>
+				<tbody>
+					<% for i in 1..rows do %>
+						<tr>
+							<% for j in 1..cols do %>
+								<td>
+									<% num = cols * (i - 1) + j%>
+									<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block m-0' %>
+								</td>
+							<% end %>
+						</tr>
+					<% end %>
+					<tr>
+						<% for i in 1..res do %>
+							<td>
+								<% num = cols * rows + i %>
+									<%= button_to num, scream_button_path(id:lid,number: num), type: 'button', class: 'btn btn-danger btn-block m-0' %>
+							</td>
+						<% end %>
+						<td colspan=<%=cols-res=%>></td>
+					</tr>
+				</tbody>
+			</table>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+		<p>ページに関する質問を表示します</p>
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				ページを選択
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						
+				<% @pages.each do |p| %>
+					<%= link_to p, scream_question_path(id:lid,p:p), class: "dropdown-item" %>
+					
+				<% end %>
+			</div>
+		</div>
+
+
+
+    </div>
+
+</div>

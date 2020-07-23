@@ -46,7 +46,8 @@
 			</p>	
 		<%end%>
 
-		
+
+
 		<% if current_user.id==@user.id then%>
 			<% if @question.solved==false then%>
 				<p class="text-danger">
@@ -91,7 +92,7 @@
 						<%= button_to 'Good!', ans_score_path(id:ans.id,user_id:current_user.id),type: 'button', class: 'btn btn-warning btn-block w-25 mt-4' %>
 					<%end%>
 				</p>
-
+				
 				<p class="text-danger">
 					<i class="fas fa-check-circle fa-lg"></i> Authorized by <%=@teacher.name%>
 				</p>
@@ -167,6 +168,7 @@
 				<% if current_user.id==@lesson.user_id then%>
 					<%= button_to 'Authorize', answer_authorized_path(id:ans.id),type:'button',class:'btn btn-danger btn-block w-25 mt-4'%>
 				<%end%>
+
 				<%= link_to 'Comment', new_comment_path(id: ans.id) ,type: 'button', class: 'btn btn-info btn-block w-25 mt-4'%>
 
 				<% # comments %>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'scream/index'
+
   get 'comment/new'
 
   get 'answer/index'
@@ -17,6 +19,10 @@ Rails.application.routes.draw do
   get '/question_detail', to: 'question_detail#index'
   get '/question/post_question/:id/new', to: 'question#new'
   post '/question/post_question/:id', to: 'question#create'
+  
+  get '/scream/index/:id', to: 'scream#index', as: :scream
+  post '/scream/button/:id', to: 'scream#button', as: :scream_button
+  get '/scream/question/:id/:p', to: 'scream#question', as: :scream_question
 
   post '/question_detail/authorized/:id', to:'question_detail#authorized', as: :answer_authorized
   post '/question_detail/unauthorized/:id', to:'question_detail#unauthorized', as: :answer_unauthorized
