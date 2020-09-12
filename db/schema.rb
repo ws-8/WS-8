@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200722141531) do
+ActiveRecord::Schema.define(version: 20200912090431) do
 
   create_table "agoods", force: :cascade do |t|
     t.integer "answer_id"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 20200722141531) do
     t.integer "answer_id"
     t.index ["answer_id"], name: "index_comments_on_answer_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "course_files", force: :cascade do |t|
+    t.string "title"
+    t.string "filename"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "courses", force: :cascade do |t|

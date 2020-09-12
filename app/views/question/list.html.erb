@@ -32,6 +32,7 @@
 
 <%= link_to '新しく質問する！ / Post new question!', "/question/post_question/#{params[:id]}/new", type: 'button', class: 'btn btn-primary btn-block mx-auto w-50' %>
 <%= link_to 'Check screams', scream_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto',style:"width: 200px;" %>
+<%= link_to 'course_files', "/course_files/#{params[:id]}/new", type: 'button', class: 'btn btn-danger btn-block mx-auto',style:"width: 200px;" %>
 
 <div class="m-3 center-block" role="alert">
 	<%= paginate @questions %>
