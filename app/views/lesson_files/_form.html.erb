@@ -1,0 +1,33 @@
+<%= form_with(model: lesson_file, local: true) do |form| %>
+  <% if lesson_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lesson_file.errors.count, "error") %> prohibited this lesson_file from being saved:</h2>
+      <ul>
+        <% lesson_file.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :course_id %>
+    <%= form.hidden_field :course_id, value: params[:id] %>
+  </div>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :course_file_title %>
+  </div>
+  <div class="form-group">
+    <%= form.label :file, :class => 'control-label' %>
+    <div class="controls">
+      <%= form.file_field :file %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :comment %>
+    <%= form.text_field :comment, id: :course_file_comment %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  
   get 'scream/index'
 
   get 'comment/new'
@@ -50,6 +51,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :articles
   resources :users
-
+  resources :lesson_files
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
