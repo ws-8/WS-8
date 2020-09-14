@@ -26,21 +26,21 @@ class LessonFilesController < ApplicationController
   # POST /lesson_files
   # POST /lesson_files.json
   def create
-    @myfile = Myfile.new(myfile_params)
+    @lessonfile = LessonFile.new(lesson_file_params)
 
-    file = myfile_params[:file]
+    file = lesson_file_params[:file]
     file_name = file.original_filename
-    @myfile.filename = file.original_filename
+    @lessonfile.filename = file.original_filename
     result = uploadpdf(file, file_name)
 
     respond_to do |format|
-      if result == 'success' && @myfile.save
-        format.html { redirect_to @myfile, notice: 'Myfile was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @myfile }
+      if result == 'success' && @lessonfile.save
+        format.html { redirect_to @lessonfile, notice: 'Myfile was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @lessonfile }
       else
         deletepdf(file_name)
         format.html { render action: 'new' }
-        format.json { render json: @myfile.errors, status: :unprocessable_entity }
+        format.json { render json: @lessonfile.errors, status: :unprocessable_entity }
       end
     end
   end
