@@ -15,6 +15,8 @@ class LessonFilesController < ApplicationController
   # GET /lesson_files/1.json
   def show
     @lesson_files = LessonFile.where(lesson_id: params[:id])
+    @lesson = Lesson.find(params[:id])
+    @course = Course.find(@lesson.course_id)
     # binding.pry
   end
 
