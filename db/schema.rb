@@ -93,8 +93,11 @@ ActiveRecord::Schema.define(version: 20200914082918) do
     t.string "title"
     t.string "filename"
     t.string "comment"
+    t.integer "lesson_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lesson_id", "created_at"], name: "index_lesson_files_on_lesson_id_and_created_at"
+    t.index ["lesson_id"], name: "index_lesson_files_on_lesson_id"
   end
 
   create_table "lessons", force: :cascade do |t|

@@ -3,7 +3,7 @@
 require 'Kconv'
 
 class LessonFilesController < ApplicationController
-  before_action :set_lesson_file, only: %i[show edit update destroy]
+  before_action :set_lesson_file, only: %i[edit update destroy]
 
   # GET /lesson_files
   # GET /lesson_files.json
@@ -13,11 +13,15 @@ class LessonFilesController < ApplicationController
 
   # GET /lesson_files/1
   # GET /lesson_files/1.json
-  def show; end
+  def show
+    @lesson_files = LessonFile.where(lesson_id: params[:id])
+    # binding.pry
+  end
 
   # GET /lesson_files/new
   def new
-    @lesson_file = LessonFile.new
+    @lesson = Lesson.find(params[:id])
+    @lesson_file = @lesson.lesson_files.build
   end
 
   # GET /lesson_files/1/edit
@@ -26,21 +30,22 @@ class LessonFilesController < ApplicationController
   # POST /lesson_files
   # POST /lesson_files.json
   def create
-    @lessonfile = LessonFile.new(lesson_file_params)
+    @lesson_file = LessonFile.new(lesson_file_params)
 
     file = lesson_file_params[:file]
     file_name = file.original_filename
-    @lessonfile.filename = file.original_filename
+    @lesson_file.filename = file.original_filename
     result = uploadpdf(file, file_name)
+    # binding.pry
 
     respond_to do |format|
-      if result == 'success' && @lessonfile.save
-        format.html { redirect_to @lessonfile, notice: 'Myfile was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @lessonfile }
+      if result == 'success' && @lesson_file.save
+        format.html { redirect_to @lesson_file, notice: 'Myfile was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @lesson_file }
       else
         deletepdf(file_name)
         format.html { render action: 'new' }
-        format.json { render json: @lessonfile.errors, status: :unprocessable_entity }
+        format.json { render json: @lesson_file.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -85,7 +90,7 @@ class LessonFilesController < ApplicationController
     result
   end
 
-  def deleteipdf(file_name)
+  def deletepdf(file_name)
     File.unlink 'public/' + file_name.toutf8
   end
 
@@ -96,6 +101,6 @@ class LessonFilesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lesson_file_params
-    params.require(:lesson_file).permit(:title, :file, :comment)
+    params.require(:lesson_file).permit(:title, :file, :comment, :lesson_id)
   end
 end

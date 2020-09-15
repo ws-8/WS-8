@@ -1,16 +1,28 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Title:</strong>
-  <%= @lesson_file.title %>
-</p>
-<p>
-  <strong>Filename:</strong>
-  <%= @lesson_file.filename %>
-</p>
-<p>
-  <strong>Comment:</strong>
-  <%= @lesson_file.comment %>
-</p>
-<%= link_to 'Edit', edit_lesson_file_path(@lesson_file) %> |
-<%= link_to 'Back', lesson_files_path %>
+<% @lesson_files.each do |l| %>
+  <p>
+    <strong>Title:</strong>
+    <%= l.title %>
+  </p>
+  <p>
+    <strong>Filename:</strong>
+    <%= l.filename %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= l.comment %>
+  </p>
+  <p>
+  <%pdf = "/"+ l.filename %>
+  <%= link_to "pdf", "/" + l.filename %>
+  </p>
+  <br>
+<% end %>
+
+<%= link_to 'Back', question_list_path %>
+
+<%# iframeで埋め込む方法も使えなくはない、どっちがいいか要相談。ただし、呼び出しが少し難しい%>
+
+<%#
 <iframe src="/9-1.pdf" width="1000" height="600" ></iframe>
+%>
