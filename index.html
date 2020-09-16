@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>オンライン授業のための質問回答プラットフォーム</title>
@@ -8,75 +9,72 @@
   <meta name="description" content="Avant UI - App demo">
   <meta name="author" content="marcoarib">
   <!-- Bootstrap , Avant UI and Google Font -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./avantui.css"> </head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./avantui.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+
 <body class="position-relative" data-spy="scroll" data-target="#navbar-wrapper" data-offset="30">
   <div id="navbar-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
-      <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
-               <span class="text-danger">
-                 <i class="fas fa-angle-left fa-2x"></i>
-               </span>
-                        <span>&nbsp;APP&nbsp;</span>
-                        <span class="text-danger">
-                            <i class="fas fa-angle-right fa-2x"></i>
-                        </span>
-                    </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <span class="text-primary">
+            <i class="fas fa-dragon"></i>
+          </span>
+          <span>&nbsp; Online Q&A System &nbsp;</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight"
+          aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarLight">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"> <a class="nav-link" href="#home">Overview <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item active"> <a class="nav-link" href="#home">Overview <span
+                  class="sr-only">(current)</span></a> </li>
             <li class="nav-item"> <a class="nav-link" href="#features">Features</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#reviews">Reviews</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#faqs">FAQ's</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#download">Download</a> </li>
-          </ul>
-          <ul class="nav mb-3 mb-lg-0 ml-lg-3">
-            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                                    <span class="text-facebook">
-                                        <i class="fab fa-facebook-square fa-lg"></i>
-                                    </span>
-                                </a> </li>
-            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                                    <span class="text-twitter">
-                                        <i class="fab fa-twitter-square fa-lg"></i>
-                                    </span>
-                                </a> </li>
-            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                                    <span class="text-dribble">
-                                        <i class="fab fa-dribbble-square fa-lg"></i>
-                                    </span>
-                                </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#activity">Activity</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#repository">Repository</a> </li>
           </ul>
         </div>
       </div>
     </nav>
   </div>
-  <header id="home" class="d-flex align-items-center bg-danger text-white text-center text-lg-left">
+  <header id="home" class="d-flex align-items-center bg-primary text-white text-center text-lg-left">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 mb-5 mb-lg-0">
-          <h1 class="display-2">App</h1>
-          <p class="lead mb-4"> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commdo. </p> <a class="btn btn-outline-light btn-lg rounded-pill" href="#" role="button">View more</a> </div>
-        <div class="col-lg-6">
-          <div class="mobile-device mx-auto">
-            <div class="mobile-header"> <span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span> </div>
-            <div class="mobile-device-body border-top-0 border-bottom-0"> <img src="../docs/assets/img/app-screen-01.jpg" class="img-fluid border" alt="Responsive image"> </div>
-            <div class="mobile-device-footer"> <span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span> </div>
-          </div>
+          <h1 class="display-2 mb-5">Share Question!</h1>
+          <h3 class="lead mb-2">
+            オンライン講義を、もっとインタラクティブにたのしく。
+          </h3>
+          <h3 class="mb-5">
+            「わからない！」を気軽にシェアしよう。
+          </h3>
         </div>
       </div>
     </div>
   </header>
+
   <div class="main">
     <section class="call-to-action section bg-light text-center text-lg-left py-5">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <p class="lead m-0"> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commdo orci augue ut justo vel. </p>
+          <div class="col-lg-12 mb-4 mb-lg-0">
+            <h1>オンライン講義のためのプラットフォーム</h1>
+            <p class="mt-3">
+              オフラインで講義が開講されていた時は、講義前、講義後、オフィスアワーなどに先生に質問をすることや、
+              学生間での疑問の共有などが行えていましたが、そのような機会も失われています。
+              会議ツールなどを利用したオンライン講義では、コメント等を書き込む機能はあるものの、履修者全員の前で質問を晒すことに抵抗感があったり、
+              先生と一対一、あるいは友人どうしでまずは質問を共有したいなどの要求もあります。
+            </p>
+            <p class="mt-2">
+              本システムでは、学生側が質問やアクションをするハードルを下げることによって、オンライン講義でも教員とインタラクティブにやり取りしやすい仕組みを提供しています。
+            </p>
           </div>
-          <div class="col-lg-6 text-lg-right"> <a class="btn btn-danger btn-lg rounded-pill" href="#" role="button">Download</a> </div>
         </div>
       </div>
     </section>
@@ -85,97 +83,123 @@
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0">
             <div class="mobile-device mx-auto">
-              <div class="mobile-header"> <span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span> </div>
-              <div class="mobile-device-body border-top-0 border-bottom-0"> <img src="../docs/assets/img/app-screen-02.jpg" class="img-fluid border" alt="Responsive image"> </div>
-              <div class="mobile-device-footer"> <span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span> </div>
+              <div class="mobile-header">
+                <span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span>
+              </div>
+              <div class="mobile-device-body border-top-0 border-bottom-0">
+                <img src="./image/screenshot_1.png" class="img-fluid border" alt="Responsive image">
+              </div>
+              <div class="mobile-device-footer">
+                <span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span>
+              </div>
             </div>
           </div>
           <div class="col-lg-6">
-            <h2>How to use</h2>
-            <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
-            <p class="m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+            <h1 class="mb-3">シンプルなデザインと操作</h1>
+            <p class="lead mb-3">
+              質問の投稿は「科目選択」「本文記述」「投稿」の3ステップのみ。
+            </p>
+            <p class="m-0">
+              回答投稿も「質問選択」「本文記述」「回答」の3ステップ。
+            </p>
+            <p class="m-0">
+              その他のリアクションも1クリック、1タップで簡単にアクションできます。
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <section id="stats" class="stats section text-center bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="stat">
-              <h3>3500</h3>
-              <p>Users</p>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="stat">
-              <h3>17000</h3>
-              <p>Downloads</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="stat">
-              <h3>325000</h3>
-              <p>Transactions</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="features" class="features section text-center">
+
+    <section id="features" class="features section text-center bg-light">
       <div class="section-heading container pb-4 pb-md-5">
-        <h2>Features</h2>
+        <h1>Features</h1>
       </div>
       <div class="container">
         <div class="row mb-lg-5">
-          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
-                                <i class="fas fa-laptop fa-2x"></i>
-                            </span>
-            <h5 class="mb-3">Multiplataform</h5>
-            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          <div class="col-md-6 mb-4 mb-lg-0">
+            <span class="d-block text-primary mb-3">
+              <i class="fas fa-align-left fa-3x"></i>
+            </span>
+            <h5 class="mb-3">講義、回ごとの質問</h5>
+            <p class="m-0">
+              科目ごと、講義の回ごとに質問する場所が分けられていてどこに質問を書き込むべきかがわかりやすくなっています。
+            </p>
+            <p class="m-0">
+              また、質問を探すときも分類されているので探しやすくなっています。
+            </p>
           </div>
-          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
-                                <i class="fas fa-palette fa-2x"></i>
-                            </span>
-            <h5 class="mb-3">Great design</h5>
-            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
-          </div>
-          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
-                                <i class="fas fa-fighter-jet fa-2x"></i>
-                            </span>
-            <h5 class="mb-3">Fast</h5>
-            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          <div class="col-md-6 mb-4 mb-lg-0"> <span class="d-block text-primary mb-3">
+              <i class="fas fa-graduation-cap fa-3x"></i>
+            </span>
+            <h5 class="mb-3">リアルタイムプレビュー対応</h5>
+            <p class="m-0">
+              質問、回答、コメント投稿の際に、リアルタイムでどのような表示になるかを確認できます。
+            </p>
           </div>
         </div>
+
+        <div class="row mb-lg-5">
+          <div class="col-md-6 mb-4 mb-lg-0">
+            <span class="d-block text-primary mb-3">
+              <i class="fas fa-id-card fa-3x"></i>
+            </span>
+            <h5 class="mb-3">ニックネームでの投稿可能</h5>
+            <p class="m-0">
+              本名で投稿するのが何となく嫌...、「こんな簡単なことを質問しているのかと思われたくない...」という人のために、
+              ニックネームで質問、回答、コメントを投稿できる仕組みがあります。
+            </p>
+          </div>
+          <div class="col-md-6 mb-4 mb-lg-0"> <span class="d-block text-primary mb-3">
+              <i class="fas fa-user-plus fa-3x"></i>
+            </span>
+            <h5 class="mb-3">Me too! 機能</h5>
+            <p class="m-0">
+              同じような疑問に対してすでに質問があったとき、Me too! ボタンを押せば質問に対して共感することができます。
+              教員側から見ると、同じような質問に対して何度も同じような回答を返す手間が省けることや
+              講義のどこでつまずいてしまうかがわかりやすくなる仕組みとなっています。
+            </p>
+          </div>
+        </div>
+
         <div class="row">
-          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
-                                <i class="fas fa-shield-alt fa-2x"></i>
-                            </span>
-            <h5 class="mb-3">Secure</h5>
-            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          <div class="col-md-6 mb-4 mb-lg-0">
+            <span class="d-block text-primary mb-3">
+              <i class="fas fa-thumbs-up fa-3x"></i>
+            </span>
+            <h5 class="mb-3">Good! ボタン</h5>
+            <p class="m-0">
+              いい回答、コメントに対して Good! ボタンを押すことで
+              反応が簡単にできます。
+            </p>
           </div>
-          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
-                                <i class="fas fa-user-plus fa-2x"></i>
-                            </span>
-            <h5 class="mb-3">Scalable</h5>
-            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
-          </div>
-          <div class="col-md-4"> <span class="d-block text-danger mb-3">
-                                <i class="far fa-smile fa-2x"></i>
-                            </span>
-            <h5 class="mb-3">User friendly</h5>
-            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          <div class="col-md-6 mb-4 mb-lg-0"> <span class="d-block text-primary mb-3">
+              <i class="fas fa-code fa-3x"></i>
+            </span>
+            <h5 class="mb-3">Markdown 対応</h5>
+            <p class="m-0">
+              質問、回答、コメント投稿の際は Markdown が利用可能です。
+            </p>
+            <p class="m-0">
+              ソースコードではシンタックスハイライトも利用可能です。
+            </p>
           </div>
         </div>
       </div>
     </section>
+    ]
     <section class="info-2 section bg-light text-center text-lg-left">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-5 mb-lg-0"> <img src="../docs/assets/img/app-screen-03.jpg" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image"> </div>
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <img src="./image/screenshot_2.png" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
+          </div>
           <div class="col-lg-6">
-            <h2>Documented</h2>
-            <p class="lead m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+            <h1 class="mb-3">Authorize 機能</h1>
+            <p class="lead m-0">
+              講義の担当の先生が、学生の良い回答に対して「Authorize」することによって、回答を Good Answer とすることができます。
+              これにより、従来の質問サイトにおける「ベストアンサー機能」や質問に対するスコア機能より、
+              どの回答が良い回答であるか、良い回答がついているかを判断しやすくなります。
+            </p>
           </div>
         </div>
       </div>
@@ -184,108 +208,79 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0">
-            <h2>Easy to install</h2>
-            <p class="lead m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+            <h1 class="mb-3">Scream 機能</h1>
+            <p class="lead m-0">
+              講義資料のわかりにくいところ、わからないところをボタン一つで投票して集計する機能です。
+              講義資料のページごとに投票ができます。
+            </p>
           </div>
-          <div class="col-lg-6"> <img src="../docs/assets/img/app-screen-02.jpg" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image"> </div>
+          <div class="col-lg-6">
+            <img src="./image/screenshot_3.png" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
+          </div>
         </div>
       </div>
     </section>
-    <section id="reviews" class="reviews section bg-light">
+    <section id="activity" class="reviews section bg-light">
       <div class="section-heading container text-center pb-4 pb-md-5">
-        <h2>Reviews</h2>
+        <h1>Activity</h1>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <div class="card card-testimonial bg-transparent border-0">
-              <div class="card-body d-flex flex-row align-items-center pb-3"> <img src="../docs/assets/img/avatar.jpg" class="img-avatar rounded-circle" alt="Avatar image">
-                <div class="d-flex flex-column"> <span class="person small ml-2"><strong>Jonh Doe</strong></span> <span class="person-role small text-muted ml-2">Co-founder</span> </div>
-              </div>
-              <div class="card-body pt-0">
-                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
-                <ul class="rating" data-rating disabled>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                </ul>
+            <div class="card">
+              <img src="./image/bg_1.png" class="card-img-top" alt="image">
+              <div class="card-body">
+                <h5 class="card-title">学内ワークショップで表彰</h5>
+                <p class="card-text">
+                  大学院の実習内で行われたワークショップで、8チームに分かれて情報システム開発を行いました。<br>
+                  最終成果物の発表会では、学生や教員の方々にプレゼンをしたり、実際にシステムを利用してもらい、
+                  「きれいなシステム」「完成度高い」と好評をいただきました。<br>
+                  また、学生の相互評価で一番よかったシステムに投票を行った結果、8チーム中2位を獲得し、「優秀チーム賞」の賞状を受け取りました。
+                </p>
               </div>
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="card card-testimonial bg-transparent border-0">
-              <div class="card-body d-flex flex-row align-items-center pb-3"> <img src="../docs/assets/img/avatar-2.jpg" class="img-avatar rounded-circle" alt="Avatar image">
-                <div class="d-flex flex-column"> <span class="person small ml-2"><strong>Jane Doe</strong></span> <span class="person-role small text-muted ml-2">CEO</span> </div>
-              </div>
-              <div class="card-body pt-0">
-                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
-                <ul class="rating" data-rating disabled>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                  <li class="rating-item active"><i class="fas fa-star"></i></li>
-                </ul>
+            <div class="card">
+              <img src="./image/bg_2.png" class="card-img-top" alt="image">
+              <div class="card-body">
+                <h5 class="card-title">実習を超えた活動</h5>
+                <p class="card-text">
+                  京都大学の学習支援システム PandA を管理している教員の方に、わたしたちの成果物をプレゼンし、
+                  現状オンライン講義の学習支援システムが抱えている問題や、実用上の課題、学生や教員からのアンケートなど、
+                  多角的に議論を行いました。<br>
+                  COVID-19 の流行に応じてオンライン講義のシステムの開発が急がれる中、開講期では1万人以上の学生がアクティブになり、
+                  システムの安定性が求められ、なかなか新機能の開発をすることが困難であることや、そもそも開発の人手不足といった問題点が挙げられ、
+                  実際にリリースして利用してもらうことの難しさを痛感しました。
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="faqs" class="faqs section">
-      <div class="section-heading container text-center pb-4 pb-md-5">
-        <h2>FAQ's</h2>
-      </div>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <div class="accordion" id="accordion">
-              <div class="accordion-item">
-                <h3 id="accordion-heading-one" class="d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-one" aria-expanded="true" aria-controls="accordion-collapse-one"> Lorem ipsum dolor sit amet consectetur adipiscing elit? <span class="accordion-icon">&#10005;</span> </h3>
-                <div id="accordion-collapse-one" class="collapse show" aria-labelledby="accordion-heading-one" data-parent="#accordion">
-                  <div class="px-3 pb-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam. Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas. </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h3 id="accordion-heading-two" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-two" aria-expanded="true" aria-controls="accordion-collapse-two"> In fermentum arcu a ipsum bibendum aliquet pretium commodo? <span class="accordion-icon">&#10005;</span> </h3>
-                <div id="accordion-collapse-two" class="collapse" aria-labelledby="accordion-heading-two" data-parent="#accordion">
-                  <div class="px-3 pb-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam. Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas. </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h3 id="accordion-heading-three" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-three" aria-expanded="true" aria-controls="accordion-collapse-three"> Orci varius natoque penatibus et magnis dis parturient? <span class="accordion-icon">&#10005;</span> </h3>
-                <div id="accordion-collapse-three" class="collapse" aria-labelledby="accordion-heading-three" data-parent="#accordion">
-                  <div class="px-3 pb-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam. Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas. </div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center">
-              <p class="lead mt-5"> Any questions? </p> <a class="btn btn-danger btn-lg rounded-pill" href="#" role="button">Send your question</a> </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="download" class="download section text-center bg-light">
+
+    <section id="repository" class="download section text-center">
       <div class="section-heading container pb-4">
-        <h2>Download it now for FREE</h2>
-        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <h1 class="mb-3">Repository</h1>
+        <p class="lead mb-3">
+          ソースコードは GitHub にて管理しております。
+        </p>
+        <p class="m-0">
+          技術：ワークショップ当日は Amazon AWS 上で動かしていました。<br>
+          フレームワーク: Ruby on Rails <br>
+          データベース: SQLite<br>
+          フロントエンド: Bootstrap, JQuery
+        </p>
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm text-sm-right mb-3 mb-sm-0">
-						<a href="#" class="btn btn-outline-danger btn-icon btn-lg rounded-pill">
-             	<i class="fab fa-apple fa-lg"></i>
-             	<span class="btn-text">App Store</span>
+          <div class="col-12 col-sm mb-3 mb-sm-0">
+            <a href="https://github.com/ws-8/WS-8" class="btn btn-outline-primary btn-icon btn-lg rounded-pill">
+              <i class="fab fa-github fa-lg"></i>
+              <span class="btn-text">GitHub</span>
             </a>
-					</div>
-          <div class="col-12 col-sm text-sm-left">
-						<a href="#" class="btn btn-outline-danger btn-icon btn-lg rounded-pill">
-            	<i class="fab fa-google-play fa-lg"></i>
-            	<span class="btn-text">Google Play</span>
-            </a>
-					</div>
+          </div>
         </div>
       </div>
     </section>
@@ -293,58 +288,37 @@
   <footer class="bg-dark py-5">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <ul class="nav footer-nav w-100 justify-content-center mb-4 pb-4">
-            <li class="nav-item"> <a class="nav-link text-white-50" href="#">Documentation</a> </li>
-            <li class="nav-item"> <a class="nav-link text-white-50" href="#">Forums</a> </li>
-            <li class="nav-item"> <a class="nav-link text-white-50" href="#">Contact</a> </li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-6 text-center text-md-left mb-4 mb-md-0"> <span class="text-white-50">© Copyright 2019. All Rights Reserved.</span> </div>
-        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
-          <ul class="nav footer-social-nav">
-            <li class="nav-item">
-							<a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                <span class="text-facebook">
-                	<i class="fab fa-facebook-square fa-lg"></i>
-                </span>
-              </a>
-						</li>
-            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                                    <span class="text-twitter">
-                                        <i class="fab fa-twitter-square fa-lg"></i>
-                                    </span>
-                                </a> </li>
-            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                                    <span class="text-dribble">
-                                        <i class="fab fa-dribbble-square fa-lg"></i>
-                                    </span>
-                                </a> </li>
-          </ul>
+        <div class="col-12 text-center mb-4 mb-md-0">
+          <span class="text-white-50">
+            © Copyright 2020. All Rights Reserved.
+          </span>
         </div>
       </div>
     </div>
   </footer>
-  <!-- jQuery first, then Bootstrap JS, then Avant UI -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+    crossorigin="anonymous"></script>
   <script src="./avantui.js"></script>
   <script>
-    $(document).ready(function(){
-                $(".navbar .nav-link[href^='#']").on('click', function (event) {
-                    var target = this.hash;
+    $(document).ready(function () {
+      $(".navbar .nav-link[href^='#']").on('click', function (event) {
+        var target = this.hash;
 
-                    event.preventDefault();
+        event.preventDefault();
 
-                    var navOffset = $("body").data("offset");
+        var navOffset = $("body").data("offset");
 
-                    return $('html, body').animate({
-                        scrollTop: $(this.hash).offset().top - navOffset
-                    }, 750, function () {
-                        return window.history.pushState(null, null, target);
-                    });
-                });
-            });
+        return $('html, body').animate({
+          scrollTop: $(this.hash).offset().top - navOffset
+        }, 750, function () {
+          return window.history.pushState(null, null, target);
+        });
+      });
+    });
   </script>
 </body>
+
 </html>
