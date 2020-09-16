@@ -1,37 +1,62 @@
-## Welcome to GitHub Pages
+# オンライン授業のための質問回答プラットフォーム
 
-You can use the [editor on GitHub](https://github.com/ws-8/WS-8/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## About System
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![system overview](https://github.com/ws-8/WS-8/wiki/image/screenshot_1.png)
 
-### Markdown
+オンライン授業における質問の投稿を行うためのプラットフォームです。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+オフラインで講義が開講されていた時は、講義前、講義後、オフィスアワーなどに先生に質問をすることや、学生間での疑問の共有などが行えていましたが、
+そのような機会も失われています。Zoom などを利用したオンライン講義では、コメント等を書き込む機能はあるものの、履修者全員の前で質問を晒すことに抵抗感があったり、先生と一対一、あるいは友人どうしでまずは質問を共有したいなどの要求もあります。
 
-```markdown
-Syntax highlighted code block
+本システムでは、学生側が質問やアクションをするハードルを下げることによって、オンライン講義でも教員とインタラクティブにやり取りしやすい仕組みを提供しています。
 
-# Header 1
-## Header 2
-### Header 3
+## Feature
 
-- Bulleted
-- List
+![system feature](https://github.com/ws-8/WS-8/wiki/image/screenshot_2.png)
 
-1. Numbered
-2. List
+### シンプルなプラットフォーム
 
-**Bold** and _Italic_ and `Code` text
+質問の投稿は「科目選択」「本文記述」「投稿」の **3ステップ**のみ。
+回答投稿も「質問選択」「本文記述」「回答」の3ステップ。
+その他のリアクションも1クリック、1タップで簡単にアクションできます。
 
-[Link](url) and ![Image](src)
-```
+### 講義、回ごとの質問
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+科目ごと、講義の回ごとに質問する場所が分けられていて**どこに質問を書き込むべきかがわかりやすくなっています。**
+また、質問を探すときも分類されているので探しやすくなっています。
 
-### Jekyll Themes
+### ニックネームでの投稿可能
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ws-8/WS-8/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+本名で投稿するのが何となく嫌...、「こんな簡単なことを質問しているのかと思われたくない...」という人のために、
+**ニックネーム**で質問、回答、コメントを投稿できる仕組みがあります。
 
-### Support or Contact
+### Authorize 機能
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+講義の担当の先生が、学生の良い回答に対して「Authorize」することによって、回答を Good Answer とすることができます。
+これにより、従来の質問サイトにおける「ベストアンサー機能」や質問に対するスコア機能より、**どの回答が良い回答であるか、良い回答がついているかを判断しやすくなります。**
+
+### Me too! 機能
+
+同じような疑問に対してすでに質問があったとき、Me too! ボタンを押せば質問に対して共感することができます。
+教員側から見ると、**同じような質問に対して何度も同じような回答を返す手間が省ける**ことや、講義の**どこでつまずいてしまうかがわかりやすくなる**仕組みとなっています。
+
+### Good! ボタン
+
+いい回答、コメントに対して Good! ボタンを押すことで反応が簡単にできます。
+
+### Markdown 対応
+
+質問、回答、コメント投稿の際は Markdown が利用可能です。
+ソースコードではシンタックスハイライトも利用可能です。
+
+### リアルタイムプレビュー対応
+
+質問、回答、コメント投稿の際に、リアルタイムでどのような表示になるかを確認できます。
+
+![scream](https://github.com/ws-8/WS-8/wiki/image/screenshot_3.png)
+
+### Scream 機能
+
+講義資料のわかりにくいところ、わからないところをボタン一つで投票して集計する機能です。
+講義資料のページごとに投票ができます。
