@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'Kconv'
+require 'kconv'
 
 class LessonFilesController < ApplicationController
   before_action :set_lesson_file, only: %i[edit update destroy]
@@ -33,7 +33,6 @@ class LessonFilesController < ApplicationController
   # POST /lesson_files.json
   def create
     @lesson_file = LessonFile.new(lesson_file_params)
-
     file = lesson_file_params[:file]
     file_name = file.original_filename
     @lesson_file.filename = file.original_filename
@@ -42,7 +41,7 @@ class LessonFilesController < ApplicationController
 
     respond_to do |format|
       if result == 'success' && @lesson_file.save
-        format.html { redirect_to @lesson_file, notice: 'Myfile was successfully created.' }
+        format.html { redirect_to lesson_file_path(id: @lesson_file.lesson_id), notice: 'Myfile was successfully created.' }
         format.json { render action: 'show', status: :created, location: @lesson_file }
       else
         deletepdf(file_name)
