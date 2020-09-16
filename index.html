@@ -1,26 +1,19 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-		<title>オンライン授業のための質問回答プラットフォーム</title>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Avant UI - App demo">
-		<meta name="author" content="marcoarib">
-
-    <!-- Bootstrap , Avant UI and Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../avantui.css">
-  </head>
-
-  <body class="position-relative" data-spy="scroll" data-target="#navbar-wrapper" data-offset="30">
-
-    <div id="navbar-wrapper">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
-         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+<head>
+  <meta charset="utf-8">
+  <title>オンライン授業のための質問回答プラットフォーム</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Avant UI - App demo">
+  <meta name="author" content="marcoarib">
+  <!-- Bootstrap , Avant UI and Google Font -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./avantui.css"> </head>
+<body class="position-relative" data-spy="scroll" data-target="#navbar-wrapper" data-offset="30">
+  <div id="navbar-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom">
+      <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
                <span class="text-danger">
                  <i class="fas fa-angle-left fa-2x"></i>
                </span>
@@ -28,462 +21,316 @@
                         <span class="text-danger">
                             <i class="fas fa-angle-right fa-2x"></i>
                         </span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
+                    </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarLight">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#home">Overview <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#features">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#reviews">Reviews</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#faqs">FAQ's</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#download">Download</a>
-                            </li>
-                        </ul>
-                        <ul class="nav mb-3 mb-lg-0 ml-lg-3">
-                            <li class="nav-item">
-                                <a class="nav-link py-0 pl-0 px-lg-2" href="#">
+        <div class="collapse navbar-collapse" id="navbarLight">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"> <a class="nav-link" href="#home">Overview <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#features">Features</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#reviews">Reviews</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#faqs">FAQ's</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#download">Download</a> </li>
+          </ul>
+          <ul class="nav mb-3 mb-lg-0 ml-lg-3">
+            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
                                     <span class="text-facebook">
                                         <i class="fab fa-facebook-square fa-lg"></i>
                                     </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link py-0 pl-0 px-lg-2" href="#">
+                                </a> </li>
+            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
                                     <span class="text-twitter">
                                         <i class="fab fa-twitter-square fa-lg"></i>
                                     </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link py-0 pl-0 px-lg-2" href="#">
+                                </a> </li>
+            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
                                     <span class="text-dribble">
                                         <i class="fab fa-dribbble-square fa-lg"></i>
                                     </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                                </a> </li>
+          </ul>
         </div>
-
-
-        <header id="home" class="d-flex align-items-center bg-danger text-white text-center text-lg-left">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <h1 class="display-2">App</h1>
-                        <p class="lead mb-4">
-                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commdo.
-                        </p>
-                        <a class="btn btn-outline-light btn-lg rounded-pill" href="#" role="button">View more</a>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="mobile-device mx-auto">
-							<div class="mobile-header">
-								<span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span>
-							</div>
-							<div class="mobile-device-body border-top-0 border-bottom-0">
-								<img src="../docs/assets/img/app-screen-01.jpg" class="img-fluid border" alt="Responsive image">
-							</div>
-							<div class="mobile-device-footer">
-								<span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span>
-							</div>
-						</div>
-                    </div>
-                </div>
+      </div>
+    </nav>
+  </div>
+  <header id="home" class="d-flex align-items-center bg-danger text-white text-center text-lg-left">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="display-2">App</h1>
+          <p class="lead mb-4"> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commdo. </p> <a class="btn btn-outline-light btn-lg rounded-pill" href="#" role="button">View more</a> </div>
+        <div class="col-lg-6">
+          <div class="mobile-device mx-auto">
+            <div class="mobile-header"> <span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span> </div>
+            <div class="mobile-device-body border-top-0 border-bottom-0"> <img src="../docs/assets/img/app-screen-01.jpg" class="img-fluid border" alt="Responsive image"> </div>
+            <div class="mobile-device-footer"> <span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="main">
+    <section class="call-to-action section bg-light text-center text-lg-left py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <p class="lead m-0"> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commdo orci augue ut justo vel. </p>
+          </div>
+          <div class="col-lg-6 text-lg-right"> <a class="btn btn-danger btn-lg rounded-pill" href="#" role="button">Download</a> </div>
+        </div>
+      </div>
+    </section>
+    <section class="info-1 section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="mobile-device mx-auto">
+              <div class="mobile-header"> <span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span> </div>
+              <div class="mobile-device-body border-top-0 border-bottom-0"> <img src="../docs/assets/img/app-screen-02.jpg" class="img-fluid border" alt="Responsive image"> </div>
+              <div class="mobile-device-footer"> <span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span> </div>
             </div>
-        </header>
-
-
-        <div class="main">
-
-            <section class="call-to-action section bg-light text-center text-lg-left py-5">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6 mb-4 mb-lg-0">
-                            <p class="lead m-0">
-                                Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commdo orci augue ut justo vel.
-                            </p>
-						</div>
-                        <div class="col-lg-6 text-lg-right">
-                            <a class="btn btn-danger btn-lg rounded-pill" href="#" role="button">Download</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section class="info-1 section">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6 mb-5 mb-lg-0">
-                            <div class="mobile-device mx-auto">
-    							<div class="mobile-header">
-    								<span class="mobile-device-speaker d-block mx-auto rounded-pill border"></span>
-    							</div>
-    							<div class="mobile-device-body border-top-0 border-bottom-0">
-    								<img src="../docs/assets/img/app-screen-02.jpg" class="img-fluid border" alt="Responsive image">
-    							</div>
-    							<div class="mobile-device-footer">
-    								<span class="mobile-device-btn-home d-block mx-auto rounded-circle border"></span>
-    							</div>
-    						</div>
-						</div>
-                        <div class="col-lg-6">
-                            <h2>How to use</h2>
-                            <p class="lead">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae
-                                velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula.
-                            </p>
-                            <p class="m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae
-                                velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula.
-                            </p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section id="stats" class="stats section text-center bg-light">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="stat">
-                                <h3>3500</h3>
-                                <p>Users</p>
-                            </div>
-						</div>
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="stat">
-                                <h3>17000</h3>
-                                <p>Downloads</p>
-                            </div>
-						</div>
-                        <div class="col-lg-4">
-                            <div class="stat">
-                                <h3>325000</h3>
-                                <p>Transactions</p>
-                            </div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section id="features" class="features section text-center">
-                <div class="section-heading container pb-4 pb-md-5">
-					<h2>Features</h2>
-				</div>
-				<div class="container">
-					<div class="row mb-lg-5">
-						<div class="col-md-4 mb-4 mb-lg-0">
-                            <span class="d-block text-danger mb-3">
+          </div>
+          <div class="col-lg-6">
+            <h2>How to use</h2>
+            <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+            <p class="m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="stats" class="stats section text-center bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="stat">
+              <h3>3500</h3>
+              <p>Users</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="stat">
+              <h3>17000</h3>
+              <p>Downloads</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="stat">
+              <h3>325000</h3>
+              <p>Transactions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="features" class="features section text-center">
+      <div class="section-heading container pb-4 pb-md-5">
+        <h2>Features</h2>
+      </div>
+      <div class="container">
+        <div class="row mb-lg-5">
+          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
                                 <i class="fas fa-laptop fa-2x"></i>
                             </span>
-                            <h5 class="mb-3">Multiplataform</h5>
-                            <p class="text-black-50 m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis.
-                            </p>
-						</div>
-                        <div class="col-md-4 mb-4 mb-lg-0">
-                            <span class="d-block text-danger mb-3">
+            <h5 class="mb-3">Multiplataform</h5>
+            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          </div>
+          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
                                 <i class="fas fa-palette fa-2x"></i>
                             </span>
-                            <h5 class="mb-3">Great design</h5>
-                            <p class="text-black-50 m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis.
-                            </p>
-						</div>
-                        <div class="col-md-4 mb-4 mb-lg-0">
-                            <span class="d-block text-danger mb-3">
+            <h5 class="mb-3">Great design</h5>
+            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          </div>
+          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
                                 <i class="fas fa-fighter-jet fa-2x"></i>
                             </span>
-                            <h5 class="mb-3">Fast</h5>
-                            <p class="text-black-50 m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis.
-                            </p>
-						</div>
-					</div>
-                    <div class="row">
-						<div class="col-md-4 mb-4 mb-lg-0">
-                            <span class="d-block text-danger mb-3">
+            <h5 class="mb-3">Fast</h5>
+            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
                                 <i class="fas fa-shield-alt fa-2x"></i>
                             </span>
-                            <h5 class="mb-3">Secure</h5>
-                            <p class="text-black-50 m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis.
-                            </p>
-						</div>
-                        <div class="col-md-4 mb-4 mb-lg-0">
-                            <span class="d-block text-danger mb-3">
+            <h5 class="mb-3">Secure</h5>
+            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          </div>
+          <div class="col-md-4 mb-4 mb-lg-0"> <span class="d-block text-danger mb-3">
                                 <i class="fas fa-user-plus fa-2x"></i>
                             </span>
-                            <h5 class="mb-3">Scalable</h5>
-                            <p class="text-black-50 m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis.
-                            </p>
-						</div>
-                        <div class="col-md-4">
-                            <span class="d-block text-danger mb-3">
+            <h5 class="mb-3">Scalable</h5>
+            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          </div>
+          <div class="col-md-4"> <span class="d-block text-danger mb-3">
                                 <i class="far fa-smile fa-2x"></i>
                             </span>
-                            <h5 class="mb-3">User friendly</h5>
-                            <p class="text-black-50 m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis.
-                            </p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section class="info-2 section bg-light text-center text-lg-left">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6 mb-5 mb-lg-0">
-                            <img src="../docs/assets/img/app-screen-03.jpg" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
-						</div>
-                        <div class="col-lg-6">
-                            <h2>Documented</h2>
-                            <p class="lead m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae
-                                velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula.
-                            </p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section class="info-3 section text-center text-lg-left">
-				<div class="container">
-					<div class="row align-items-center">
-                        <div class="col-lg-6 mb-5 mb-lg-0">
-                            <h2>Easy to install</h2>
-                            <p class="lead m-0">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae
-                                velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula.
-                            </p>
-						</div>
-						<div class="col-lg-6">
-                            <img src="../docs/assets/img/app-screen-02.jpg" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section id="reviews" class="reviews section bg-light">
-                <div class="section-heading container text-center pb-4 pb-md-5">
-					<h2>Reviews</h2>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6">
-                            <div class="card card-testimonial bg-transparent border-0">
-                                <div class="card-body d-flex flex-row align-items-center pb-3">
-                                    <img src="../docs/assets/img/avatar.jpg" class="img-avatar rounded-circle" alt="Avatar image">
-                                    <div class="d-flex flex-column">
-                                        <span class="person small ml-2"><strong>Jonh Doe</strong></span>
-                                        <span class="person-role small text-muted ml-2">Co-founder</span>
-                                    </div>
-                                </div>
-                                <div class="card-body pt-0">
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae
-                                        velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula.
-                                    </p>
-                                    <ul class="rating" data-rating disabled>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-						</div>
-                        <div class="col-lg-6">
-                            <div class="card card-testimonial bg-transparent border-0">
-                                <div class="card-body d-flex flex-row align-items-center pb-3">
-                                    <img src="../docs/assets/img/avatar-2.jpg" class="img-avatar rounded-circle" alt="Avatar image">
-                                    <div class="d-flex flex-column">
-                                        <span class="person small ml-2"><strong>Jane Doe</strong></span>
-                                        <span class="person-role small text-muted ml-2">CEO</span>
-                                    </div>
-                                </div>
-                                <div class="card-body pt-0">
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae
-                                        velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula.
-                                    </p>
-                                    <ul class="rating" data-rating disabled>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                        <li class="rating-item active"><i class="fas fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section id="faqs" class="faqs section">
-                <div class="section-heading container text-center pb-4 pb-md-5">
-					<h2>FAQ's</h2>
-				</div>
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-lg-9">
-                            <div class="accordion" id="accordion">
-                                <div class="accordion-item">
-                                    <h3 id="accordion-heading-one" class="d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-one" aria-expanded="true" aria-controls="accordion-collapse-one">
-                                        Lorem ipsum dolor sit amet consectetur adipiscing elit?
-                                        <span class="accordion-icon">&#10005;</span>
-                                    </h3>
-                                    <div id="accordion-collapse-one" class="collapse show" aria-labelledby="accordion-heading-one" data-parent="#accordion">
-                                        <div class="px-3 pb-3">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam.
-                                            Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h3 id="accordion-heading-two" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-two" aria-expanded="true" aria-controls="accordion-collapse-two">
-                                        In fermentum arcu a ipsum bibendum aliquet pretium commodo?
-                                        <span class="accordion-icon">&#10005;</span>
-                                    </h3>
-                                    <div id="accordion-collapse-two" class="collapse" aria-labelledby="accordion-heading-two" data-parent="#accordion">
-                                        <div class="px-3 pb-3">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam.
-                                            Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h3 id="accordion-heading-three" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-three" aria-expanded="true" aria-controls="accordion-collapse-three">
-                                        Orci varius natoque penatibus et magnis dis parturient?
-                                        <span class="accordion-icon">&#10005;</span>
-                                    </h3>
-                                    <div id="accordion-collapse-three" class="collapse" aria-labelledby="accordion-heading-three" data-parent="#accordion">
-                                        <div class="px-3 pb-3">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam.
-                                            Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <p class="lead mt-5">
-                                    Any questions?
-                                </p>
-                                <a class="btn btn-danger btn-lg rounded-pill" href="#" role="button">Send your question</a>
-                            </div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-            <section id="download" class="download section text-center bg-light">
-                <div class="section-heading container pb-4">
-					<h2>Download it now for FREE</h2>
-                    <p class="lead">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-12 col-sm text-sm-right mb-3 mb-sm-0">
-                            <a href="#" class="btn btn-outline-danger btn-icon btn-lg rounded-pill">
-                                <i class="fab fa-apple fa-lg"></i>
-                                <span class="btn-text">App Store</span>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm text-sm-left">
-                            <a href="#" class="btn btn-outline-danger btn-icon btn-lg rounded-pill">
-                                <i class="fab fa-google-play fa-lg"></i>
-                                <span class="btn-text">Google Play</span>
-                            </a>
-						</div>
-					</div>
-				</div>
-			</section>
-
+            <h5 class="mb-3">User friendly</h5>
+            <p class="text-black-50 m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis. </p>
+          </div>
         </div>
-
-        <footer class="bg-dark py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <ul class="nav footer-nav w-100 justify-content-center mb-4 pb-4">
-                            <li class="nav-item">
-                                <a class="nav-link text-white-50" href="#">Documentation</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white-50" href="#">Forums</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white-50" href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-6 text-center text-md-left mb-4 mb-md-0">
-                        <span class="text-white-50">© Copyright 2019. All Rights Reserved.</span>
-                    </div>
-                    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
-                        <ul class="nav footer-social-nav">
-                            <li class="nav-item">
-                                <a class="nav-link py-0 pl-0 px-lg-2" href="#">
-                                    <span class="text-facebook">
-                                        <i class="fab fa-facebook-square fa-lg"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link py-0 pl-0 px-lg-2" href="#">
+      </div>
+    </section>
+    <section class="info-2 section bg-light text-center text-lg-left">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0"> <img src="../docs/assets/img/app-screen-03.jpg" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image"> </div>
+          <div class="col-lg-6">
+            <h2>Documented</h2>
+            <p class="lead m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="info-3 section text-center text-lg-left">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h2>Easy to install</h2>
+            <p class="lead m-0"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+          </div>
+          <div class="col-lg-6"> <img src="../docs/assets/img/app-screen-02.jpg" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image"> </div>
+        </div>
+      </div>
+    </section>
+    <section id="reviews" class="reviews section bg-light">
+      <div class="section-heading container text-center pb-4 pb-md-5">
+        <h2>Reviews</h2>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card card-testimonial bg-transparent border-0">
+              <div class="card-body d-flex flex-row align-items-center pb-3"> <img src="../docs/assets/img/avatar.jpg" class="img-avatar rounded-circle" alt="Avatar image">
+                <div class="d-flex flex-column"> <span class="person small ml-2"><strong>Jonh Doe</strong></span> <span class="person-role small text-muted ml-2">Co-founder</span> </div>
+              </div>
+              <div class="card-body pt-0">
+                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+                <ul class="rating" data-rating disabled>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card card-testimonial bg-transparent border-0">
+              <div class="card-body d-flex flex-row align-items-center pb-3"> <img src="../docs/assets/img/avatar-2.jpg" class="img-avatar rounded-circle" alt="Avatar image">
+                <div class="d-flex flex-column"> <span class="person small ml-2"><strong>Jane Doe</strong></span> <span class="person-role small text-muted ml-2">CEO</span> </div>
+              </div>
+              <div class="card-body pt-0">
+                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ipsum non ex lobortis lacinia. Quisque dictum est vitae velit congue molestie. Donec quam tellus, semper eget volutpat nec, laoreet nec ligula. </p>
+                <ul class="rating" data-rating disabled>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                  <li class="rating-item active"><i class="fas fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="faqs" class="faqs section">
+      <div class="section-heading container text-center pb-4 pb-md-5">
+        <h2>FAQ's</h2>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="accordion" id="accordion">
+              <div class="accordion-item">
+                <h3 id="accordion-heading-one" class="d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-one" aria-expanded="true" aria-controls="accordion-collapse-one"> Lorem ipsum dolor sit amet consectetur adipiscing elit? <span class="accordion-icon">&#10005;</span> </h3>
+                <div id="accordion-collapse-one" class="collapse show" aria-labelledby="accordion-heading-one" data-parent="#accordion">
+                  <div class="px-3 pb-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam. Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas. </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 id="accordion-heading-two" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-two" aria-expanded="true" aria-controls="accordion-collapse-two"> In fermentum arcu a ipsum bibendum aliquet pretium commodo? <span class="accordion-icon">&#10005;</span> </h3>
+                <div id="accordion-collapse-two" class="collapse" aria-labelledby="accordion-heading-two" data-parent="#accordion">
+                  <div class="px-3 pb-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam. Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas. </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 id="accordion-heading-three" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-three" aria-expanded="true" aria-controls="accordion-collapse-three"> Orci varius natoque penatibus et magnis dis parturient? <span class="accordion-icon">&#10005;</span> </h3>
+                <div id="accordion-collapse-three" class="collapse" aria-labelledby="accordion-heading-three" data-parent="#accordion">
+                  <div class="px-3 pb-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi justo ligula, varius et pharetra in, amet quis quam. Phasellus placerat augue et viverra porttitor habitant morbi tristique turpis egestas. </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="lead mt-5"> Any questions? </p> <a class="btn btn-danger btn-lg rounded-pill" href="#" role="button">Send your question</a> </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="download" class="download section text-center bg-light">
+      <div class="section-heading container pb-4">
+        <h2>Download it now for FREE</h2>
+        <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm text-sm-right mb-3 mb-sm-0">
+						<a href="#" class="btn btn-outline-danger btn-icon btn-lg rounded-pill">
+             	<i class="fab fa-apple fa-lg"></i>
+             	<span class="btn-text">App Store</span>
+            </a>
+					</div>
+          <div class="col-12 col-sm text-sm-left">
+						<a href="#" class="btn btn-outline-danger btn-icon btn-lg rounded-pill">
+            	<i class="fab fa-google-play fa-lg"></i>
+            	<span class="btn-text">Google Play</span>
+            </a>
+					</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="bg-dark py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <ul class="nav footer-nav w-100 justify-content-center mb-4 pb-4">
+            <li class="nav-item"> <a class="nav-link text-white-50" href="#">Documentation</a> </li>
+            <li class="nav-item"> <a class="nav-link text-white-50" href="#">Forums</a> </li>
+            <li class="nav-item"> <a class="nav-link text-white-50" href="#">Contact</a> </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-left mb-4 mb-md-0"> <span class="text-white-50">© Copyright 2019. All Rights Reserved.</span> </div>
+        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+          <ul class="nav footer-social-nav">
+            <li class="nav-item">
+							<a class="nav-link py-0 pl-0 px-lg-2" href="#">
+                <span class="text-facebook">
+                	<i class="fab fa-facebook-square fa-lg"></i>
+                </span>
+              </a>
+						</li>
+            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
                                     <span class="text-twitter">
                                         <i class="fab fa-twitter-square fa-lg"></i>
                                     </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link py-0 pl-0 px-lg-2" href="#">
+                                </a> </li>
+            <li class="nav-item"> <a class="nav-link py-0 pl-0 px-lg-2" href="#">
                                     <span class="text-dribble">
                                         <i class="fab fa-dribbble-square fa-lg"></i>
                                     </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-
-        <!-- jQuery first, then Bootstrap JS, then Avant UI -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-        <script src="../docs/assets/js/avantui.js"></script>
-        <script>
-            $(document).ready(function(){
+                                </a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- jQuery first, then Bootstrap JS, then Avant UI -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  <script src="./avantui.js"></script>
+  <script>
+    $(document).ready(function(){
                 $(".navbar .nav-link[href^='#']").on('click', function (event) {
                     var target = this.hash;
 
@@ -498,6 +345,6 @@
                     });
                 });
             });
-        </script>
-    </body>
+  </script>
+</body>
 </html>
