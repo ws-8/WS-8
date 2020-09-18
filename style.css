@@ -67,8 +67,9 @@ header{
   transform: rotate(-3deg);
 }
 .info-2 img,
-.info-3 img{
-  max-width: 250px;
+.info-3 img,
+.info-4 img{
+  max-width: 500px;
 }
 
 .accordion h3:not(.collapsed){
