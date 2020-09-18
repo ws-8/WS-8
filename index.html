@@ -18,6 +18,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./avantui.css">
   <link rel="stylesheet" href="./style.css">
+  <!-- Lightbox for Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
@@ -195,9 +197,15 @@
     <section class="info-2 section bg-light text-center text-lg-left">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-5 mb-lg-0">
+          <!-- <div class="col-lg-6 mb-5 mb-lg-0">
             <img src="./image/authorized.gif" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
-          </div>
+          </div> -->
+          <a href="./image/authorized.gif" class="col-lg-6 mb-5 mb-lg-0" data-toggle="lightbox" data-title="Authorize 機能" 
+            data-footer="講義の担当の先生が、学生の良い回答に対して「Authorize」することによって、回答を Good Answer とすることができます。
+            これにより、従来の質問サイトにおける「ベストアンサー機能」や質問に対するスコア機能より、
+            どの回答が良い回答であるか、良い回答がついているかを判断しやすくなります。" >
+            <img src="./image/authorized.gif" alt="Authorize 機能" class="img-fluid my-2 border">
+          </a>
           <div class="col-lg-6">
             <h1 class="mb-3">Authorize 機能</h1>
             <p class="lead m-0">
@@ -220,9 +228,14 @@
               講義資料のページごとに投票ができます。
             </p>
           </div>
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
             <img src="./image/scream.gif" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
-          </div>
+          </div> -->
+          <a href="./image/scream.gif" class="col-lg-6" data-toggle="lightbox" data-title="Scream 機能" 
+            data-footer="講義資料のわかりにくいところ、わからないところをボタン一つで投票して集計する機能です。
+            講義資料のページごとに投票ができます。" >
+            <img src="./image/scream.gif" alt="Scream 機能" class="img-fluid my-2 border">
+          </a>
         </div>
       </div>
     </section>
@@ -230,9 +243,12 @@
     <section class="info-3 section bg-light text-center text-lg-left">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
             <img src="./image/pdf_annoation.gif" class="img-fluid d-block shadow-lg mx-auto" alt="Responsive image">
-          </div>
+          </div> -->
+          <a href="./image/pdf_annoation.gif" class="col-lg-6" data-toggle="lightbox" data-title="PDFアノテーション" data-footer="pdf形式の講義資料にアノテーションができます。他の人のアノテーションも確認でき，生徒同士の知識共有や，先生からのメッセージ伝達などのコミュニケーションを促します。表示/非表示は簡単に切り替え可能です。" >
+            <img src="./image/pdf_annoation.gif" alt="PDFアノテーション" class="img-fluid my-2 border">
+          </a>
 
           <div class="col-lg-6 mb-5 mb-lg-0">
             <h1 class="mb-3">PDFアノテーション</h1>
@@ -350,6 +366,8 @@
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
     crossorigin="anonymous"></script>
   <script src="./avantui.js"></script>
+  <!-- Lightbox for Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
   <script>
     $(document).ready(function () {
       $(".navbar .nav-link[href^='#']").on('click', function (event) {
@@ -366,6 +384,14 @@
         });
       });
     });
+  </script>
+
+  <!-- ボディ最下部にモーダル用javascriptを設置 -->
+  <script type="text/javascript">
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
   </script>
 </body>
 
