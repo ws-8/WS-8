@@ -1,0 +1,46 @@
+<style>
+    span[class^="clipboard-success-"] {
+        display: none;
+        margin: 0 0 0 8px;
+        font-size: .9em;
+    }
+</style>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">URL</th>
+      <th scope="col">Annotation</th>
+      <th scope="col">Copy</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% i = 0 %>
+    <% @items.each do |d| %>
+      <tr>
+        <% uri = d["uri"] %>
+        <% text = d["text"] %>
+        <% if text.length > 30 then %>
+          <% text = text[0, 30] + ' ......' %>
+        <% end %>
+        <td>
+          <a href="<%= uri %>" target="_blank"><%= uri %></a>
+        </td>
+        <td><%= text %></td>
+        <td>
+        <input type="button" class="btn btn-primary" data-clipboard-target="#clipboard-copy-target-<%= i.to_s %>" value="Copy" onClick="clipboard()">
+        <textarea id="clipboard-copy-target-<%= i.to_s %>" style="display : none;">[<%= text %>](<%= uri %>)</textarea>
+      </tr>
+      <% i = i + 1 %>
+    <% end %>
+  </tbody>
+  <script>
+    function clipboard(){
+      let clipboard = new ClipboardJS('.btn', {
+        text: function(trigger) {
+          let targetSelector = trigger.getAttribute("data-clipboard-target");
+          return $(targetSelector).val();
+        }
+      });
+    }
+  </script>
+</table>
