@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200914082918) do
+ActiveRecord::Schema.define(version: 20200921191637) do
 
   create_table "agoods", force: :cascade do |t|
     t.integer "answer_id"
@@ -71,16 +71,6 @@ ActiveRecord::Schema.define(version: 20200914082918) do
     t.integer "answer_id"
     t.index ["answer_id"], name: "index_comments_on_answer_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "course_files", force: :cascade do |t|
-    t.string "title"
-    t.string "filename"
-    t.string "comment"
-    t.integer "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_course_files_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -173,6 +163,7 @@ ActiveRecord::Schema.define(version: 20200914082918) do
     t.integer "usertag", limit: 1
     t.string "email", limit: 256
     t.string "nickname"
+    t.string "hypaccount"
   end
 
 end
