@@ -79,6 +79,6 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   # uemura add :created_at
   def user_params
-    params.require(:user).permit(:name, :nickname)
+    params.require(:user).permit(:name, :nickname, :hypaccount)
   end
 end

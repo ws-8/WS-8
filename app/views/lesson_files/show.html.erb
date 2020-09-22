@@ -1,0 +1,48 @@
+<h2 class="text-lg-center">
+	<%= @course.course_name %> <%= @lesson.title %>
+</h2>
+
+<% @teacher=User.find(@lesson.user_id) %>
+
+<h4 class="text-lg-center">
+	<i class="fas fa-graduation-cap"></i>
+	担当：<%= @teacher.name %>
+</h4>
+<div class="alert alert-info alert-dismissible fade show m-3" role="alert">
+    <span class="alert-icon">
+		<i class="fas fa-info"></i>
+	</span>
+    <span class="alert-text">
+		File nameをクリックすることで授業教材を確認することができます。
+	</span>
+</div>
+
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col-xs-3">Title</th>
+            <th scope="col-xs-3">File name</th>
+            <th scope="col-xs-6">Comment</th>
+        </tr>
+    </thead>
+<tbody>
+<% @lesson_files.each do |l| %>
+<%pdf = "/"+ l.filename %>
+<tr>
+  <td><%= l.title %></td>
+  <td><%= link_to l.filename, "/" + l.filename %></td> 
+  <td><%= l.comment %></td>          
+</tr>
+<% end %>
+</tbody>
+</table>
+
+
+<%= link_to 'Back to question list', question_list_path, type: 'button', class: 'btn btn-outline-warning mx-auto mt-5 btn-block w-50' %>
+
+<%# iframeで埋め込む方法も使えなくはない、どっちがいいか要相談。ただし、呼び出しが少し難しい%>
+
+<%#
+<iframe src="/9-1.pdf" width="1000" height="600" ></iframe>
+%>

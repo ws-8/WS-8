@@ -2,6 +2,16 @@
 <html>
   <head>
     <%= csrf_meta_tags %>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ws-8.github.io/WS-8/" />
+    <meta property="og:title" content="CyQlone - オンライン授業のための質問回答プラットフォーム" />
+    <meta property="og:description" content="オンライン授業での質問をもっと気軽に。" />
+    <meta property="og:image" content="https://ws-8.github.io/WS-8/image/cyqlone_card.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:description" content="オンライン授業での質問をもっと気軽に。" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%= favicon_link_tag('favicon.png') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'avantui', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'avantui', 'data-turbolinks-track': 'reload' %>
@@ -9,12 +19,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'vue', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'marked', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
     <![endif]-->
   </head>
-  <title>System WS-8</title>
+  <title>CyQlone</title>
   <body>
 
   <!-- nav bar -->
@@ -23,8 +34,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-brand">
-        <i class="fas fa-dragon"></i>
-        <%= link_to "WS-8 System", ws8_system_path, id: "logo", class: "navbar-brand" %>
+        <%=image_tag("/assets/cyqlone_logo.png", alt: "CyQlone",size:'30x30', class:'img-fluid') %>
+        <%= link_to "CyQlone", ws8_system_path, id: "logo", class: "navbar-brand" %>
       </div>
       <div class="collapse navbar-collapse">
         <% if logged_in? then %>

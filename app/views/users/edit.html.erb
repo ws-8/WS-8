@@ -1,9 +1,10 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<h1 class="mb-4 mt-3">Update your profile</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
+      <h4><%= f.label :gravatar %></h4>
       <div class="gravatar_edit">
         <%= gravatar_for @user, class: 'img-thumbnail'%>
       </div>
@@ -13,8 +14,11 @@
       </div>
 
 
-      <h4><%= f.label :nickname %></h4>
+      <h4><%= f.label :nickname, "Nickname（任意）" %></h4>
       <%= f.text_field :nickname, class: 'form-control mb-3' %>
+
+      <h4><%= f.label :hypaccount, "Hypothesis アカウント（任意）" %></h4>
+      <%= f.text_field :hypaccount, class: 'form-control mb-3' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary btn-block" %>
       <%= link_to 'Discard changes', current_user, type: 'button', class: 'btn btn-outline-warning btn-block mt-3'  %>

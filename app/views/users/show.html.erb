@@ -19,6 +19,16 @@
             <td> <%= @user.nickname %></td>
         </tr>
         <tr>
+            <th scope="row">Hypothesis アカウント</th>
+            <td>
+                <% hypaccount = @user.hypaccount %>
+                <% if hypaccount != nil %>
+                    <a href="https://hypothes.is/users/<%= hypaccount %>" target="_blank">
+                        <%= hypaccount %>
+                    </a>
+                <% end %>
+            </td>
+        <tr>
             <th scope="row">質問投稿回数</th>
             <td><%= @post_question%></td>
         </tr>

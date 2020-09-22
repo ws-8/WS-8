@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200722141531) do
+ActiveRecord::Schema.define(version: 20200921191637) do
 
   create_table "agoods", force: :cascade do |t|
     t.integer "answer_id"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20200722141531) do
     t.string "course_name", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lesson_files", force: :cascade do |t|
+    t.string "title"
+    t.string "filename"
+    t.string "comment"
+    t.integer "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id", "created_at"], name: "index_lesson_files_on_lesson_id_and_created_at"
+    t.index ["lesson_id"], name: "index_lesson_files_on_lesson_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -152,6 +163,7 @@ ActiveRecord::Schema.define(version: 20200722141531) do
     t.integer "usertag", limit: 1
     t.string "email", limit: 256
     t.string "nickname"
+    t.string "hypaccount"
   end
 
 end
