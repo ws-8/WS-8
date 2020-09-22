@@ -71,6 +71,7 @@
                         }
                     });
                 </script>
+                <% if @items != nil %>
                 <!-- Annotation and link  -->
                 <div class="accordion" id="accordion">
                     <div class="accordion-item">
@@ -85,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-
+                <% end %>
                 <!-- Preview -->
                 <h5 class="text-info mt-5">プレビュー / Preview</h5>
                 <div class="callout callout-primary card shadow-sm m-3">
