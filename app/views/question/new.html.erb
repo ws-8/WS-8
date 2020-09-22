@@ -12,7 +12,7 @@
 		<i class="fas fa-question-circle"></i>
 	</span>
     <span class="alert-text">
-		新規質問投稿を行います。タイトルと本文を入力してください。
+		新規質問投稿を行います。
 	</span>
 </div>
 
@@ -21,7 +21,6 @@
 <% end %>
 
 <div class="callout callout-info card shadow-sm m-3">
-    
     <% if flash[:alert] %>
         <div class="alert alert-danger">
             <i class="fas fa-exclamation-triangle"></i> Error!
@@ -53,7 +52,6 @@
                 <%= q.text_area :body, class:"form-control mb-2", rows:"15", placeholder:"質問内容を入力してください\nmarkdown 記法が使えます"%>
                 <%= q.hidden_field :user_id, :value => current_user.id%>
                 <%= q.hidden_field :lesson_id , :value => params[:id]%>
-                <%= q.submit "Post!", class:"btn btn-info btn-block w-25", :required => true%>
                 <!-- realtime preview js -->
                 <script type="text/javascript">
                     $(function() {
@@ -73,6 +71,21 @@
                         }
                     });
                 </script>
+                <!-- Annotation and link  -->
+                <div class="accordion" id="accordion">
+                    <div class="accordion-item">
+                        <h3 id="accordion-heading-two" class="collapsed rounded d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#accordion-collapse-two" aria-expanded="true" aria-controls="accordion-collapse-two">
+                            Hypothesis で付けたアノテーションへのリンクをシェアする
+                            <span class="accordion-icon">&#10005;</span>
+                        </h3>
+                        <div id="accordion-collapse-two" class="collapse" aria-labelledby="accordion-heading-two" data-parent="#accordion">
+                            <div class="px-3 pb-3">
+                                <%= render :partial => "items" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Preview -->
                 <h5 class="text-info mt-5">プレビュー / Preview</h5>
                 <div class="callout callout-primary card shadow-sm m-3">
@@ -92,6 +105,7 @@
                         </div>
                     </div>
                 </div>
+                <%= q.submit "Post!", class:"btn btn-info btn-block w-25 mt-5", :required => true%>
             </div>
         </div>
     <% end %>
@@ -100,3 +114,4 @@
 <div class="callout callout-warning card shadow-sm m-3">
     <%= link_to 'Back to question list', question_list_path(id:params[:id]), type: 'button', class: 'btn btn-outline-warning btn-block w-50' %>
 </div>
+
