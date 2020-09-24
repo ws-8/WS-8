@@ -33,7 +33,7 @@ DNNの理論,DNNは経験的知見にとどまっているとありましたが�
 ベイジアンネット,構築する時は手動ですか？なにかその分野についての知識に基づいて構成するのでしょうか。,15,TRUE,17,1
 深さ優先探索と幅優先探索,時間計算量と空間計算量がどうしてそのようになるのかわかりません。,8,TRUE,17,1
 HMMの前向きアルゴリズム,更新式の意味がよくわかりませんでした。,10,TRUE,17,1
-人工知能とは結局人工知能という言葉の定義はどのように定義すればいいのですか？,8,TRUE,17,0
+人工知能とは,結局人工知能という言葉の定義はどのように定義すればいいのですか？,8,TRUE,17,0
 About group discussion,When do we have the presentation of group discussion?,3,FALSE,15,1
 About evaluation,How will you evaluate the score of this course?,3,TRUE,1,2
 About attendance,Do you check the attendance in this course?,1,TRUE,1,3
