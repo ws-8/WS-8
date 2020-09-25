@@ -36,8 +36,8 @@
 			アクション一覧
 		</h3>
 		<%= link_to '新しく質問する！ / Post new question!', "/question/post_question/#{params[:id]}/new", type: 'button', class: 'btn btn-primary btn-block mx-auto w-50' %>
-		<%= link_to 'Check screams', scream_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto w-50' %>
-		<%= link_to 'Check teaching materials', lesson_file_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto w-50' %>
+		<%= link_to 'スクリーム機能を使う /Check screams', scream_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto w-50' %>
+		<%= link_to '教材を確認する /Check teaching materials', lesson_file_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto w-50' %>
 		<% if current_user.id==@lesson.user_id then%>
 			<%= link_to 'Add teaching materials', new_lesson_file_path(id: @lesson.id), type: 'button', class: 'btn btn-danger btn-block mx-auto w-50' %>
 		<%end%>
